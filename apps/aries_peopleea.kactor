@@ -1,0 +1,397 @@
+public web app aries.peopleea
+	"ARIES for PEOPLE-EA Explorer"
+	version 1.0alpha
+	description "Pioneering Earth Observation Applications for the Environment - Ecosystem Accounting (PEOPLE-EA)"
+	logo static/images/esa_logo.png
+	versionstring "Demonstration version"
+	style dark
+	
+action init:
+	set keyoutputs ()
+	set indicators ()
+	set self.timespan (start end)
+	set target "Indicators" 
+	
+@left(width=450)
+action main:
+
+	separator("Context selection" :iconname "earth" :info)
+	create aries.components.contextselector.yearly: (
+		"static" -> (
+			etaddred.disable
+			etchangematrix.disable
+			lctaddred.disable
+			lctchangematrix.disable
+		)
+		"dynamic" -> (
+			etaddred.enable
+			etchangematrix.enable
+			lctaddred.enable
+			lctchangematrix.enable
+		)
+	)
+	separator("PEOPLE-EA deliverables" :iconname "cog" :info) 
+	(
+		
+		combo("Indicators" "Raw variables" #target_observations width="90%"): (
+			set self.target $
+			if [self.target == 'Indicators'] (
+				rawvars.hide
+				indics.show
+			) else ( 
+				indics.hide
+				rawvars.show
+			)
+		)
+
+		separator
+		
+		(
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 1", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 2", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 3", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 4", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 5", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 6", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 7", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 8", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 9", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 10", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 11", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 12", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Indicator 13", true) #lctchangematrix
+
+		separator
+		
+		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				["Aggregated " + target], true) #lctchangematrix
+		)  #indics
+
+		(
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 1", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 2", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 3", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 4", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 5", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 6", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 7", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 8", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 9", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 10", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 11", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 12", true) #lctchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				"Variable 13", true) #lctchangematrix
+
+		separator
+		
+		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				["Aggregated " + target], true) #lctchangematrix
+		) :hidden #rawvars 
+		
+
+	) :hfill :altbg #peopleea_deliverables 
+	
+	separator("ARIES for SEEA accounting tables" :iconname "cog" :info)
+	( 
+		// Extent panel
+		(
+			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_basic,
+				#EXTENT_ACCOUNT_NET_BALANCE, true)
+			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_additions_reductions, 
+				#EXTENT_ACCOUNT_ADDITIONS_AND_REDUCTIONS, true) #etaddred
+			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_change_pairwise, 
+				#ECOSYSTEM_TYPE_CHANGE_MATRIX, true) #etchangematrix
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_basic 
+				#LAND_ACCOUNT_NET_BALANCE, true)
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_additions_reductions, 
+				#LAND_ACCOUNT_ADDITIONS_AND_REDUCTIONS, true) #lctaddred
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				#LAND_COVER_TYPE_CHANGE_MATRIX, true) #lctchangematrix
+
+		) :hfill :altbg :name #EXTENT_ACCOUNTS
+
+		// Condition panel		
+	    ( 
+	    	separator(#METRICS_CHOOSE_ONE_OR_MORE :iconbutton "weight")//: conditionweights
+
+	    	tree(:check true ""
+				<- (#FOREST_CONDITION_METRICS
+					<- (#drought #DROUGHT_SEVERITY_INDEX {im:Indicator soil:DroughtSeverity})
+					<- (#ndvi #NDVI_VEGETATION_INDEX {im:Indicator ecology:NormalizedDifferenceVegetationIndex})
+					<- (#lai #LEAF_AREA_INDEX_LAI {im:Indicator ecology:LeafAreaIndex})
+				 	<- (#npp #NET_PRIMARY_PRODUCTION_NPP {im:Indicator ecology:NetPrimaryProduction})
+                 	<- (#frag #FOREST_FRAGMENTATION {im:Indicator ecology:ForestFragmentation}))			
+		 	): obs -> (
+		 		// define indicator roles from checked items in tree
+		 		roles({es.nca:ConditionIndicator} obs), 
+		 		// disable output if no roles are selected
+		 		if [obs.empty] (
+		 			conditionv.disable
+		 			conditioni.disable
+		 			conditiong.disable
+		 		) else (
+		 			conditionv.enable
+		 			conditioni.enable
+		 			conditiong.enable
+		 		)
+			)
+			
+			separator(#OUTPUT_TABLES)
+			
+	 		create aries.components.selectors.observation(`[self.timetype == "GRID"]
+	 			? seea.aries.tables.ecosystemcondition.condition_variable_dynamic
+	 			: seea.aries.tables.ecosystemcondition.condition_variable_static, 
+				#ECOSYSTEM_CONDITION_VARIABLE_ACCOUNT, true :disabled) #conditionv
+
+	 		create aries.components.selectors.observation(`[self.timetype == "GRID"]
+	 			? seea.aries.tables.ecosystemcondition.condition_indicator_dynamic
+	 			: seea.aries.tables.ecosystemcondition.condition_indicator_static, 
+				#ECOSYSTEM_CONDITION_INDICATOR_ACCOUNT, true :disabled) #conditioni
+			
+			create aries.components.selectors.observation(`[self.timetype == "GRID"]
+				? seea.aries.tables.ecosystemcondition.condition_index_dynamic
+				: seea.aries.tables.ecosystemcondition.condition_index_static, 
+				#ECOSYSTEM_CONDITION_INDEX_SIMPLIFIED, true :disabled) #conditiong
+		 
+		) :hfill :altbg :name #CONDITION_ACCOUNTS
+		
+		  (
+			create aries.components.selectors.observation(`[self.timetype == "GRID"]  
+					? seea.aries.es.crops.production.crop_production_dynamic 
+					: seea.aries.es.crops.production.crop_production_static, 
+				#CROP_PROVISIONING_ECOSYSTEM_CONTRIBUTION, true)
+			create aries.components.selectors.observation(`[self.timetype == "GRID"]  
+					? seea.aries.es.crops.pollination.crop_pollination_dynamic 
+					: seea.aries.es.crops.pollination.crop_pollination_static, 
+				#CROP_PROVISIONING_POLLINATION_CONTRIBUTION, true)
+			create aries.components.selectors.observation(seea.aries.tables.carbon.carbon_biophysical_supply_dynamic, 
+				#GLOBAL_CLIMATE_REGULATION_C_STORAGE, true) #carbonphys
+			create aries.components.selectors.observation(seea.aries.tables.sediment.sediment_biophysical_supply_dynamic, 
+				#SEDIMENT_REGULATION_SOIL_EROSION_CONTROL, true)
+			create aries.components.selectors.observation(`[self.timetype == "GRID"]  
+					? seea.aries.es.tourism.tourism_intensity_dynamic 
+					: seea.aries.es.tourism.tourism_intensity_static, 
+				#RECREATION_NATURE_BASED_TOURISM, true :disabled)
+				
+		) :hfill :altbg :name #ECOSYSTEM_SERVICES_ACCOUNTS_PHYSICAL
+		 
+		/*
+		 * Monetary supply-use accounts
+		 */	
+		(
+			create aries.components.selectors.observation(`[self.timetype == "GRID"]
+				? seea.aries.es.crops.production.ecosystem_crop_value_dynamic 
+				: seea.aries.es.crops.production.ecosystem_crop_value_static,
+				#CROP_PROVISIONING_VALUE_OF_ECOSYSTEM_CONTRIBUTION, true)
+			create aries.components.selectors.observation(`[self.timetype == "GRID"] 
+				? seea.aries.es.crops.pollination.pollinated_crop_value_dynamic
+				: seea.aries.es.crops.pollination.pollinated_crop_value_static,
+				#CROP_PROVISIONING_VALUE_OF_POLLINATION_CONTRIBUTION, true)
+			create aries.components.selectors.observation(seea.aries.tables.carbon.carbon_monetary_supply_dynamic, 
+				#GLOBAL_CLIMATE_REGULATION_VALUE_OF_CHANGE_IN_C_STORAGE, true) #carbonmonetary
+				
+		) :hfill :altbg :name #ECOSYSTEM_SERVICES_ACCOUNTS_MONETARY
+		 
+	) :shelf :hfill :vfill // :multiple
+		
+	separator(#ADDITIONAL_SEEA_INDICATORS #addheader :hidden)
+	(
+	) :hfill #additionaloutputs
+
+	(((
+		separator(#ECOSYSTEM_ACCOUNTING_AREAS :iconname "puzzle" :info)
+		checkbutton(#PRIMARY_ONLY_NO_SUBDIVISIONS :checked)
+		checkbutton(#ADMINISTRATIVE_SUBREGIONS :disabled)
+	 	checkbutton(#PROTECTED_AREAS :disabled)
+	 	checkbutton(#RIVER_BASINS :disabled)
+		separator(#TEMPORAL_ACCOUNTING :iconname "calendar" :info)
+		checkbutton(#START_AND_END_YEARS :checked #startendyears): true -> (
+			set self.timespan (start end)
+			allyears.uncheck
+		)
+		checkbutton(#ALL_YEARS_IN_TIME_SERIES #allyears): true -> (
+			set self.timespan years
+			startendyears.uncheck
+		)
+	) :hfill :vbox :name #SPATIAL_AND_TEMPORAL_AGGREGATION :collapse :info :altbg
+	
+	) :shelf :hfill
+	/*
+	 * Container for key observations, defined later in a when: call
+	 */
+	separator(#KEY_SEEA_OUTPUTS :iconname "cloud-download" :info)
+
+	// empty group for additional outputs
+	() :hfill :altbg #outputs
+
+	(
+		(button (#MAPS :iconname "map" #mapdownload :tooltip #DOWNLOAD_ALL_KEY_RASTER_DATA_AS_ZIPPED_GEOTIFF_FILES): (
+		 	// TODO needs a 'waiting' status
+			mapdownload.waiting
+			pack(keyoutputs): ( 
+				url -> (
+					mapdownload.reset 
+					download(url, filename="mapdata.zip")
+				)
+				// TODO show error (temporary)
+				error -> mapdownload.error(:timeout 1000)
+			)
+		 )
+		 button (#TABLES:iconname "table" #tablesdownload :tooltip #DOWNLOAD_ALL_TABLES_AS_A_SINGLE_EXCEL_FILE): (
+		 	// TODO needs a 'waiting' status
+			tablesdownload.waiting
+			pack(:tables): (
+				url -> (
+					tablesdownload.reset
+					download(url, filename="tables.xlsx")
+				)
+				// TODO show error (temporary)
+				error -> tablesdownload.error(:timeout 1000)
+			)
+		)
+		 button (#COMMENTS :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT :disabled)
+	) :hbox
+ 	)) :hfill :bottom 
+	
+	// reset UI on context reset
+ 	context: (
+ 		empty -> (
+ 			reset(:wait)
+ 			roles(:empty)
+ 			keyoutputs.clear
+ 		)
+ 	)
+	
+	// listen to any observation with @key annotation or with pre-configured types
+ 	when: (
+ 		@key                      -> (
+ 			keyoutputs.add($)
+ 			outputs.add(new aries.components.display.observation($, [key.en]))
+ 		)
+ 		{landcover:LandCoverType} -> (
+ 			keyoutputs.add($)
+ 			outputs.add(new aries.components.display.observation($, #LAND_COVER_TYPE))
+ 		)
+ 		{chemistry:Organic chemistry:Carbon im:Mass} -> (
+ 			keyoutputs.add($)
+ 			outputs.add(new aries.components.display.observation($, #TOTAL_ORGANIC_STORED_CARBON_T_HA))
+ 		) 
+ 		{ecology:Vegetation chemistry:Carbon im:Mass} -> (
+ 			keyoutputs.add($)
+ 			outputs.add(new aries.components.display.observation($, #VEGETATION_STORED_CARBON_T_HA))
+ 		)
+ 		{im:Retained soil:Soil im:Mass caused by ecology:Vegetation} -> (
+ 			keyoutputs.add($)
+ 			outputs.add(new aries.components.display.observation($, #SOIL_RETAINED_BY_VEGETATION_T_HA))
+ 		)
+ 	)
+
+@menu(title=#OTHER_SEEA_RELATED_INDICATORS)
+@modal(width=600, height=460, title=#ADDITIONAL_SEEA_RELATED_INDICATORS, subtitle=#CHOOSE_ANY_INDICATOR_TO_ADD_TO_THE_MENU)
+action chooseindicators:
+	tree(:check true ""
+		<- (#CBD_2050_GOAL_A
+            	<- (#a111 #A111_EXTENT_OF_ALL_NATURAL_ECOSYSTEMS 
+            			("seea.aries.indicators.extent_for_all_natural_ecosystems"
+            			 #A111_EXTENT_OF_ALL_NATURAL_ECOSYSTEMS
+            			))
+            	<- (#a115 #A115_MOUNTAIN_GREEN_COVER_INDEX 
+            			("seea.aries.indicators.mountain_green_cover_index"
+            			  #A115_MOUNTAIN_GREEN_COVER_INDEX 
+            			))
+            	<- (#a1111 #A11_11_24_EXTENT_OF_NATURAL_ECOSYSTEMS_BY_CBD_CLASS 
+            			("seea.aries.indicators.extent_for_all_natural_ecosystems_by_ecosystem_types"
+            			   #A11_11_24_EXTENT_OF_NATURAL_ECOSYSTEMS_BY_CBD_CLASS
+            			))
+            	<- (#a1125 #A_11_25_FOREST_ECOSYSTEM_FRAGMENTATION 
+            			("seea.aries.indicators.forest_fragmentation_index"
+            				#A_11_25_FOREST_ECOSYSTEM_FRAGMENTATION
+            			))
+              )
+            <- (#CBD_2050_GOAL_B
+            	<- (#b1114 #B_1_1_14_LEVEL_OF_EROSION 
+            		( "seea.aries.indicators.soil_erosion_loss" 
+            		  #B_1_1_14_LEVEL_OF_EROSION
+            	    ))
+           	)			
+            <- (#CBD_2030_TARGET_B
+            	<- (#t7111 #X7111_TOTAL_CLIMATE_REGULATION_PROVIDED_BY_ECOSYSTEMS 
+            			("seea.aries.indicators.carbon_regulation_service"
+						#X7111_TOTAL_CLIMATE_REGULATION_PROVIDED_BY_ECOSYSTEMS
+            			))
+            )		
+            <- (#SDG_15
+            	<- (#sdg1542 #SDG_15_4_2_MOUNTAIN_GREEN_COVER_INDEX
+            		("seea.aries.indicators.mountain_green_cover_index"
+            			#SDG_15_4_2_MOUNTAIN_GREEN_COVER_INDEX
+            	   )))
+	): obs -> (
+		addindicator(obs)
+	)
+ 	
+action addindicator(choices):
+	 	for indicator in choices (
+	 		if [!indicators.contains(indicator.get(0))] (
+	 			indicators.add([indicator.get(0)])
+	 			addheader.show
+	 			additionaloutputs.add(new aries.components.selectors.observation(
+	 				`[self.timetype == "GRID"] ? [indicator.get(0) + "_dynamic"] : [indicator.get(0) + "_static"]
+					[indicator.get(1)], true))
+	 		)
+	 	)
+
+//@menu(title=#NEWS)
+//@modal(width=700, height=640, title=#NEWS_ABOUT_ARIES_FOR_SEEA)
+//action newspage:
+//	html("https://aries.integratedmodelling.org/aries-for-seea-news/")
+//
+//@menu(title=#USER_GUIDE)
+//@modal(width=700, height=640, title=#ARIES_FOR_SEEA_USER_GUIDE)
+//action documentation:
+//	html("https://aries.integratedmodelling.org/aries-for-seea-documentation/")
+
+@menu(title=#ABOUT)
+@modal(width=700, height=640, title=#ABOUT_ARIES_FOR_SEEA)
+action aboutpage:
+	// html("static/en/about.html")
+	html("https://www.integratedmodelling.org/statics/un.seea.aries/en/about.html")
+
+//@modal(width=600, height=460)
+//action conditionweights:
+//	(
+//		for role in self.roles (
+//			(
+//				label(role)
+////				text(1)
+//			) 	:hbox :hfill
+//		)
+//	) :vbox :vfill
+
+ 	
+
