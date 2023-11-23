@@ -1,0 +1,47 @@
+{
+  "urn" : "local:caterina.gilli:esa.people.sandbox:esa_people.dnbr_2000_merged_total",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/esa_people.dnbr_2000_merged_total",
+  "geometry" : "τ1{tend=978307200000,tstart=946684800000,ttype=logical}S2(120657,36879){bbox=[-179.99999957715121 179.9548076634912 -50.022818973356 59.99999999459384],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "esa_people.dnbr_2000_merged_total",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1700228537550,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "esa_people__dnbr_2000_merged_total",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_people/wcs",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 179.9548076634912,
+    "west" : -179.99999957715121,
+    "north" : 59.99999999459384,
+    "south" : -50.022818973356,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

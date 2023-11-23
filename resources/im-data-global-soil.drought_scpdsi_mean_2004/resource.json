@@ -1,0 +1,47 @@
+{
+  "urn" : "local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2004",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-soil.drought_scpdsi_mean_2004",
+  "geometry" : "τ1{tend=1104537600000,tstart=1072915200000,ttype=logical}S2(719,359){bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-soil.drought_scpdsi_mean_2004",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1700570319339,
+  "metadata" : {
+    "im:keywords" : "Soil, Drought",
+    "dc:comment" : "The scPDSI metric was introduced by Wells et al. (2004), who give detailed information about its calculation. The scPDSI is a variant on the original PDSI of Palmer (1965),\r\nwith the aim to make results from different climate regimes more comparable. As with the PDSI, the scPDSI is calculated from time series of precipitation and temperature,\r\ntogether with fixed parameters related to the soil/surface characteristics at each location.\r\nAries team calculated the annual mean value of scPDSI data from scPDSI monthly data.",
+    "im:notes" : "",
+    "dc:title" : "Self-calibrating Palmer Drought Severity Index (scPDSI)",
+    "dc:url" : "https://crudata.uea.ac.uk/cru/data/drought/#global",
+    "dc:creator" : "",
+    "im:thematic-area" : "Soil",
+    "dc:originator" : "UK NERC, NCAS",
+    "im:geographic-area" : "Global",
+    "dc:source" : "van der Schrier G, Barichivich J, Briffa KR and Jones PD (2013) A scPDSI-based\r\nglobal data set of dry and wet spells for 1901-2009. J. Geophys. Res. Atmos.\r\n118, 4025-4048 (10.1002/jgrd.50355)"
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-soil__Drought_scPDSI_Mean_2004",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-soil/wcs",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 180.0,
+    "west" : -180.0,
+    "north" : 90.0,
+    "south" : -90.0,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

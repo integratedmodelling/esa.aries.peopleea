@@ -1,0 +1,59 @@
+{
+  "urn" : "local:ferdinando.villa:im.openeo.sandbox:vito.cfactor",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.cfactor.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.cfactor",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1693988060760,
+  "metadata" : {
+    "dc:description" : "Loads the prepared annual INCA c-factor raster for RUSLE calculation. Returns a single band RasterCube.",
+    "im:keywords" : "",
+    "dc:comment" : "Loads the prepared c-factor raster dataset from the INCA tool for the soil retention claculation.",
+    "im:notes" : "",
+    "dc:title" : "Loads the prepared annual INCA c-factor raster for RUSLE calculation",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_Cfactor_prepared_load",
+    "serviceUrl" : "https://openeo-dev.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_cfactor_prepared_load.json",
+    "space.projection" : "output_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

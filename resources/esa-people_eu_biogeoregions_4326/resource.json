@@ -1,0 +1,73 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.peopleea/resources/esa-people_eu_biogeoregions_4326",
+  "geometry" : "#s1(12){bbox=[-31.2754894226236 118.812855894234 18.6291556141992 81.8519322756826],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "esa-people_eu_biogeoregions_4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1700134366111,
+  "metadata" : {
+    "im:keywords" : "features,eu_biogeoregions_4326",
+    "dc:title" : "eu_biogeoregions_4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa-people/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa-people:eu_biogeoregions_4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "pk_uid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "short_name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "pre_2012",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "code",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 118.812855894234,
+    "west" : -31.2754894226236,
+    "north" : 81.8519322756826,
+    "south" : 18.6291556141992,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

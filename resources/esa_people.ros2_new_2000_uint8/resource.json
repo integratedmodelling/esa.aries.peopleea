@@ -1,0 +1,48 @@
+{
+  "urn" : "local:rubencc:esa.people.sandbox:esa_people.ros2_new_2000_uint8",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/esa_people.ros2_new_2000_uint8",
+  "geometry" : "S2(64999,45999){bbox=[-56.505141901704384 72.90613675900903 24.28417700792107 72.6066088187037],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "esa_people.ros2_new_2000_uint8",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1682413561172,
+  "metadata" : {
+    "im:keywords" : "Recreation Opportunity Spectrum",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "Recreation Opportunity Spectrum (ROS) 2000",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "esa_people__ros2_new_2000_uint8",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_people/wcs",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 72.90613675900903,
+    "west" : -56.505141901704384,
+    "north" : 72.6066088187037,
+    "south" : 24.28417700792107,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

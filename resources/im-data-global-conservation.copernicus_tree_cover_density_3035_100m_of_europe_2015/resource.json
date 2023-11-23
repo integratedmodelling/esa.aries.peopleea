@@ -1,0 +1,48 @@
+{
+  "urn" : "local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015",
+  "geometry" : "τ1{tend=1451606400000,tstart=1420070400000,ttype=logical}S2(64999,45999){bbox=[-56.505141901704384 72.90613675900903 24.28417700792107 72.6066088187037],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1697201655271,
+  "metadata" : {
+    "im:keywords" : "Copernicus, HRL, High Resolution Layer, Tree Cover Density, Land Cover 2015 Pan-European, TCD",
+    "dc:comment" : "The high resolution forest product consists of three types of (status) products and additional change products. The status products are available for the 2012 and 2015 reference years: 1. Tree cover density providing level of tree cover density in a range from 0-100% 2. Dominant leaf type providing information on the dominant leaf type: broadleaved or coniferous 3. A Forest type product. The forest type product allows to get as close as possible to the FAO forest definition. In its original (20m) resolution it consists of two products: 1) a dominant leaf type product that has a MMU of 0.5 ha, as well as a 10% tree cover density threshold applied, and 2) a support layer that maps, based on the dominant leaf type product, trees under agricultural use and in urban context (derived from CLC and high resolution imperviousness 2009 data). For the final 100m product trees under agricultural use and urban context from the support layer are removed. The high resolution forest change products comprise a simple tree cover density change product for 2012-2015 (% increase or decrease of real tree cover density changes).",
+    "im:notes" : "",
+    "dc:title" : "High Resolution Layer: Tree Cover Density (TCD) 2015",
+    "dc:url" : "https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-density/status-maps/2015",
+    "dc:creator" : "",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "European Environment Agency",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-conservation__Copernicus_tree_cover_density_3035_100m_of_europe_2015",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 72.90613675900903,
+    "west" : -56.505141901704384,
+    "north" : 72.6066088187037,
+    "south" : 24.28417700792107,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

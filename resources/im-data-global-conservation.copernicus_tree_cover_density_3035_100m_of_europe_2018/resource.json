@@ -1,0 +1,48 @@
+{
+  "urn" : "local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018",
+  "geometry" : "τ1{tend=1546300800000,tstart=1514764800000,ttype=logical}S2(64999,45999){bbox=[-56.505141901704384 72.90613675900903 24.28417700792107 72.6066088187037],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1697205534783,
+  "metadata" : {
+    "im:keywords" : "Land, Land Cover, Copenicus, Sentinel-2, HRL, High Resolution Layers, Forest, Pan-European, TCD, Tree Cover Density, 2018",
+    "dc:comment" : "The HRL Forest 2018 primary status layer Tree Cover Density (TCD) has been created in frame of the tender “EEA/IDM/R0/18/009 - High Resolution land cover characteristics for the 2018 reference year” as part of the EEA Copernicus Land Monitoring Service (CLMS, https://land.copernicus.eu). The TCD raster product provides information on the proportional crown coverage per pixel at 10m spatial resolution and ranges from 0% (all non-tree covered areas) to 100%, whereby Tree Cover Density is defined as the „vertical projection of tree crowns to a horizontal earth’s surface“. More about the High Resolution Layers and CLMS datasets can be found at https://land.copernicus.eu/pan-european.",
+    "im:notes" : "",
+    "dc:title" : "High Resolution Layer: Tree Cover Density (TCD) 2018",
+    "dc:url" : "https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-density/status-maps/tree-cover-density-2018",
+    "dc:creator" : "",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "European Environment Agency",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-conservation__Copernicus_tree_cover_density_3035_100m_of_europe_2018",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 72.90613675900903,
+    "west" : -56.505141901704384,
+    "north" : 72.6066088187037,
+    "south" : 24.28417700792107,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

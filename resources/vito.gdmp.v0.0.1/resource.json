@@ -1,0 +1,59 @@
+{
+  "urn" : "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.gdmp.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.gdmp",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1694177126973,
+  "metadata" : {
+    "dc:description" : "Annual total composite of Copernicus Global Land GDMP. Returns a single band RasterCube.",
+    "im:keywords" : "",
+    "dc:comment" : "Given a year and area of interest, returns a sum composite of [GDMP](https://land.copernicus.eu/global/products/dmp).",
+    "im:notes" : "",
+    "dc:title" : "Annual total composite of Copernicus Global Land GDMP",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_annual_total_gdmp",
+    "serviceUrl" : "https://openeo-dev.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_total_gdmp.json",
+    "space.projection" : "output_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

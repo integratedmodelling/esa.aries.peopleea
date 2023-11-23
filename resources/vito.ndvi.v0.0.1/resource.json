@@ -1,0 +1,59 @@
+{
+  "urn" : "local:ferdinando.villa:im.openeo.sandbox:vito.ndvi",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.ndvi.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.ndvi",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1693988038540,
+  "metadata" : {
+    "dc:description" : "Annual mean composite of Copernicus Global Land NDVI. Returns a single band RasterCube.",
+    "im:keywords" : "",
+    "dc:comment" : "Given a year and area of interest, returns a mean composite of [NDVI](https://land.copernicus.eu/global/products/ndvi).",
+    "im:notes" : "",
+    "dc:title" : "Annual mean composite of Copernicus Global Land NDVI",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_annual_avg_ndvi",
+    "serviceUrl" : "https://openeo-dev.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_avg_ndvi.json",
+    "space.projection" : "output_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
