@@ -48,70 +48,70 @@ action main:
 		
 		(
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 1", true) #lctchangematrix
+				"Indicator 1", true) #lctchangematrix1
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 2", true) #lctchangematrix
+				"Indicator 2", true) #lctchangematrix2
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 3", true) #lctchangematrix
+				"Indicator 3", true) #lctchangematrix3
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 4", true) #lctchangematrix
+				"Indicator 4", true) #lctchangematrix4
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 5", true) #lctchangematrix
+				"Indicator 5", true) #lctchangematrix5
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 6", true) #lctchangematrix
+				"Indicator 6", true) #lctchangematrix6
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 7", true) #lctchangematrix
+				"Indicator 7", true) #lctchangematrix7
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 8", true) #lctchangematrix
+				"Indicator 8", true) #lctchangematrix8
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 9", true) #lctchangematrix
+				"Indicator 9", true) #lctchangematrix9
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 10", true) #lctchangematrix
+				"Indicator 10", true) #lctchangematrix10
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 11", true) #lctchangematrix
+				"Indicator 11", true) #lctchangematrix11
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 12", true) #lctchangematrix
+				"Indicator 12", true) #lctchangematrix12
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 13", true) #lctchangematrix
+				"Indicator 13", true) #lctchangematrix13
 
 		separator
 		
 		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				["Aggregated " + target], true) #lctchangematrix
+				["Aggregated " + target], true) #lctchangematrix444
 		)  #indics
 
 		(
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 1", true) #lctchangematrix
+				"Variable 1", true) #lctchangematrix14
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 2", true) #lctchangematrix
+				"Variable 2", true) #lctchangematrix15
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 3", true) #lctchangematrix
+				"Variable 3", true) #lctchangematrix16
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 4", true) #lctchangematrix
+				"Variable 4", true) #lctchangematrix17
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 5", true) #lctchangematrix
+				"Variable 5", true) #lctchangematrix18
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 6", true) #lctchangematrix
+				"Variable 6", true) #lctchangematrix19
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 7", true) #lctchangematrix
+				"Variable 7", true) #lctchangematrix20
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 8", true) #lctchangematrix
+				"Variable 8", true) #lctchangematrix21
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 9", true) #lctchangematrix
+				"Variable 9", true) #lctchangematrix22
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 10", true) #lctchangematrix
+				"Variable 10", true) #lctchangematrix23
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 11", true) #lctchangematrix
+				"Variable 11", true) #lctchangematrix24
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 12", true) #lctchangematrix
+				"Variable 12", true) #lctchangematrix25
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 13", true) #lctchangematrix
+				"Variable 13", true) #lctchangematrix26
 
 		separator
 		
 		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				["Aggregated " + target], true) #lctchangematrix
+				["Aggregated " + target], true) #lctchangematrix333
 		) :hidden #rawvars 
 		
 
