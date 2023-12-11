@@ -14,7 +14,6 @@ action init:
 	
 @left(width=450)
 action main:
-
 	separator("Context selection" :iconname "earth" :info)
 	create aries.components.contextselector.yearly: (
 		"static" -> (
@@ -32,7 +31,7 @@ action main:
 	)
 	separator("PEOPLE-EA deliverables" :iconname "cog" :info) 
 	(
-		
+		()
 		combo("Indicators" "Raw variables" #target_observations width="90%"): (
 			set self.target $
 			if [self.target == 'Indicators'] (
@@ -43,8 +42,8 @@ action main:
 				rawvars.show
 			)
 		)
-
-		separator
+	
+		separator(:empty)
 		
 		(
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
@@ -74,9 +73,9 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 13", true) #lctchangematrix13
 
-		separator
+			separator(:empty)
 		
-		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				["Aggregated " + target], true) #lctchangematrix444
 		)  #indics
 
@@ -108,7 +107,7 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Variable 13", true) #lctchangematrix26
 
-		separator
+		separator(:empty)
 		
 		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				["Aggregated " + target], true) #lctchangematrix333
@@ -203,7 +202,7 @@ action main:
 		 
 		/*
 		 * Monetary supply-use accounts
-		 */	
+		 */
 		(
 			create aries.components.selectors.observation(`[self.timetype == "GRID"]
 				? seea.aries.es.crops.production.ecosystem_crop_value_dynamic 
