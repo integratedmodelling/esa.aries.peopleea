@@ -1,7 +1,7 @@
-private namespace peopleea.bioregions;
+project private namespace peopleea.bioregions;
+ 
 
-
-private model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_4326#code'
+model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_4326#code'
 	as es.nca:BiogeographicRegionType
 	classified into
 		es.nca:Alpine				if "Alpine",
@@ -15,7 +15,7 @@ private model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoreg
 		es.nca:Macaronesian 		if "Macaronesia",
 		es.nca:Mediterranean 		if "Mediterranean",
 		es.nca:Pannonian 			if "Pannonian",
-		es.nca:Steppic 			if "Steppic"
+		es.nca:Steppic 			    if "Steppic"
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');
 	
 @colormap(values={
@@ -24,7 +24,7 @@ private model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoreg
 	landcover:ConiferousForest:          (38 115 0),
 	landcover:TransitionalWoodlandScrub: (215 194 158)
 })	
-private model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20_4326', 
+model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20_4326', 
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2006acc_v2018_20_4326',
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2012acc_v2018_20_4326',
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2018acc_v2018_20_4326'
@@ -36,7 +36,7 @@ private model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');  
 	
 
-private model  ecology:Forest es.nca:BiogeographicRegionType
+model  ecology:Forest es.nca:BiogeographicRegionType
 	observing
 		type of ecology:Forest          named european_forest_type,
 		es.nca:BiogeographicRegionType  named bio_region_type 
