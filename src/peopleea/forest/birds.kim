@@ -1,0 +1,5 @@
+private namespace peopleea.forest.birds;
+
+model 'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2000',
+	   'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2018'
+	   as count of biology:Bird biology:Individual with probability of im:Collapse;     
