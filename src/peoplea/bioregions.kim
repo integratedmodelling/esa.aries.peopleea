@@ -1,0 +1,92 @@
+private namespace peoplea.bioregions;
+
+private model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_4326#code'
+	as es.nca:BiogeographicRegionType
+	classified into
+		es.nca:Alpine				if "Alpine",
+		es.nca:AlpineScandinavian 	if "Alpine Scandinavian",
+		es.nca:Arctic				if "Arctic",
+		es.nca:Anatolian			if "Anatolian",
+		es.nca:Atlantic 			if "Atlantic",
+		es.nca:BlackSea 			if "BlackSea",
+		es.nca:Boreal 				if "Boreal",
+		es.nca:Continental 		    if "Continental",
+		es.nca:Macaronesian 		if "Macaronesia",
+		es.nca:Mediterranean 		if "Mediterranean",
+		es.nca:Pannonian 			if "Pannonian",
+		es.nca:Steppic 			if "Steppic"
+	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');
+	
+@colormap(values={
+	landcover:BroadleafForest:           (56 168 0),
+	landcover:MixedForest:               (76 115 0),
+	landcover:ConiferousForest:          (38 115 0),
+	landcover:TransitionalWoodlandScrub: (215 194 158)
+})	
+private model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20_4326', 
+			   'local:rubencc:im.data.global:im-data-global-landcover.clc2006acc_v2018_20_4326',
+			   'local:rubencc:im.data.global:im-data-global-landcover.clc2012acc_v2018_20_4326',
+			   'local:rubencc:im.data.global:im-data-global-landcover.clc2018acc_v2018_20_4326'
+		as type of ecology:Forest classified into
+		landcover:BroadleafForest           if 311,
+		landcover:ConiferousForest          if 312,
+		landcover:MixedForest               if 313,
+		landcover:TransitionalWoodlandScrub if 324
+	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');  
+	
+
+private model  ecology:Forest es.nca:BiogeographicRegionType
+	observing
+		type of ecology:Forest          named european_forest_type,
+		es.nca:BiogeographicRegionType  named bio_region_type 
+	lookup (european_forest_type, bio_region_type, ?) into
+		  european_forest_type                  |  bio_region_type            |   bio_region_by_forest_type
+	-----------------------------------------------------------------------------------------------------------------    
+	  landcover:BroadleafForest                 |   es.nca:Alpine             |   es.nca:Alpine landcover:BroadleafForest                           ,
+	  landcover:ConiferousForest                |   es.nca:Alpine             |   es.nca:Alpine landcover:ConiferousForest                          ,
+	  landcover:MixedForest                     |   es.nca:Alpine             |   es.nca:Alpine landcover:MixedForest                               ,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Alpine             |   es.nca:Alpine landcover:TransitionalWoodlandScrub                 ,
+	  landcover:BroadleafForest                 |   es.nca:AlpineScandinavian |   es.nca:AlpineScandinavian landcover:BroadleafForest               ,
+	  landcover:ConiferousForest                |   es.nca:AlpineScandinavian |   es.nca:AlpineScandinavian landcover:ConiferousForest              ,
+	  landcover:MixedForest                     |   es.nca:AlpineScandinavian |   es.nca:AlpineScandinavian landcover:MixedForest                   ,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:AlpineScandinavian |   es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub     ,
+	  landcover:BroadleafForest                 |   es.nca:Arctic             |   es.nca:Arctic landcover:BroadleafForest                    		,
+	  landcover:ConiferousForest                |   es.nca:Arctic             |   es.nca:Arctic landcover:ConiferousForest                   		,
+	  landcover:MixedForest                     |   es.nca:Arctic             |   es.nca:Arctic landcover:MixedForest                        		,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Arctic             |   es.nca:Arctic landcover:TransitionalWoodlandScrub   		        ,
+	  landcover:BroadleafForest                 |   es.nca:Anatolian          |   es.nca:Anatolian landcover:BroadleafForest                 		,
+	  landcover:ConiferousForest                |   es.nca:Anatolian          |   es.nca:Anatolian landcover:ConiferousForest                		,
+	  landcover:MixedForest                     |   es.nca:Anatolian          |   es.nca:Anatolian landcover:MixedForest                     		,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Anatolian          |   es.nca:Anatolian landcover:TransitionalWoodlandScrub		        ,
+	  landcover:BroadleafForest                 |   es.nca:Atlantic           |   es.nca:Atlantic  landcover:BroadleafForest                  		,
+	  landcover:ConiferousForest                |   es.nca:Atlantic           |   es.nca:Atlantic  landcover:ConiferousForest                 		,
+	  landcover:MixedForest                     |   es.nca:Atlantic           |   es.nca:Atlantic  landcover:MixedForest                      		,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Atlantic           |   es.nca:Atlantic  landcover:TransitionalWoodlandScrub  		    ,
+	  landcover:BroadleafForest                 |   es.nca:BlackSea           |   es.nca:BlackSea  landcover:BroadleafForest                  		,
+	  landcover:ConiferousForest                |   es.nca:BlackSea           |   es.nca:BlackSea  landcover:ConiferousForest                 		,
+	  landcover:MixedForest                     |   es.nca:BlackSea           |   es.nca:BlackSea  landcover:MixedForest                      		,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:BlackSea           |   es.nca:BlackSea  landcover:TransitionalWoodlandScrub  		    ,
+	  landcover:BroadleafForest                 |   es.nca:Boreal             |   es.nca:Boreal    landcover:BroadleafForest                    	,
+	  landcover:ConiferousForest                |   es.nca:Boreal             |   es.nca:Boreal    landcover:ConiferousForest                       ,
+	  landcover:MixedForest                     |   es.nca:Boreal             |   es.nca:Boreal    landcover:MixedForest                            ,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Boreal             |   es.nca:Boreal    landcover:TransitionalWoodlandScrub   		    ,
+	  landcover:BroadleafForest                 |   es.nca:Continental        |   es.nca:Continental  landcover:BroadleafForest                   	,
+	  landcover:ConiferousForest                |   es.nca:Continental        |   es.nca:Continental  landcover:ConiferousForest                  	,
+	  landcover:MixedForest                     |   es.nca:Continental        |   es.nca:Continental  landcover:MixedForest                       	,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Continental        |   es.nca:Continental  landcover:TransitionalWoodlandScrub   	    ,
+	  landcover:BroadleafForest                 |   es.nca:Macaronesian       |   es.nca:Macaronesian landcover:BroadleafForest                  	,
+	  landcover:ConiferousForest                |   es.nca:Macaronesian       |   es.nca:Macaronesian landcover:ConiferousForest                 	,
+	  landcover:MixedForest                     |   es.nca:Macaronesian       |   es.nca:Macaronesian landcover:MixedForest                      	,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Macaronesian       |   es.nca:Macaronesian landcover:TransitionalWoodlandScrub  	        ,
+	  landcover:BroadleafForest                 |   es.nca:Mediterranean      |   es.nca:Mediterranean landcover:BroadleafForest                 	,
+	  landcover:ConiferousForest                |   es.nca:Mediterranean      |   es.nca:Mediterranean landcover:ConiferousForest                	,
+	  landcover:MixedForest                     |   es.nca:Mediterranean      |   es.nca:Mediterranean landcover:MixedForest                     	,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Mediterranean      |   es.nca:Mediterranean landcover:TransitionalWoodlandScrub 	        ,
+	  landcover:BroadleafForest                 |   es.nca:Pannonian          |   es.nca:Pannonian landcover:BroadleafForest                     	,
+	  landcover:ConiferousForest                |   es.nca:Pannonian          |   es.nca:Pannonian landcover:ConiferousForest                    	,
+	  landcover:MixedForest                     |   es.nca:Pannonian          |   es.nca:Pannonian landcover:MixedForest                         	,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Pannonian          |   es.nca:Pannonian landcover:TransitionalWoodlandScrub     	        ,
+	  landcover:BroadleafForest                 |   es.nca:Steppic            |   es.nca:Steppic landcover:BroadleafForest                       	,	 
+	  landcover:ConiferousForest                |   es.nca:Steppic            |   es.nca:Steppic landcover:ConiferousForest                      	,
+	  landcover:MixedForest                     |   es.nca:Steppic            |   es.nca:Steppic landcover:MixedForest                           	,
+	  landcover:TransitionalWoodlandScrub       |   es.nca:Steppic            |   es.nca:Steppic landcover:TransitionalWoodlandScrub       	        ;
