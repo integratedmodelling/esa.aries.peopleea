@@ -1,0 +1,59 @@
+{
+  "urn" : "local:stefano.balbi:im.openeo.sandbox:vito.ndwi.landsat",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.ndwi.landsat.v0.0.1",
+  "geometry" : "τ1{ttype=GRID}S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.ndwi.landsat",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1702467526992,
+  "metadata" : {
+    "dc:description" : "Load the Landsat three-annual average NDWI dataset for specified year. Returns a single band RasterCube.",
+    "im:keywords" : "",
+    "dc:comment" : "Given a year and area of interest, returns the three-annual average of the MODIS NDWI generated on the GEE.",
+    "im:notes" : "",
+    "dc:title" : "Annual average NDWI dataset for specified year",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_three_annual_average_ndwi",
+    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_three_annual_average_ndwi.json",
+    "space.projection" : "output_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
