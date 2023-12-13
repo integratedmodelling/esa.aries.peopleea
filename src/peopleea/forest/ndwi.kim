@@ -1,69 +1,73 @@
 private namespace peopleea.forest.ndwi;
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndwi#output_warp=true&synchronous=true' //
-	 as ecology:NormalizedDifferenceWaterIndex; 
+	  as ecology:NormalizedDifferenceWaterIndex; 
 	 
-
-define BIO_REGION_MAES_NDWI as {{		
-bio_region_by_forest_type                         |	max     |	min     
----------------------------------------------------------------------	        	
-es.nca:Pannonian landcover:BroadleafForest                         |	0.059473|	-0.12886,
-es.nca:Pannonian landcover:ConiferousForest                        |	0.036408|	-0.11508,
-es.nca:Pannonian landcover:MixedForest                             |	0.024992|	-0.12192,
-es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	0.085982|	-0.14408,
-//AlpineScandinavian BroadleafForest                |	0.30238 |	-0.38756,
-//Steppic BroadleafForest                           |	0.059473|	-0.14084,
-//Steppic ConiferousForest                          |	0.036408|	-0.0987 ,
-//Steppic MixedForest                               |	0.024992|	-0.14485,
-//Steppic TransitionalWoodlandScrubForest           |	0.085982|	-0.14854,
-//AlpineScandinavian ConiferousForest               |	0.193315|	-0.19939,
-es.nca:Alpine landcover:BroadleafForest                            |	0.175339|	-0.2772 ,
-es.nca:Alpine landcover:ConiferousForest                           |	0.205571|	-0.29774,
-es.nca:Alpine landcover:MixedForest                                |	0.222633|	-0.30725,
-es.nca:Alpine landcover:TransitionalWoodlandScrub            |	0.163304|	-0.32013
-//AlpineScandinavian MixedForest                    |	0.177202|	-0.26136,
-//AlpineScandinavian TransitionalWoodlandScrubForest|	0.231837|	-0.14737,
-//Arctic BroadleafForest                            |	0.30238 |	-0.21616,
-//Arctic ConiferousForest                           |	0.193315|	-0.21676,
-//Arctic MixedForest                                |	0.177202|	-0.25005,
-//Arctic TransitionalWoodlandScrubForest            |	0.231837|	-0.30845,
-//Atlantic BroadleafForest                          |	0.249303|	-0.46012,
-//Atlantic ConiferousForest                         |	0.18977 |	-0.42144,
-//Atlantic MixedForest                              |	0.1633  |	-0.35267,
-//Atlantic TransitionalWoodlandScrubForest          |	0.147258|	-0.4081 ,
-//BlackSea BroadleafForest                          |	0.059473|	-0.32323,
-//BlackSea ConiferousForest                         |	0.036408|	-0.2586 ,
-//BlackSea MixedForest                              |	0.024992|	-0.23108,
-//BlackSea TransitionalWoodlandScrubForest          |	0.085982|	-0.19304,
-//Boreal BroadleafForest                            |	0.290603|	-0.34936,
-//Boreal ConiferousForest                           |	0.320655|	-0.39671,
-//Boreal MixedForest                                |	0.417279|	-0.264  ,
-//Boreal TransitionalWoodlandScrubForest            |	0.310237|	-0.3173 ,
-//Continental BroadleafForest                       |	0.274422|	-0.33234,
-//Continental ConiferousForest                      |	0.190196|	-0.44975,
-//Continental MixedForest                           |	0.166981|	-0.2523 ,
-//Continental TransitionalWoodlandScrubForest       |	0.197862|	-0.36084,
-//Macaronesian BroadleafForest                      |	0.167256|	-0.36348,
-//Macaronesian ConiferousForest                     |	0.056578|	-0.15407,
-//Macaronesian MixedForest                          |	0.142751|	-0.13484,
-//Macaronesian TransitionalWoodlandScrubForest      |	0.073021|	-0.27104,
-//Mediterranean BroadleafForest                     |	0.188619|	-0.35665,
-//Mediterranean ConiferousForest                    |	0.173882|	-0.51514,
-//Mediterranean MixedForest                         |	0.147059|	-0.37897,
-//Mediterranean TransitionalWoodlandScrubForest     |	0.147059|	-0.41526
+define BIO_REGION_FOREST_REFERENCES_FOREST_CONN as {{		
+bio_region_by_forest_type                                    |	max   |	min     
+------------------------------------------------------------------------------	      	
+es.nca:Alpine landcover:BroadleafForest                      |	0.3702|	0.144213,
+es.nca:Alpine landcover:ConiferousForest                     |	0.4264|	0.212731,
+es.nca:Alpine landcover:MixedForest                          |	0.3911|	0.186374,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	0.399 |	0.042155,
+es.nca:Arctic landcover:BroadleafForest                      |	0.3217|	0.164719,
+es.nca:Arctic landcover:ConiferousForest                     |	0.4339|	0.147488,
+//es.nca:Arctic landcover:MixedForest                          |		|0.143068,
+//es.nca:Arctic landcover:TransitionalWoodlandScrub            |		|0.126241
+//es.nca:Anatolian landcover:BroadleafForest                   |		
+//es.nca:Anatolian landcover:ConiferousForest                  |		
+//es.nca:Anatolian landcover:MixedForest                       |		
+//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
+es.nca:Atlantic landcover:BroadleafForest                    |	0.3729|	0.157075,
+es.nca:Atlantic landcover:ConiferousForest                   |	0.3817|	0.170334,
+es.nca:Atlantic landcover:MixedForest                        |	0.3939|	0.160032,
+es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	0.3601|	0.094903,
+es.nca:BlackSea landcover:BroadleafForest                    |	0.2882|	0.08729 ,
+//es.nca:BlackSea landcover:ConiferousForest                   |		|0.059708,
+es.nca:BlackSea landcover:MixedForest                        |	0.2955|	0.076692,
+es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	0.2286|	-0.03106,
+es.nca:Boreal landcover:BroadleafForest                      |	0.3545|	0.185655,
+es.nca:Boreal landcover:ConiferousForest                     |	0.3644|	0.205574,
+es.nca:Boreal landcover:MixedForest                          |	0.3602|	0.199294,
+es.nca:Boreal landcover:TransitionalWoodlandScrub            |	0.3564|	0.168448,
+es.nca:Continental landcover:BroadleafForest                 |	0.3129|	0.129189,
+es.nca:Continental landcover:ConiferousForest                |	0.4159|	0.158848,
+es.nca:Continental landcover:MixedForest                     |	0.3636|	0.152759,
+es.nca:Continental landcover:TransitionalWoodlandScrub       |	0.3658|	0.0215  ,
+es.nca:Macaronesian landcover:BroadleafForest                |	0.3744|	0.056631,
+es.nca:Macaronesian landcover:ConiferousForest               |	0.3118|	-0.06239,
+es.nca:Macaronesian landcover:MixedForest                    |	0.3692|	0.016701,
+es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	0.2882|	-0.04508,
+es.nca:Mediterranean landcover:BroadleafForest               |	0.3497|	-0.00265,
+es.nca:Mediterranean landcover:ConiferousForest              |	0.4095|	-0.01827,
+es.nca:Mediterranean landcover:MixedForest                   |	0.3797|	-0.01079,
+es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	0.3059|	-0.05922,
+es.nca:Pannonian landcover:BroadleafForest                   |	0.3019|	0.099569,
+es.nca:Pannonian landcover:ConiferousForest                  |	0.332 |	0.083661,
+es.nca:Pannonian landcover:MixedForest                       |	0.3237|	0.067859,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	0.2725|	0.014894,
+es.nca:Steppic landcover:BroadleafForest                     |	0.2637|	0.033935,
+//es.nca:Steppic landcover:ConiferousForest                    |		|0.026433,
+es.nca:Steppic landcover:MixedForest                         |	0.2051|	-0.01445,
+es.nca:Steppic landcover:TransitionalWoodlandScrub           |	0.2051|	-0.02758,
+es.nca:AlpineScandinavian landcover:BroadleafForest          |	0.3546|	0.229582,
+es.nca:AlpineScandinavian landcover:ConiferousForest         |	0.3594|	0.246351,
+es.nca:AlpineScandinavian landcover:MixedForest              |	0.3664|	0.24641 ,
+es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	0.3798|	0.237912
 }};
+
 
 number max_ndwi  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, ?, *) 
-		into BIO_REGION_MAES_NDWI; 
+		into BIO_REGION_FOREST_REFERENCES_FOREST_CONN; 
 
 number min_ndwi  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, *, ?) 
-		into BIO_REGION_MAES_NDWI;  
+		into BIO_REGION_FOREST_REFERENCES_FOREST_CONN;  
 
 private model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
 	observing 
@@ -71,5 +75,54 @@ private model im:Indicator value of ecology:NormalizedDifferenceWaterIndex
 		min_ndwi,
 		ecology:NormalizedDifferenceWaterIndex named ndwi 
 	set to [ndwi < min_ndwi ? 0 : ( ndwi > max_ndwi ? 1 : ((ndwi - min_ndwi)/(max_ndwi - min_ndwi)) )]; 
+	
+//	define BIO_REGION_MAES_NDWI as {{		
+//bio_region_by_forest_type                         |	max     |	min     
+//---------------------------------------------------------------------	        	
+//es.nca:Pannonian landcover:BroadleafForest                         |	0.059473|	-0.12886,
+//es.nca:Pannonian landcover:ConiferousForest                        |	0.036408|	-0.11508,
+//es.nca:Pannonian landcover:MixedForest                             |	0.024992|	-0.12192,
+//es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	0.085982|	-0.14408,
+////AlpineScandinavian BroadleafForest                |	0.30238 |	-0.38756,
+////Steppic BroadleafForest                           |	0.059473|	-0.14084,
+////Steppic ConiferousForest                          |	0.036408|	-0.0987 ,
+////Steppic MixedForest                               |	0.024992|	-0.14485,
+////Steppic TransitionalWoodlandScrubForest           |	0.085982|	-0.14854,
+////AlpineScandinavian ConiferousForest               |	0.193315|	-0.19939,
+//es.nca:Alpine landcover:BroadleafForest                            |	0.175339|	-0.2772 ,
+//es.nca:Alpine landcover:ConiferousForest                           |	0.205571|	-0.29774,
+//es.nca:Alpine landcover:MixedForest                                |	0.222633|	-0.30725,
+//es.nca:Alpine landcover:TransitionalWoodlandScrub            |	0.163304|	-0.32013
+////AlpineScandinavian MixedForest                    |	0.177202|	-0.26136,
+////AlpineScandinavian TransitionalWoodlandScrubForest|	0.231837|	-0.14737,
+////Arctic BroadleafForest                            |	0.30238 |	-0.21616,
+////Arctic ConiferousForest                           |	0.193315|	-0.21676,
+////Arctic MixedForest                                |	0.177202|	-0.25005,
+////Arctic TransitionalWoodlandScrubForest            |	0.231837|	-0.30845,
+////Atlantic BroadleafForest                          |	0.249303|	-0.46012,
+////Atlantic ConiferousForest                         |	0.18977 |	-0.42144,
+////Atlantic MixedForest                              |	0.1633  |	-0.35267,
+////Atlantic TransitionalWoodlandScrubForest          |	0.147258|	-0.4081 ,
+////BlackSea BroadleafForest                          |	0.059473|	-0.32323,
+////BlackSea ConiferousForest                         |	0.036408|	-0.2586 ,
+////BlackSea MixedForest                              |	0.024992|	-0.23108,
+////BlackSea TransitionalWoodlandScrubForest          |	0.085982|	-0.19304,
+////Boreal BroadleafForest                            |	0.290603|	-0.34936,
+////Boreal ConiferousForest                           |	0.320655|	-0.39671,
+////Boreal MixedForest                                |	0.417279|	-0.264  ,
+////Boreal TransitionalWoodlandScrubForest            |	0.310237|	-0.3173 ,
+////Continental BroadleafForest                       |	0.274422|	-0.33234,
+////Continental ConiferousForest                      |	0.190196|	-0.44975,
+////Continental MixedForest                           |	0.166981|	-0.2523 ,
+////Continental TransitionalWoodlandScrubForest       |	0.197862|	-0.36084,
+////Macaronesian BroadleafForest                      |	0.167256|	-0.36348,
+////Macaronesian ConiferousForest                     |	0.056578|	-0.15407,
+////Macaronesian MixedForest                          |	0.142751|	-0.13484,
+////Macaronesian TransitionalWoodlandScrubForest      |	0.073021|	-0.27104,
+////Mediterranean BroadleafForest                     |	0.188619|	-0.35665,
+////Mediterranean ConiferousForest                    |	0.173882|	-0.51514,
+////Mediterranean MixedForest                         |	0.147059|	-0.37897,
+////Mediterranean TransitionalWoodlandScrubForest     |	0.147059|	-0.41526
+//}};
 
 	 
