@@ -1,25 +1,17 @@
 {
-  "urn" : "local:stefano.balbi:im.openeo.sandbox:vito.ndwi.landsat",
+  "urn" : "local:stefano.balbi:esa.aries.peopleea:vito.ndwi",
   "version" : "0.0.1",
   "adapterType" : "openeo",
-  "localPath" : "esa.aries.peopleea/resources/vito.ndwi.landsat.v0.0.1",
-  "geometry" : "τ1{ttype=GRID}S2",
+  "localPath" : "esa.aries.peopleea/resources/vito.ndwi.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
   "projectName" : "esa.aries.peopleea",
-  "localName" : "vito.ndwi.landsat",
+  "localName" : "vito.ndwi",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1702467526992,
+  "resourceTimestamp" : 1702469119896,
   "metadata" : {
     "dc:description" : "Load the Landsat three-annual average NDWI dataset for specified year. Returns a single band RasterCube.",
-    "im:keywords" : "",
-    "dc:comment" : "Given a year and area of interest, returns the three-annual average of the MODIS NDWI generated on the GEE.",
-    "im:notes" : "",
-    "dc:title" : "Annual average NDWI dataset for specified year",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "dc:comment" : "Given a year and area of interest, returns the three-annual average of the Landsat NDWI generated on the GEE.",
+    "dc:title" : "Load the Landsat three-annual average NDWI dataset for specified year"
   },
   "parameters" : {
     "space.shape" : "geometry",

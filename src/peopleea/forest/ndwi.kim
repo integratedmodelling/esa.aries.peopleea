@@ -1,4 +1,4 @@
 private namespace peopleea.forest.ndwi;
 
-model 'local:stefano.balbi:im.openeo.sandbox:vito.ndwi.landsat#output_warp=true&synchronous=true'
-	 as ecology:NormalizedDifferenceWaterIndex;
+model 'local:stefano.balbi:esa.aries.peopleea:vito.ndwi#output_warp=true' //&synchronous=true
+	 as ecology:NormalizedDifferenceWaterIndex; 
