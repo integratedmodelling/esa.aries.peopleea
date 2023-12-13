@@ -1,0 +1,26 @@
+private namespace popleea.forest.productivity;
+
+@intensive(time)
+model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"
+	as ecology:PrimaryProductivity in kg/ha*year
+	set to [self*0.5*0.475];
+
+
+//use a conversion facto per each forest type
+
+//model ratio of chemistry:Carbon im:Mass in ecology:NetPrimaryProduction named conversion_factor
+//	observing
+//		ecology:Forest es.nca:BiogeographicRegionType named forest_type
+//	lookup ( forest_type, ?) into
+//	  forest_type                                                  |   conversion_factor
+//	------------------------------------------------------------------------------------ 
+//	  es.nca:Alpine landcover:BroadleafForest                      |              0.475,
+//	  es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|              0.475;
+//	
+//		 
+//@intensive(time)
+//model ecology:NetPrimaryProduction in kg/ha*year
+//	observing 
+//		ecology:PrimaryProductivity,
+//		ratio of chemistry:Carbon im:Mass in ecology:NetPrimaryProduction named conversion_factor
+//	set to [self*0.5*conversion_factor];  
