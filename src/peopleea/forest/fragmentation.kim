@@ -77,7 +77,7 @@ number min_forest_fragmentation
 
 @documented(seeaeea.forestfragmentationindex)
 @key(en="Forest fragmentation indicator", es="Índice de fragmentación forestal")
-private model im:Indicator ecology:ForestFragmentation 	
+private model im:Indicator value of ecology:ForestFragmentation 	
         observing 
 			max_forest_fragmentation,
 			min_forest_fragmentation,

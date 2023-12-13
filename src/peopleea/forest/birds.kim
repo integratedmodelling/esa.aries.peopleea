@@ -68,7 +68,7 @@ number min_threatened_forest_birds_species_richness
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-private model im:Reference im:Indicator conservation:Threathened biology:Bird ecology:SpeciesRichness 
+private model im:Indicator value of conservation:Threathened biology:Bird ecology:SpeciesRichness 
 	observing 
 		max_threatened_forest_birds_species_richness,
 		min_threatened_forest_birds_species_richness,

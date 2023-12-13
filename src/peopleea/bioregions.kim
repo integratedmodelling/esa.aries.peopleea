@@ -38,10 +38,10 @@ model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20
 
 model  ecology:Forest es.nca:BiogeographicRegionType
 	observing
-		type of ecology:Forest          named european_forest_type,
-		es.nca:BiogeographicRegionType  named bio_region_type 
-	lookup (european_forest_type, bio_region_type, ?) into
-		  european_forest_type                  |  bio_region_type            |   bio_region_by_forest_type
+		type of ecology:Forest          named forest_type,
+		es.nca:BiogeographicRegionType  named bioregion
+	lookup (forest_type, bioregion, ?) into
+		  forest_type                           |  bioregion                  |   bioregion_by_forest_type
 	-----------------------------------------------------------------------------------------------------------------    
 	  landcover:BroadleafForest                 |   es.nca:Alpine             |   es.nca:Alpine landcover:BroadleafForest                           ,
 	  landcover:ConiferousForest                |   es.nca:Alpine             |   es.nca:Alpine landcover:ConiferousForest                          ,

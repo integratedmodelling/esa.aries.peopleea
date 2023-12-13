@@ -1,0 +1,112 @@
+private namespace peopleea.soil.carbon;
+
+model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.esdac_inspire_topsoil_organic_carbon_content_of_europe_2003', 
+	  'local:rubencc:esa.people.sandbox:im-data-global-soil.esdac_lucas_topsoil_soil_organic_carbon_of_eu_2014'
+	  as percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass;  
+
+// Template for soil organic carbon
+
+define BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE as {{		
+bio_region_by_forest_type                         |	max        |	min        
+---------------------------------------------------------------------------	           	
+es.nca:Alpine landcover:BroadleafForest                            |	17.55900002|	1.373656154,
+es.nca:Alpine landcover:ConiferousForest                           |	17.95679092|	45         ,
+es.nca:Alpine landcover:MixedForest                                |	17.5841217 |	35         ,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	10.125     |	35         ,
+//AlpineScandinavian BroadleafForest                |	63         |	65         ,
+//AlpineScandinavian ConiferousForest               |	63         |	55         ,
+//AlpineScandinavian MixedForest                    |	63         |	45         ,
+//AlpineScandinavian TransitionalWoodlandScrubForest|	63         |	45     	   ,
+//Arctic BroadleafForest                            |	63         |	65         ,
+//Arctic ConiferousForest                           |	63         |	55         ,
+//Arctic MixedForest                                |	63         |	45         ,
+//Arctic TransitionalWoodlandScrubForest            |	63         |	45	       ,   
+//Atlantic BroadleafForest                          |	21.59999847|	5          ,
+//Atlantic ConiferousForest                         |	40.31999969|	15         ,
+//Atlantic MixedForest                              |	21.59999847|	5          ,
+//Atlantic TransitionalWoodlandScrubForest          |	40.31999969|	15         ,
+//BlackSea BroadleafForest                          |	5.156447411|	25         ,
+//BlackSea ConiferousForest                         |	10.01418591|	45         ,
+//BlackSea MixedForest                              |	9.918100357|	25         ,
+//BlackSea TransitionalWoodlandScrubForest          |	10.9744072 |	35         ,
+//Boreal BroadleafForest                            |	63         |	15         ,
+//Boreal ConiferousForest                           |	63         |	45         ,
+//Boreal MixedForest                                |	63         |	25         ,
+//Boreal TransitionalWoodlandScrubForest            |	63         |	45         ,
+//Continental BroadleafForest                       |	26.08532143|	15         ,
+//Continental ConiferousForest                      |	31.59827614|	15         ,
+//Continental MixedForest                           |	18.48772812|	15         ,
+//Continental TransitionalWoodlandScrubForest       |	39.1331749 |	15         ,
+// Macaronesian BroadleafForest                      |	0          |	15         ,
+// Macaronesian ConiferousForest                     |	0          |	35         ,
+// Macaronesian MixedForest                          |	0          |	15         ,
+// Macaronesian TransitionalWoodlandScrubForest      |	0          |	15         ,
+//Mediterranean BroadleafForest                     |	5.570201874|	15         ,
+//Mediterranean ConiferousForest                    |	5.392253876|	25         ,
+//Mediterranean MixedForest                         |	5.813999653|	25         ,
+//Mediterranean TransitionalWoodlandScrubForest     |	6.228775024|	25         ,
+es.nca:Pannonian landcover:BroadleafForest                         |	11.56207466|	15         ,
+es.nca:Pannonian landcover:ConiferousForest                        |	10.01418591|	25         ,
+es.nca:Pannonian landcover:MixedForest                             |	9.918100357|	15         ,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	10.9744072 |	5          
+//Steppic BroadleafForest                           |	4.582116127|	15         ,
+//Steppic ConiferousForest                          |	10.01418591|	35         ,
+//Steppic MixedForest                               |	9.918100357|	5          ,
+//Steppic TransitionalWoodlandScrubForest           |	10.9744072 |	5         
+}};
+
+
+
+number max_soil_organic_carbon_inspire  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE; 
+
+number min_soil_organic_carbon_inspire  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE;  
+
+private model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+	observing 
+		max_soil_organic_carbon_inspire,
+		min_soil_organic_carbon_inspire,
+		percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named soil_organic_carbon 
+	set to [soil_organic_carbon < min_soil_organic_carbon_inspire ? 0 : ( soil_organic_carbon > max_soil_organic_carbon_inspire ? 1 : ((soil_organic_carbon - min_soil_organic_carbon_inspire)/(max_soil_organic_carbon_inspire - min_soil_organic_carbon_inspire)) )];
+	
+/*MAES reference values */
+
+//define BIO_REGION_MAES_SOIL_ORGANIC_CARBON as {{		
+//bio_region_by_forest_type                         |	max     |	min
+//----------------------------------------------------------------	        	
+//Pannonian BroadleafForest                         |	0.415152|	0  ,
+//Pannonian ConiferousForest                        |	0.185714|	0  ,
+//Pannonian MixedForest                             |	0.415152|	0  ,
+//Pannonian TransitionalWoodlandScrubForest         |	0.415152|	0  ,
+//AlpineScandinavian BroadleafForest                |	1       |	0  ,
+//AlpineScandinavian ConiferousForest               |	1       |	0  ,
+//Alpine BroadleafForest                            |	0.342857|	0  ,
+//Alpine ConiferousForest                           |	0.342857|	0  ,
+//Alpine MixedForest                                |	0.342857|	0  ,
+//Alpine TransitionalWoodlandScrubForest            |	0.342857|	0  ,
+//AlpineScandinavian MixedForest                    |	1       |	0  ,
+//AlpineScandinavian TransitionalWoodlandScrubForest|	1       |	0  ,
+//Atlantic BroadleafForest                          |	0.64    |	0  ,
+//Atlantic ConiferousForest                         |	0.64    |	0  ,
+//Atlantic MixedForest                              |	0.220263|	0  ,
+//Atlantic TransitionalWoodlandScrubForest          |	0.64    |	0  ,
+//Boreal BroadleafForest                            |	1       |	0  ,
+//Boreal ConiferousForest                           |	1       |	0  ,
+//Boreal MixedForest                                |	1       |	0  ,
+//Boreal TransitionalWoodlandScrubForest            |	1       |	0  ,
+//Continental BroadleafForest                       |	0.421091|	0  ,
+//Continental ConiferousForest                      |	1       |	0  ,
+//Continental MixedForest                           |	1       |	0  ,
+//Continental TransitionalWoodlandScrubForest       |	1       |	0  ,
+//Mediterranean BroadleafForest                     |	0.341053|	0  ,
+//Mediterranean ConiferousForest                    |	0.341053|	0  ,
+//Mediterranean MixedForest                         |	0.341053|	0  ,
+//Mediterranean TransitionalWoodlandScrubForest     |	0.335715|	0  
+//}};		
