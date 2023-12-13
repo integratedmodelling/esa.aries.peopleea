@@ -3,7 +3,7 @@ private namespace peopleea.forest.ndwi;
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndwi#output_warp=true&synchronous=true' //
 	  as ecology:NormalizedDifferenceWaterIndex; 
 	 
-define BIO_REGION_FOREST_REFERENCES_FOREST_CONN as {{		
+define BIO_REGION_FOREST_REFERENCES_NDWI as {{		
 bio_region_by_forest_type                                    |	max   |	min     
 ------------------------------------------------------------------------------	      	
 es.nca:Alpine landcover:BroadleafForest                      |	0.3702|	0.144213,
@@ -61,13 +61,13 @@ number max_ndwi
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, ?, *) 
-		into BIO_REGION_FOREST_REFERENCES_FOREST_CONN; 
+		into BIO_REGION_FOREST_REFERENCES_NDWI; 
 
 number min_ndwi  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, *, ?) 
-		into BIO_REGION_FOREST_REFERENCES_FOREST_CONN;  
+		into BIO_REGION_FOREST_REFERENCES_NDWI;  
 
 private model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
 	observing 
