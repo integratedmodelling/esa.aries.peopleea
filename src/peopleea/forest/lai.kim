@@ -1,0 +1,75 @@
+private namespace peopleea.forest.lai;
+
+model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
+	 as ecology:LeafAreaIndex; 
+
+
+// Template for LAI
+define BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX as {{
+	bio_region_by_forest_type                     |	max   |	min     
+	-------------------------------------------------------------------	      	
+es.nca:Alpine landcover:BroadleafForest                            |	0.3702|	0.144213,
+es.nca:Alpine landcover:ConiferousForest                           |	0.4264|	0.212731,
+es.nca:Alpine landcover:MixedForest                                |	0.3911|	0.186374,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	0.399 |	0.042155,
+//Arctic BroadleafForest                            |	0.3217|	0.164719,
+//Arctic ConiferousForest                           |	0.4339|	0.147488,
+//Arctic MixedForest                                |	0     |	0.143068,
+//Arctic TransitionalWoodlandScrubForest            |	0     |	0.126241,	
+//Atlantic BroadleafForest                          |	0.3729|	0.157075,
+//Atlantic ConiferousForest                         |	0.3817|	0.170334,
+//Atlantic MixedForest                              |	0.3939|	0.160032,
+//Atlantic TransitionalWoodlandScrubForest          |	0.3601|	0.094903,
+//BlackSea BroadleafForest                          |	0.2882|	0.08729 ,
+//BlackSea ConiferousForest                         |	0     |	0.059708,
+//BlackSea MixedForest                              |	0.2955|	0.076692,
+//BlackSea TransitionalWoodlandScrubForest          |	0.2286|	-0.03106,
+//Boreal BroadleafForest                            |	0.3545|	0.185655,
+//Boreal ConiferousForest                           |	0.3644|	0.205574,
+//Boreal MixedForest                                |	0.3602|	0.199294,
+//Boreal TransitionalWoodlandScrubForest            |	0.3564|	0.168448,
+//Continental BroadleafForest                       |	0.3129|	0.129189,
+//Continental ConiferousForest                      |	0.4159|	0.158848,
+//Continental MixedForest                           |	0.3636|	0.152759,
+//Continental TransitionalWoodlandScrubForest       |	0.3658|	0.0215  ,
+//Macaronesian BroadleafForest                      |	0.3744|	0.056631,
+//Macaronesian ConiferousForest                     |	0.3118|	-0.06239,
+//Macaronesian MixedForest                          |	0.3692|	0.016701,
+//Macaronesian TransitionalWoodlandScrubForest      |	0.2882|	-0.04508,
+//Mediterranean BroadleafForest                     |	0.3497|	-0.00265,
+//Mediterranean ConiferousForest                    |	0.4095|	-0.01827,
+//Mediterranean MixedForest                         |	0.3797|	-0.01079,
+//Mediterranean TransitionalWoodlandScrubForest     |	0.3059|	-0.05922,
+es.nca:Pannonian landcover:BroadleafForest                         |	0.3019|	0.099569,
+es.nca:Pannonian landcover:ConiferousForest                        |	0.332 |	0.083661,
+es.nca:Pannonian landcover:MixedForest                             |	0.3237|	0.067859,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	0.2725|	0.014894
+//Steppic BroadleafForest                           |	0.2637|	0.033935,
+//Steppic ConiferousForest                          |	0     |	0.026433,
+//Steppic MixedForest                               |	0.2051|	-0.01445,
+//Steppic TransitionalWoodlandScrubForest           |	0.2051|	-0.02758,
+//AlpineScandinavian BroadleafForest                |	0.3217|	0.164719,
+//AlpineScandinavian ConiferousForest               |	0.4339|	0.147488,
+//AlpineScandinavian MixedForest                    |	0     |	0.143068,
+//AlpineScandinavian TransitionalWoodlandScrubForest|	0     |	0.126241
+}};
+
+number min_leaf_area_index  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
+
+number max_leaf_area_index  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
+
+@key(en="Leaf area index indicator", es="Índice de área foliar")
+ model im:Indicator value of ecology:LeafAreaIndex	
+	observing 
+		min_leaf_area_index,
+		max_leaf_area_index,
+        ecology:LeafAreaIndex named leaf_area_index
+	set to [leaf_area_index < min_leaf_area_index ? 0 : ( leaf_area_index > max_leaf_area_index ? 1 : ((leaf_area_index - min_leaf_area_index)/(max_leaf_area_index - min_leaf_area_index)) )];
