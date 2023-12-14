@@ -1,3 +1,13 @@
 private namespace peopleea.condition.forest;
 
-// prep new namespace for porting 
+// weighted average index aka PEOPLE FOREST CONDITION INDEX
+
+//testing average against euclidean distance
+model  im:Indicator im:Mean ecology:Forest es.nca:Condition
+	observing im:Indicator ecology:NormalizedDifferenceVegetationIndex named ndvi_indicator,
+			  im:Indicator ecology:LeafAreaIndex named lai_indicator,
+			  im:Indicator ecology:NetPrimaryProduction named npp_indicator,
+			  im:Indicator ecology:ForestFragmentation named fragmentation_indicator
+//			  im:Indicator soil:DroughtSeverity named drought_indicator
+//	set to [(ndvi_indicator + lai_indicator + npp_indicator + fragmentation_indicator + drought_indicator)/4];
+	set to [(ndvi_indicator + lai_indicator + npp_indicator + fragmentation_indicator)/4];

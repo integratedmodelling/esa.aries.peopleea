@@ -1,0 +1,84 @@
+private namespace peopleea.forest.connectivity;
+
+private model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2000',
+			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2006',
+			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2012',
+			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2018'
+			  as percentage of ecology:ForestConnectivity;
+
+
+
+define BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION as {{		
+		 bio_region_by_forest_type	                         |max	|min
+------------------------------------------------------------------------------------
+es.nca:Alpine landcover:BroadleafForest                      |	100 |	21 ,
+es.nca:Alpine landcover:ConiferousForest                     |	100 |	21 ,
+es.nca:Alpine landcover:MixedForest                          |	100 |	24 ,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	89  |	14 ,
+es.nca:AlpineScandinavian landcover:BroadleafForest          |	100 |	5  ,
+es.nca:AlpineScandinavian landcover:ConiferousForest         |	100 |	4  ,
+es.nca:AlpineScandinavian landcover:MixedForest              |	100 |	4  ,
+es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	87  |	4  ,
+es.nca:Arctic landcover:BroadleafForest                      |	100 |	5  ,
+es.nca:Arctic landcover:ConiferousForest                     |	100 |	4  ,
+es.nca:Arctic landcover:MixedForest                          |	100 |	4  ,
+es.nca:Arctic landcover:TransitionalWoodlandScrub            |	87  |	4  ,
+es.nca:Atlantic landcover:BroadleafForest                    |	98  |	5  ,
+es.nca:Atlantic landcover:ConiferousForest                   |	100 |	8  ,
+es.nca:Atlantic landcover:MixedForest                        |	99  |	5  ,
+es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	69.2|	5  ,
+es.nca:BlackSea landcover:BroadleafForest                    |	100 |	12 ,
+es.nca:BlackSea landcover:ConiferousForest                   |	100 |	15 ,
+es.nca:BlackSea landcover:MixedForest                        |	98  |	16 ,
+es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	95  |	10 ,
+es.nca:Boreal landcover:BroadleafForest                      |	100 |	10 ,
+es.nca:Boreal landcover:ConiferousForest                     |	100 |	28 ,
+es.nca:Boreal landcover:MixedForest                          |	100 |	18 ,
+es.nca:Boreal landcover:TransitionalWoodlandScrub            |	90  |	19 ,
+es.nca:Continental landcover:BroadleafForest                 |	100 |	8  ,
+es.nca:Continental landcover:ConiferousForest                |	100 |	13 ,
+es.nca:Continental landcover:MixedForest                     |	100 |	9  ,
+es.nca:Continental landcover:TransitionalWoodlandScrub       |	85  |	9  ,
+es.nca:Macaronesian landcover:BroadleafForest                |	98  |	6  ,
+es.nca:Macaronesian landcover:ConiferousForest               |	100 |	10 ,
+es.nca:Macaronesian landcover:MixedForest                    |	91  |	8  ,
+es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	74.1|	5  ,
+es.nca:Mediterranean landcover:BroadleafForest               |	100 |	7  ,
+es.nca:Mediterranean landcover:ConiferousForest              |	100 |	9  ,
+es.nca:Mediterranean landcover:MixedForest                   |	100 |	10 ,
+es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	86  |	6  ,
+es.nca:Pannonian landcover:BroadleafForest                   |	100 |	6  ,
+es.nca:Pannonian landcover:ConiferousForest                  |	100 |	14 ,
+es.nca:Pannonian landcover:MixedForest                       |	98  |	8  ,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	95  |	5  , 
+es.nca:Steppic landcover:BroadleafForest                     |	100 |	6  ,
+es.nca:Steppic landcover:ConiferousForest                    |	100 |	28 ,
+es.nca:Steppic landcover:MixedForest                         |	98  |	2  ,
+es.nca:Steppic landcover:TransitionalWoodlandScrub           |	95  |	5  ,
+es.nca:AlpineScandinavian landcover:BroadleafForest          |	100 |	5  ,
+es.nca:AlpineScandinavian landcover:ConiferousForest         |	100 |	4  ,
+es.nca:AlpineScandinavian landcover:MixedForest              |	100 |	4  ,
+es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	87  |	4  
+}};
+
+
+number max_forest_fragmentation  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION; 
+
+number min_forest_fragmentation  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION; 
+
+@documented(seeaeea.forestfragmentationindex)
+@key(en="Forest fragmentation indicator", es="Índice de fragmentación forestal")
+private model im:Indicator value of ecology:ForestFragmentation 	
+        observing 
+			max_forest_fragmentation,
+			min_forest_fragmentation,
+			percentage of ecology:ForestFragmentation named forest_fragmentation
+       set to [forest_fragmentation < min_forest_fragmentation ? 1 : ( forest_fragmentation > max_forest_fragmentation ? 0 : ((max_forest_fragmentation - forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))];
