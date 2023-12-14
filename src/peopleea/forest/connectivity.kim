@@ -62,24 +62,24 @@ es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	87  |	4
 }};
 
 
-number max_forest_fragmentation  
+number max_forest_connectivity  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-number min_forest_fragmentation  
+number min_forest_connectivity  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-@documented(seeaeea.forestfragmentationindex)
-@key(en="Forest fragmentation indicator", es="Índice de fragmentación forestal")
-private model im:Indicator value of ecology:ForestFragmentation 	
+@documented(seeaeea.forestconnectivityindex)
+@key(en="Forest connectivity indicator", es="Índice de fragmentación forestal")
+private model im:Indicator value of ecology:ForestConnectivity 	
         observing 
-			max_forest_fragmentation,
-			min_forest_fragmentation,
-			percentage of ecology:ForestFragmentation named forest_fragmentation
-       set to [forest_fragmentation < min_forest_fragmentation ? 0 : ( forest_fragmentation > max_forest_fragmentation ? 1 : ((forest_fragmentation - min_forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))];
+			max_forest_connectivity,
+			min_forest_connectivity,
+			percentage of ecology:ForestConnectivity named forest_connectivity
+       set to [forest_connectivity < min_forest_connectivity ? 0 : ( forest_connectivity > max_forest_connectivity ? 1 : ((forest_connectivity - min_forest_connectivity)/(max_forest_connectivity - min_forest_connectivity)))];
        
