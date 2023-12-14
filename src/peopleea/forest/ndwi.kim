@@ -69,7 +69,7 @@ number min_ndwi
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_NDWI;  
 
-private model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
+model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
 	observing 
 		max_ndwi,
 		min_ndwi,

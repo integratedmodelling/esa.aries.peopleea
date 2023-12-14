@@ -1,6 +1,6 @@
 project private namespace peopleea.forest.connectivity;
 
-private model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2000',
+model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2000',
 			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2006',
 			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2012',
 			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2018'
@@ -76,7 +76,7 @@ number min_forest_connectivity
 
 //@documented(seeaeea.forestconnectivityindex)
 //@key(en="Forest connectivity indicator", es="Índice de fragmentación forestal")
-private model im:Indicator value of ecology:ForestConnectivity 	
+model im:Indicator value of ecology:ForestConnectivity 	
         observing 
 			max_forest_connectivity,
 			min_forest_connectivity,

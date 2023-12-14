@@ -69,7 +69,7 @@ number min_soil_organic_carbon_inspire
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE;  
 
-private model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
 	observing 
 		max_soil_organic_carbon_inspire,
 		min_soil_organic_carbon_inspire,

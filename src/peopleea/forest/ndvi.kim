@@ -70,7 +70,7 @@ number min_forest_productivity_ndvi
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI; 
 
 @key(en="NDVI condition indicator", es="Índice NDVI de vegetación")
-private model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
+model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
 	observing 
 		max_forest_productivity_ndvi,
 		min_forest_productivity_ndvi,
