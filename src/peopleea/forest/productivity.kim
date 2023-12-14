@@ -1,0 +1,103 @@
+private namespace peopleea.forest.productivity;
+
+@intensive(time)
+model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"
+	as ecology:PrimaryProductivity in kg/ha*year 
+	set to [self*0.5*0.475];  
+
+
+define BIO_REGION_FOREST_REFERENCES_NPP as {{		
+bio_region_by_forest_type                                    |	max   |	min     
+------------------------------------------------------------------------------	      	
+es.nca:Alpine landcover:BroadleafForest                      |	9289.4|	4600.593,
+es.nca:Alpine landcover:ConiferousForest                     |	8787.3|	2969.724,
+es.nca:Alpine landcover:MixedForest                          |	9571.5|	4117.917,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	8273.1|	2559.538,
+es.nca:Arctic landcover:BroadleafForest                      |	1938.7|	476.9189,
+es.nca:Arctic landcover:ConiferousForest                     |	2526.3|	752.5234,
+es.nca:Arctic landcover:MixedForest                          |	2506  |	864.519 ,
+es.nca:Arctic landcover:TransitionalWoodlandScrub            |	2614.5|	434.587 ,
+//es.nca:Anatolian landcover:BroadleafForest                   |		
+//es.nca:Anatolian landcover:ConiferousForest                  |		
+//es.nca:Anatolian landcover:MixedForest                       |		
+//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
+es.nca:Atlantic landcover:BroadleafForest                    |	7187.2|	1417.316,
+es.nca:Atlantic landcover:ConiferousForest                   |	3752.1|	1777.184,
+es.nca:Atlantic landcover:MixedForest                        |	8569.9|	1947.144,
+es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	6680.4|	2132.451,
+es.nca:BlackSea landcover:BroadleafForest                    |	9721.2|	3873.886,
+es.nca:BlackSea landcover:ConiferousForest                   |	8119.3|	2550.841,
+es.nca:BlackSea landcover:MixedForest                        |	8144.3|	3335.028,
+es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	9010.1|	1505.584,
+es.nca:Boreal landcover:BroadleafForest                      |	5961.1|	1736.144,
+es.nca:Boreal landcover:ConiferousForest                     |	5006.5|	1603.885,
+es.nca:Boreal landcover:MixedForest                          |	5968.1|	1981.786,
+es.nca:Boreal landcover:TransitionalWoodlandScrub            |	5573.8|	1529.918,
+es.nca:Continental landcover:BroadleafForest                 |	9701.1|	4128.045,
+es.nca:Continental landcover:ConiferousForest                |	11280 |	3872.856,
+es.nca:Continental landcover:MixedForest                     |	10863 |	3883.201,
+es.nca:Continental landcover:TransitionalWoodlandScrub       |	8979.9|	3281.665,
+es.nca:Macaronesian landcover:BroadleafForest                |	17186 |	3513.039,
+es.nca:Macaronesian landcover:ConiferousForest               |	13678 |	2257.024,
+es.nca:Macaronesian landcover:MixedForest                    |	15398 |	3441.308,
+es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	17106 |	1723.818,
+es.nca:Mediterranean landcover:BroadleafForest               |	12052 |	3510.198,
+es.nca:Mediterranean landcover:ConiferousForest              |	11876 |	2306.623,
+es.nca:Mediterranean landcover:MixedForest                   |	13126 |	2968.123,
+es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	10867 |	1570.303,
+es.nca:Pannonian landcover:BroadleafForest                   |	8912.5|	4120.492,
+es.nca:Pannonian landcover:ConiferousForest                  |	8119.3|	3882.331,
+es.nca:Pannonian landcover:MixedForest                       |	8144.3|	3765.943,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	9010.1|	3445.916,
+es.nca:Steppic landcover:BroadleafForest                     |	8622.9|	3244.554,
+es.nca:Steppic landcover:ConiferousForest                    |	8144.3|	3932.15 ,
+es.nca:Steppic landcover:MixedForest                         |	9010.1|	2116.391,
+es.nca:Steppic landcover:TransitionalWoodlandScrub           |	9010.1|	2869.128,
+es.nca:AlpineScandinavian landcover:BroadleafForest          |	1938.7|	734.9296,
+es.nca:AlpineScandinavian landcover:ConiferousForest         |	2526.3|	1065.853,
+es.nca:AlpineScandinavian landcover:MixedForest              |	2506  |	983.611 ,
+es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	2614.5|	1254.508
+}};
+
+number min_net_primary_productivity  
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_NPP; 
+
+number max_net_primary_productivity    
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_NPP; 
+
+
+model im:Indicator value of ecology:PrimaryProductivity	
+	observing 
+		min_net_primary_productivity,
+		max_net_primary_productivity,
+        ecology:PrimaryProductivity in kg/ha*year named net_primary_productivity
+	set to [
+		net_primary_productivity < min_net_primary_productivity ? 0 : ( net_primary_productivity > max_net_primary_productivity ? 1 : ((net_primary_productivity - min_net_primary_productivity)/(max_net_primary_productivityx - min_net_primary_productivity)) )
+	];
+
+
+
+//use a conversion facto per each forest type
+
+//model ratio of chemistry:Carbon im:Mass in ecology:NetPrimaryProduction named conversion_factor
+//	observing
+//		ecology:Forest es.nca:BiogeographicRegionType named forest_type
+//	lookup ( forest_type, ?) into
+//	  forest_type                                                  |   conversion_factor
+//	------------------------------------------------------------------------------------ 
+//	  es.nca:Alpine landcover:BroadleafForest                      |              0.475,
+//	  es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|              0.475;
+//	
+//		 
+//@intensive(time)
+//model ecology:NetPrimaryProduction in kg/ha*year
+//	observing 
+//		ecology:PrimaryProductivity,
+//		ratio of chemistry:Carbon im:Mass in ecology:NetPrimaryProduction named conversion_factor
+//	set to [self*0.5*conversion_factor];  
