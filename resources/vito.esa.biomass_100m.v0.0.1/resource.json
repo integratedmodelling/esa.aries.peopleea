@@ -19,7 +19,7 @@
     "processId" : "UDP_biomass_fcm-100m",
     "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_biomass_fcm-100m.json",
-    "space.projection" : "?",
+    "space.projection" : "output_epsg",
     "nodata" : "-9999",
     "space.resolution" : "resolution"
   },
