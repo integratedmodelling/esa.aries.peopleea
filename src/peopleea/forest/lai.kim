@@ -69,7 +69,6 @@ number max_leaf_area_index
 	lookup (bio_region_by_forest_type, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
 
-@key(en="Leaf area index indicator", es="Índice de área foliar")
  model im:Indicator value of ecology:LeafAreaIndex	
 	observing 
 		min_leaf_area_index,
