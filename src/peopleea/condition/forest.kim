@@ -10,7 +10,7 @@ model  im:Indicator ecology:Forest es.nca:Condition
 		im:Indicator value of ecology:LeafAreaIndex named lai_indicator,
 		im:Indicator value of ecology:PrimaryProductivity named npp_indicator, 
 	    im:Indicator value of ecology:ForestConnectivity named connectivity_indicator
-	set to [((0.29*ndwi_indicator) + (0.07*soc_indicator) + (0.07*birds_indicator) + 
-		     (0.19*lai_indicator) +	(0.21*npp_indicator) + (0.17*connectivity_indicator))/6];
+	set to [(0.29*ndwi_indicator) + (0.07*soc_indicator) + (0.07*birds_indicator) + 
+		     (0.19*lai_indicator) +	(0.21*npp_indicator) + (0.17*connectivity_indicator)];
 		     
 		     
