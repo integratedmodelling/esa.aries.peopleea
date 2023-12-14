@@ -8,7 +8,7 @@ private model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connect
 
 
 
-define BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION as {{		
+define BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY as {{		
 		 bio_region_by_forest_type	                         |max	|min
 ------------------------------------------------------------------------------------
 es.nca:Alpine landcover:BroadleafForest                      |	100 |	21 ,
@@ -66,13 +66,13 @@ number max_forest_fragmentation
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, ?, *) 
-		into BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION; 
+		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
 number min_forest_fragmentation  
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, *, ?) 
-		into BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION; 
+		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
 @documented(seeaeea.forestfragmentationindex)
 @key(en="Forest fragmentation indicator", es="Índice de fragmentación forestal")
@@ -81,4 +81,5 @@ private model im:Indicator value of ecology:ForestFragmentation
 			max_forest_fragmentation,
 			min_forest_fragmentation,
 			percentage of ecology:ForestFragmentation named forest_fragmentation
-       set to [forest_fragmentation < min_forest_fragmentation ? 1 : ( forest_fragmentation > max_forest_fragmentation ? 0 : ((max_forest_fragmentation - forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))];
+       set to [forest_fragmentation < min_forest_fragmentation ? 0 : ( forest_fragmentation > max_forest_fragmentation ? 1 : ((forest_fragmentation - min_forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))];
+       
