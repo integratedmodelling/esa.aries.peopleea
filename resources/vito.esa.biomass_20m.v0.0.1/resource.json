@@ -1,0 +1,58 @@
+{
+  "urn" : "local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.esa.biomass_20m.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.esa.biomass_20m",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1701856861203,
+  "metadata" : {
+    "dc:description" : "Load the ESA forest carbon monitoring dataset for specified year and band. Returns a single band RasterCube.",
+    "dc:comment" : "Given a year and area of interest, returns the specified band of the ESA forest carbon monitoring 20m DEMO dataset.",
+    "dc:title" : "Load the ESA forest carbon monitoring dataset for specified year and band"
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "UDP_biomass_fcm-20m",
+    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_biomass_fcm-20m.json",
+    "space.projection" : "?",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "band",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
