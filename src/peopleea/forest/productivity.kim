@@ -1,4 +1,4 @@
-private namespace popleea.forest.productivity;
+private namespace peopleea.forest.productivity;
 
 @intensive(time)
 model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"
