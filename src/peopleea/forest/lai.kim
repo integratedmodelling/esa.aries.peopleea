@@ -1,4 +1,4 @@
-private namespace peopleea.forest.lai;
+project private namespace peopleea.forest.lai;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
 	 as ecology:LeafAreaIndex; 

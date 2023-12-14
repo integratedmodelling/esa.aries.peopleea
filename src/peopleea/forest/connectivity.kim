@@ -1,4 +1,4 @@
-private namespace peopleea.forest.connectivity;
+project private namespace peopleea.forest.connectivity;
 
 private model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2000',
 			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2006',

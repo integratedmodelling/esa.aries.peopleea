@@ -1,4 +1,4 @@
-private namespace peopleea.soil.carbon;
+project private namespace peopleea.soil.carbon;
 
 model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.esdac_inspire_topsoil_organic_carbon_content_of_europe_2003', 
 	  'local:rubencc:esa.people.sandbox:im-data-global-soil.esdac_lucas_topsoil_soil_organic_carbon_of_eu_2014'
