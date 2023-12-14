@@ -2,8 +2,8 @@ private namespace popleea.forest.productivity;
 
 @intensive(time)
 model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"
-	as ecology:PrimaryProductivity in kg/ha*year named net_primary_productivity
-	set to [self*0.5*0.475];
+	as ecology:PrimaryProductivity in kg/ha*year 
+	set to [self*0.5*0.475];  
 
 
 define BIO_REGION_FOREST_REFERENCES_NPP as {{		
@@ -72,11 +72,11 @@ number max_net_primary_productivity
 		into BIO_REGION_FOREST_REFERENCES_NPP; 
 
 
-model im:Reference value of ecology:PrimaryProductivity	
+model im:Indicator value of ecology:PrimaryProductivity	
 	observing 
 		min_net_primary_productivity,
 		max_net_primary_productivity,
-        net_primary_productivity
+        ecology:PrimaryProductivity in kg/ha*year named net_primary_productivity
 	set to [
 		net_primary_productivity < min_net_primary_productivity ? 0 : ( net_primary_productivity > max_net_primary_productivity ? 1 : ((net_primary_productivity - min_net_primary_productivity)/(max_net_primary_productivityx - min_net_primary_productivity)) )
 	];
