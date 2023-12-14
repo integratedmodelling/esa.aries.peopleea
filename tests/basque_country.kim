@@ -1,0 +1,18 @@
+worldview im;
+
+@test(
+    name = "basque_country",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = ("peopleea.forest.lai.indicator-value-of-leaf-area-index-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named basque_country
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-1.4077847477904217 42.82418558757945, -3.6050503727904215 42.82418558757945, -3.6050503727904215 43.557079282564246, -1.4077847477904217 43.557079282564246, -1.4077847477904217 42.82418558757945))",
+    	grid="100 m"),
+    	time (year=2002);
+
+// add any models here
