@@ -13,6 +13,6 @@ observe earth:Region named central_slovakia
     		grid="100 m",
     		projection="EPSG:4326"),
 //    time(start=2018, end=2020, step=1.year); 
-time (year= 2019);  
+time (year= 2021);  
 
 // add any models here
