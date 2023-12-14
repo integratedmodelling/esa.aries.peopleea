@@ -78,7 +78,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 		max_net_primary_productivity,
         ecology:PrimaryProductivity in kg/ha*year named net_primary_productivity
 	set to [
-		net_primary_productivity < min_net_primary_productivity ? 0 : ( net_primary_productivity > max_net_primary_productivity ? 1 : ((net_primary_productivity - min_net_primary_productivity)/(max_net_primary_productivityx - min_net_primary_productivity)) )
+		net_primary_productivity < min_net_primary_productivity ? 0 : ( net_primary_productivity > max_net_primary_productivity ? 1 : ((net_primary_productivity - min_net_primary_productivity)/(max_net_primary_productivity - min_net_primary_productivity)) )
 	];
 
 
