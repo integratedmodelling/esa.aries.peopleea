@@ -74,8 +74,8 @@ number min_forest_connectivity
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-@documented(seeaeea.forestconnectivityindex)
-@key(en="Forest connectivity indicator", es="Índice de fragmentación forestal")
+//@documented(seeaeea.forestconnectivityindex)
+//@key(en="Forest connectivity indicator", es="Índice de fragmentación forestal")
 private model im:Indicator value of ecology:ForestConnectivity 	
         observing 
 			max_forest_connectivity,

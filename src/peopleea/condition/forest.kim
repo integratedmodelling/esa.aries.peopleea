@@ -2,12 +2,15 @@ private namespace peopleea.condition.forest;
 
 // weighted average index aka PEOPLE FOREST CONDITION INDEX
 
-//testing average against euclidean distance
-model  im:Indicator im:Mean ecology:Forest es.nca:Condition
-	observing im:Indicator ecology:NormalizedDifferenceVegetationIndex named ndvi_indicator,
-			  im:Indicator ecology:LeafAreaIndex named lai_indicator,
-			  im:Indicator ecology:NetPrimaryProduction named npp_indicator,
-			  im:Indicator ecology:ForestFragmentation named fragmentation_indicator
-//			  im:Indicator soil:DroughtSeverity named drought_indicator
-//	set to [(ndvi_indicator + lai_indicator + npp_indicator + fragmentation_indicator + drought_indicator)/4];
-	set to [(ndvi_indicator + lai_indicator + npp_indicator + fragmentation_indicator)/4];
+model  im:Indicator ecology:Forest es.nca:Condition
+	observing 
+		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named ndwi_indicator,
+		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named soc_indicator,
+		im:Indicator value of conservation:Threathened biology:Bird ecology:SpeciesRichness named birds_indicator,
+		im:Indicator value of ecology:LeafAreaIndex named lai_indicator,
+		im:Indicator value of ecology:PrimaryProductivity named npp_indicator, 
+	    im:Indicator value of ecology:ForestConnectivity named connectivity_indicator
+	set to [((0.29*ndwi_indicator) + (0.07*soc_indicator) + (0.07*birds_indicator) + 
+		     (0.19*lai_indicator) +	(0.21*npp_indicator) + (0.17*connectivity_indicator))/6];
+		     
+		     
