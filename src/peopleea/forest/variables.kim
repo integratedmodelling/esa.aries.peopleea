@@ -48,13 +48,13 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 	as im:Indicator landcover:AgriculturalVegetation soil:DroughtSeverity;
 
 /* TREE COVER DENSITY */
-private model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2012',
+model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2012',
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015',
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018'
 	as percentage of ecology:CanopyCover;
 
 /* LANDSCAPE NATURALNESS */
-private model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2000',
+model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2000',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2006',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2012',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2018'
