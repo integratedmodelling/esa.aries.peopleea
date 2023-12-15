@@ -75,6 +75,52 @@ model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:M
 		min_soil_organic_carbon_inspire,
 		percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named soil_organic_carbon 
 	set to [soil_organic_carbon < min_soil_organic_carbon_inspire ? 0 : ( soil_organic_carbon > max_soil_organic_carbon_inspire ? 1 : ((soil_organic_carbon - min_soil_organic_carbon_inspire)/(max_soil_organic_carbon_inspire - min_soil_organic_carbon_inspire)) )];
+
+
+@var(timespan=(start end))	
+define table soc_row_variable as {
+	name: "soil_organic_carbon_variable"
+	title: "Soil Organic Carbon Variable Account",
+	label: "Soil Organic Carbon Variable",
+	target: percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table soc_indicator as {
+	name: "soil_organic_carbon_indicator"
+	title: "Soil Organic Carbon Indicator Account",
+	label: "Soil Organic Carbon Indicator",
+	target: im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+
+
+
+
+
+
 	
 /*MAES reference values */
 
