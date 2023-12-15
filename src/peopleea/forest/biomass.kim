@@ -7,12 +7,12 @@ model 'local:stefano.balbi:im.openeo.sandbox:vito.biomas.cci#output_warp=true&sy
 
 @intensive(space)   
 @extensive(time)
-model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_100m#output_warp=true&synchronous=true'
-	as ecology:Vegetation ecology:Biomass in t/ha; //getting 400 error
+model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_100m' //#output_warp=true&synchronous=true
+	as ecology:Vegetation ecology:Biomass in t/ha; //getting 400 error 
 
 @intensive(space)   
 @extensive(time)
-model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp=true&synchronous=true'
+model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp=true'
 	as ecology:Vegetation ecology:Biomass in t/ha; //getting 400 error
 
 //try reimporting the resources	
