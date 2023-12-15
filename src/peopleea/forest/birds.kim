@@ -2,7 +2,7 @@ project private namespace peopleea.forest.birds;
 
 model 'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2000',
 	   'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2018'
-	   as conservation:Threathened biology:Bird ecology:SpeciesRichness;       
+	   as conservation:Threatened biology:Bird ecology:SpeciesRichness;        
 	   
 // Template for richness of threatened bird species
 
@@ -74,12 +74,55 @@ number min_threatened_forest_birds_species_richness
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-model im:Indicator value of conservation:Threathened biology:Bird ecology:SpeciesRichness 
+model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness 
 	observing 
 		max_threatened_forest_birds_species_richness,
 		min_threatened_forest_birds_species_richness,
-		conservation:Threathened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
+		conservation:Threatened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
 	set to [threatened_forest_birds_species_richness < min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)/(max_threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)) )];
+
+@var(timespan=(start end))	
+define table birds_row_variable as {
+	name: "threatened_bird_species_variable"
+	title: "Threatened Bird Species Variable Account",
+	label: "Threatened Bird Species Variable",
+	target: conservation:Threatened biology:Bird ecology:SpeciesRichness
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table birds_indicator as {
+	name: "threatened_bird_species_indicator"
+	title: "Threatened Bird Species Indicator Account",
+	label: "Threatened Bird Species Indicator",
+	target: im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+
+
+
+
 
 	
 /* FIX MAES TABLE */	

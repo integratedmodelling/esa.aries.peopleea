@@ -50,8 +50,8 @@ action main:
 				"NDWI", true) #lctchangematrix1
 			create aries.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
 				"Soil Organic Carbon Percentage in Top Soil", true) #lctchangematrix2
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 3", true) #lctchangematrix3
+			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
+				"Threatened Bird Species", true) #lctchangematrix3
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 4", true) #lctchangematrix4
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
@@ -82,10 +82,10 @@ action main:
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
 				"NDWI", true) #lctchangematrix14
-			create aries.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
+			create aries.components.selectors.observation(peopleea.soil.carbon.soc_raw_variable, 
 				"Soil Organic Carbon Percentage in Top Soil", true) #lctchangematrix15
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 3", true) #lctchangematrix16
+			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
+				"Threatened Bird Species", true) #lctchangematrix16
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Variable 4", true) #lctchangematrix17
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
