@@ -15,3 +15,21 @@ model  im:Indicator ecology:Forest es.nca:Condition
 		     + (0.22 * indicator_net_primary_production) + (0.16 * indicator_forest_connectivity)]; 
 		     
 		     
+@var(timespan=(start end))	
+define table peopleea_forest_condition_index as {
+	name: "PEOPLE-EA Forest Condition Index"
+	title: "PEOPLE-EA Forest Condition Index Account",
+	label: "PEOPLE-EA Forest Condition Index",
+	target: im:Indicator ecology:Forest es.nca:Condition
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
