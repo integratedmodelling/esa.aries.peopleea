@@ -75,3 +75,8 @@ number max_leaf_area_index
 		max_leaf_area_index,
         ecology:LeafAreaIndex named leaf_area_index
 	set to [leaf_area_index < min_leaf_area_index ? 0 : ( leaf_area_index > max_leaf_area_index ? 1 : ((leaf_area_index - min_leaf_area_index)/(max_leaf_area_index - min_leaf_area_index)) )];
+
+/*LAI Tier 2 */	
+
+model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
+	as ecology:LeafAreaIndex;
