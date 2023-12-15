@@ -7,7 +7,60 @@ model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=t
 	 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
 		 as ratio of ecology:Vegetation im:Area to im:Area; 
-		 
+		
+/* DROUGHT SEVERITY */		
+model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1999',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2000',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2001',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2002',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2003',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2004',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2005',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2006',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2007',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2008',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2009',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2010',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2011',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2012',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2013',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2014',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2015',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2016',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2017',
+		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2018'
+	as soil:DroughtSeverity;
+	
+model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2013',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2014',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2015',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2016',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2017',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2018',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2019',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2020',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2021',
+		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
+	as im:Indicator landcover:AgriculturalVegetation soil:DroughtSeverity;
+
+/* TREE COVER DENSITY */
+model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2012',
+			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015',
+			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018'
+	as percentage of ecology:CanopyCover;
+
+/* LANDSCAPE NATURALNESS */
+model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2000',
+			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2006',
+			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2012',
+			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2018'
+			  as percentage of ecology:Natural landcover:LandscapeHeterogeneity; 
+
+
 /*FAPAR Tier 2 */
 
 //local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m
