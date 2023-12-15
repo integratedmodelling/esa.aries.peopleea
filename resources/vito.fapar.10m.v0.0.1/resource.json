@@ -19,7 +19,7 @@
     "processId" : "udp_annual_avg_fapar_10m",
     "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_avg_fapar_10m.json",
-    "space.projection" : "?",
+    "space.projection" : "output_epsg",
     "nodata" : "-9999",
     "space.resolution" : "resolution"
   },
