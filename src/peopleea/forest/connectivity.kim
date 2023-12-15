@@ -116,13 +116,13 @@ define table test as {
 	title: "banana",
 	label: "banana",
 	target: percentage of ecology:ForestConnectivity
-	observables: landcover:LandCoverType
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
 		rowsummary = { filter: "change" title: "Net change"}, 
 		colsummary=  { filter: "total", title: "Total" },
 		rows =       { filter: %timespan% }, 
-		columns =    { filter: landcover:LandCoverType}, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
 		statistic = "mean",
 		empty='', 
 		no-data = ''
