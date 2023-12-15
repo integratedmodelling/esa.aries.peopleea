@@ -16,3 +16,29 @@ model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp
 	as ecology:Vegetation ecology:Biomass in t/ha; //getting 400 error
 
 //try reimporting the resources	
+
+define BIO_REGION_FOREST_REFERENCES_AGB as {{		
+bio_region_by_forest_type                                    |	max   |	min     
+------------------------------------------------------------------------------	      	
+es.nca:Alpine landcover:BroadleafForest                      |	0|	0
+// to be filled in
+}};
+
+number max_agb 
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_AGB; 
+
+number min_agb
+	observing
+		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
+	lookup (bio_region_by_forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_AGB; 
+
+model im:Indicator value of ecology:AboveGroundBiomass 
+	observing 
+		max_agb,
+		min_agb,
+		ecology:AboveGroundBiomass named agb
+	set to [agb < min_agb ? 0 : ( agb > max_agb ? 1 : ((agb - min_agb)/(max_agb - min_agb)) )];
