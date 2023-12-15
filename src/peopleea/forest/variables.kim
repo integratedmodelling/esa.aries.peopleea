@@ -1,4 +1,13 @@
 project private namespace peopleea.forest.variables;
 
+/*FCOVER Tier 1 and Tier 2 */
+
 model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=true' 
 	 as ratio of ecology:Vegetation im:Area to im:Area; 
+	 
+model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true'
+		 as ratio of ecology:Vegetation im:Area to im:Area; 
+		 
+/*FAPAR Tier 2 */
+
+/*PPI Tier 2 */
