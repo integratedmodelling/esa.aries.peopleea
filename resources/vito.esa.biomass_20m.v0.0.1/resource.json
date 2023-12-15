@@ -7,16 +7,24 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.esa.biomass_20m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1701856861203,
+  "resourceTimestamp" : 1702651395688,
   "metadata" : {
     "dc:description" : "Load the ESA forest carbon monitoring dataset for specified year and band. Returns a single band RasterCube.",
+    "im:keywords" : "",
     "dc:comment" : "Given a year and area of interest, returns the specified band of the ESA forest carbon monitoring 20m DEMO dataset.",
-    "dc:title" : "Load the ESA forest carbon monitoring dataset for specified year and band"
+    "im:notes" : "",
+    "dc:title" : "Load the ESA forest carbon monitoring dataset for specified year and band",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
     "space.shape" : "geometry",
     "time.year" : "year",
-    "processId" : "UDP_biomass_fcm-20m",
+    "processId" : "udp_biomass_fcm-20m",
     "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_biomass_fcm-20m.json",
     "space.projection" : "output_epsg",
