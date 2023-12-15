@@ -15,7 +15,7 @@ action init:
 @left(width=450)
 action main:
 	separator("Context selection" :iconname "earth" :info)
-	create aries.components.contextselector.yearly: (
+	create aries.peopleea.components.contextselector: (
 		"static" -> (
 			etaddred.disable
 			etchangematrix.disable
