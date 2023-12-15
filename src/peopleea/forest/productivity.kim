@@ -82,6 +82,44 @@ model im:Indicator value of ecology:PrimaryProductivity
 	];
 
 
+@var(timespan=(start end))	
+define table npp_row_variable as {
+	name: "net_primary_productivity_variable"
+	title: "Net Primary Productivity Variable Account",
+	label: "TNet Primary Producticvity Variable",
+	target: ecology:PrimaryProductivity in kg/ha*year 
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table npp_indicator as {
+	name: "net_primary_productivity_indicator"
+	title: "Net Primary Productivity Indicator Account",
+	label: "Net Primary Productivity Indicator",
+	target: im:Indicator value of ecology:PrimaryProductivity	
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
 
 //use a conversion facto per each forest type
 
