@@ -7,11 +7,11 @@ model  im:Indicator ecology:Forest es.nca:Condition
 		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
 		im:Indicator value of conservation:Threathened biology:Bird ecology:SpeciesRichness named indicator_threathened_bird_species,
-		im:Indicator value of ecology:LeafAreaIndex named indicator_leaf_area_index,
+		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
 		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
 	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
-	set to [(0.29 * indicator_normalized_difference_water_index) + (0.07 * indicator_soil_organic_carbon) 
-		     + (0.07 * indicator_threathened_bird_species) +  (0.19 * indicator_leaf_area_index) 
-		     + (0.21 * indicator_net_primary_production) + (0.17 * indicator_forest_connectivity)]; 
+	set to [(0.27 * indicator_normalized_difference_water_index) + (0.07 * indicator_soil_organic_carbon) 
+		     + (0.10 * indicator_threathened_bird_species) +  (0.18 * indicator_above_ground_biomass) 
+		     + (0.22 * indicator_net_primary_production) + (0.16 * indicator_forest_connectivity)]; 
 		     
 		     

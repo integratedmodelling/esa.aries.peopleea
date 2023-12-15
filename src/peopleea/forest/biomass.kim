@@ -17,28 +17,28 @@ model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp
 
 //try reimporting the resources	
 
-define BIO_REGION_FOREST_REFERENCES_AGB as {{		
+define BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS as {{		
 bio_region_by_forest_type                                    |	max   |	min     
 ------------------------------------------------------------------------------	      	
 es.nca:Alpine landcover:BroadleafForest                      |	0|	0
 // to be filled in
 }};
 
-number max_agb 
+number max_above_ground_biomass 
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, ?, *) 
-		into BIO_REGION_FOREST_REFERENCES_AGB; 
+		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
-number min_agb
+number min_above_ground_biomass
 	observing
 		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
 	lookup (bio_region_by_forest_type, *, ?) 
-		into BIO_REGION_FOREST_REFERENCES_AGB; 
+		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
 model im:Indicator value of ecology:AboveGroundBiomass 
 	observing 
-		max_agb,
-		min_agb,
-		ecology:AboveGroundBiomass named agb
-	set to [agb < min_agb ? 0 : ( agb > max_agb ? 1 : ((agb - min_agb)/(max_agb - min_agb)) )];
+		max_above_ground_biomass,
+		min_above_ground_biomass,
+		ecology:AboveGroundBiomass named above_ground_biomass
+	set to [above_ground_biomass < min_above_ground_biomass ? 0 : ( above_ground_biomass > max_above_ground_biomass ? 1 : ((above_ground_biomass - min_above_ground_biomass)/(max_above_ground_biomass - min_above_ground_biomass)) )];
