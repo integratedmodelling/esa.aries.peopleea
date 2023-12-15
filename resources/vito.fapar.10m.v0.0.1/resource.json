@@ -1,0 +1,51 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.peopleea/resources/vito.fapar.10m.v0.0.1",
+  "geometry" : "t1S2",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "vito.fapar.10m",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1702636201830,
+  "metadata" : {
+    "dc:description" : "Annual mean composite of Sentinel-2 FAPAR. Returns a single band RasterCube.",
+    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of fapar (https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf).",
+    "dc:title" : "Annual mean composite of Sentinel-2 FAPAR"
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_annual_avg_fapar_10m",
+    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_avg_fapar_10m.json",
+    "space.projection" : "?",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "output_warp",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "output_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

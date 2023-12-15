@@ -10,4 +10,8 @@ model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&s
 		 
 /*FAPAR Tier 2 */
 
+//local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m
+
 /*PPI Tier 2 */
+
+//local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m
