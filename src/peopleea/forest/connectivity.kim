@@ -84,31 +84,51 @@ model im:Indicator value of ecology:ForestConnectivity
 			percentage of ecology:ForestConnectivity named forest_connectivity
        set to [forest_connectivity < min_forest_connectivity ? 0 : ( forest_connectivity > max_forest_connectivity ? 1 : ((forest_connectivity - min_forest_connectivity)/(max_forest_connectivity - min_forest_connectivity)))];
        
-define table forest_connectivity_condition_variable_static as {
-//	target:percentage of ecology:ForestConnectivity
-	target: im:Indicator value of ecology:ForestConnectivity
-	columns: 
-		{ 
-			retarget: (remove im:Indicator)
-			filter: ecology:Forest es.nca:BiogeographicRegionType
-			columns: (
-				{ title: "Value"  filter: start }
-			)
-		},
-	rows: (
-		{ title: "{target}", target: es.nca:ConditionIndicator } 
+//define table forest_connectivity_condition_variable_static as {
+////	target:percentage of ecology:ForestConnectivity
+//	target: im:Indicator value of ecology:ForestConnectivity
+//	columns: 
+//		{ 
+//			retarget: (remove im:Indicator)
+//			filter: ecology:Forest es.nca:BiogeographicRegionType
+//			columns: (
+//				{ title: "Value"  filter: start }
+//			)
+//		},
+//	rows: (
+//		{ title: "{target}", target: es.nca:ConditionIndicator } 
+//	)
+//};
+//
+//define table forest_connectivity_condition_static as {
+//	target: percentage of ecology:ForestConnectivity
+////	target: geography:Elevation in m
+//	columns:(
+//			 { title: "{classifier}", filter: landcover:LandCoverType}
+////			 { title: "{classifier}", filter: ecology:Forest es.nca:BiogeographicRegionType}
+//
+//    	     { title: "Total", style: bold })
+//	rows:   ({ title: "Forest connectivity"})};  
+
+@var(timespan=(start end))	
+define table test as {
+	name: "banana"
+	title: "banana",
+	label: "banana",
+	target: percentage of ecology:ForestConnectivity
+	observables: landcover:LandCoverType
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+		colsummary=  { filter: "total", title: "Total" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: landcover:LandCoverType}, 
+		statistic = "mean",
+		empty='', 
+		no-data = ''
 	)
 };
-
-define table forest_connectivity_condition_static as {
-	target: percentage of ecology:ForestConnectivity
-//	target: geography:Elevation in m
-	columns:(
-			 { title: "{classifier}", filter: landcover:LandCoverType}
-//			 { title: "{classifier}", filter: ecology:Forest es.nca:BiogeographicRegionType}
-
-    	     { title: "Total", style: bold })
-	rows:   ({ title: "Forest connectivity"})};  
+//ecology:Forest es.nca:BiogeographicRegionType 
 	
 
 	     
