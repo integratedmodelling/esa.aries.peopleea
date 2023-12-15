@@ -75,7 +75,50 @@ model im:Indicator value of ecology:NormalizedDifferenceWaterIndex
 		min_ndwi,
 		ecology:NormalizedDifferenceWaterIndex named ndwi 
 	set to [ndwi < min_ndwi ? 0 : ( ndwi > max_ndwi ? 1 : ((ndwi - min_ndwi)/(max_ndwi - min_ndwi)) )]; 
-	
+
+
+@var(timespan=(start end))	
+define table ndwi_row_variable as {
+	name: "NDWI_variable"
+	title: "NDWI Variable Account",
+	label: "NDWI Variable",
+	target: ecology:NormalizedDifferenceWaterIndex
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table ndwi_indicator as {
+	name: "NDWI_indicator"
+	title: "NDWI Indicator Account",
+	label: "NDWI Indicator",
+	target: im:Indicator value of ecology:NormalizedDifferenceWaterIndex
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+
+
+
+/*MAES max-min for second stage -------------------------------------------------------------------------------- */	
 //	define BIO_REGION_MAES_NDWI as {{		
 //bio_region_by_forest_type                         |	max     |	min     
 //---------------------------------------------------------------------	        	

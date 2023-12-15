@@ -46,8 +46,8 @@ action main:
 		separator(:empty)
 		
 		(
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 1", true) #lctchangematrix1
+			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_indicator, 
+				"NDWI", true) #lctchangematrix1
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 2", true) #lctchangematrix2
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
@@ -80,8 +80,8 @@ action main:
 		)  #indics
 
 		(
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 1", true) #lctchangematrix14
+			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
+				"NDWI", true) #lctchangematrix14
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Variable 2", true) #lctchangematrix15
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
