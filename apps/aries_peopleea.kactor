@@ -53,15 +53,15 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
 				"Threatened Bird Species", true) #lctchangematrix3
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 4", true) #lctchangematrix4
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 5", true) #lctchangematrix5
+				"Above Ground Biomass", true) #lctchangematrix4
+			create aries.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
+				"Net Primary Productivity", true) #lctchangematrix5
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_indicator, 
 				"Forest Connectivity", true) #lctchangematrix6
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 7", true) #lctchangematrix7
+				"LAI", true) #lctchangematrix7
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 8", true) #lctchangematrix8
+				"NDVI", true) #lctchangematrix8
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 9", true) #lctchangematrix9
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
@@ -87,15 +87,15 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
 				"Threatened Bird Species", true) #lctchangematrix16
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 4", true) #lctchangematrix17
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 5", true) #lctchangematrix18
+				"Above Ground Biomass", true) #lctchangematrix17
+			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
+				"Net Primary Productivity", true) #lctchangematrix18
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_row_variable, 
 				"Forest Connectivity", true) #lctchangematrix19
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 7", true) #lctchangematrix20
+				"LAI", true) #lctchangematrix20
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 8", true) #lctchangematrix21
+				"NDVI", true) #lctchangematrix21
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Variable 9", true) #lctchangematrix22
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
