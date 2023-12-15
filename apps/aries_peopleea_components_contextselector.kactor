@@ -1,0 +1,124 @@
+component aries.peopleea.components.contextselector
+	"Interface to the context selection mechanism, with a yearly time selector and optional yearly timesteps customize for PeopleEA application"
+
+/*
+ * Init is called before main but also at reset
+ */
+action init:
+	
+	// defaults for the session state. Names are mandatory.
+	set self.lockspace false
+	set self.timeresolution 1.year
+	set self.startyear 2015
+	set self.endyear 2016
+	set self.timetype GRID
+	set self.spaceresolutionunit "m"
+	set self.spacemultiplier 300
+	set self.geocodingstrategy "Map boundaries"
+
+action reset:
+	// TODO call locate(:reset) to reset the view to nothing
+	// TODO select item 0 in combo
+
+action main:
+
+	set endyear [self.endyear]
+
+	(
+		(
+			( 
+				label("Region of interest" #search width="100%" :left :tooltip)
+				button(:tooltip "Interrupt computation and reset context" #breset :iconname "close-circle-outline" 
+					:hidden color="red-8"
+				): (
+					setui(:timeout 2000 :disabled)
+					context(:reset :interrupt)
+				)
+			) :hbox
+			(
+				combo(
+					"Map boundaries"
+					"Administrative region" 
+					"River basin" 
+					#regioncombo
+					width="70%"
+				): set self.geocodingstrategy $
+			
+				button(:tooltip "Lock spatial resolution" :iconname "lock-open" :toggle #lockspace): (
+					set self.lockspace [!self.lockspace],
+					lockspace.update(
+						:color    [self.lockspace] ? "blue-6" : "black-8"
+						:iconname [self.lockspace] ? "lock" : "lock-open"
+					)	
+				)
+				textinput(#resolution "300" width="30%"):  set self.spacemultiplier $
+				combo (#unit  "m" "km" width="15%" ): set self.spaceresolutionunit $
+			) :hbox
+			(
+				(label("Years" width="content")
+				// TODO initialize from restored state
+				textinput("2015" :width "col1" #yearfrom): set self.startyear $ 
+				checkbutton("To" :checked :width "content" #yearselector): (
+		 			true -> (
+//		 				set self.timetype GRID
+		 				set self.endyear endyear
+		 				yearto.enable
+		 				"dynamic"
+		 			)
+		 			false -> (
+//		 				set self.timetype LOGICAL
+		 				set self.endyear [self.startyear + 1]
+		 				yearto.disable
+		 				"static"
+		 			)
+			 	)
+				
+		 		textinput("2016" #yearto :width "col1" :right): ( 
+		 				set self.endyear $
+		 				set endyear $
+		 			)
+		 		) :hbox
+		 	) :hbox
+		 ) :vbox
+	) :altbg
+	
+	// install the session listener to update the title and the resolution when context changes
+	locate: (
+		map -> ( 
+			search.update([map.description])
+			resolution.update([map.resolution])
+			unit.update([map.unit])
+		)
+	)
+	
+	/*
+	 * boooring
+	 */
+	context: (
+		empty -> (
+			breset.hide
+			regioncombo.enable
+			resolution.enable
+			unit.enable
+			yearfrom.enable
+			yearto.enable
+			yearselector.enable
+			lockspace.enable
+			search.enable
+			setui(:disabled false)
+		)
+		other -> (
+			breset.show
+			regioncombo.disable
+			resolution.disable
+			unit.disable
+			yearfrom.disable
+			yearto.disable
+			yearselector.disable
+			lockspace.disable
+			search.disable
+		)
+	)
+
+
+
