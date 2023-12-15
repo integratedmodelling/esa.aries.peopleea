@@ -75,8 +75,6 @@ number min_forest_connectivity
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-//@documented(seeaeea.forestconnectivityindex)
-//@key(en="Forest connectivity indicator", es="Índice de fragmentación forestal")
 model im:Indicator value of ecology:ForestConnectivity 	
         observing 
 			max_forest_connectivity,
@@ -84,51 +82,42 @@ model im:Indicator value of ecology:ForestConnectivity
 			percentage of ecology:ForestConnectivity named forest_connectivity
        set to [forest_connectivity < min_forest_connectivity ? 0 : ( forest_connectivity > max_forest_connectivity ? 1 : ((forest_connectivity - min_forest_connectivity)/(max_forest_connectivity - min_forest_connectivity)))];
        
-//define table forest_connectivity_condition_variable_static as {
-////	target:percentage of ecology:ForestConnectivity
-//	target: im:Indicator value of ecology:ForestConnectivity
-//	columns: 
-//		{ 
-//			retarget: (remove im:Indicator)
-//			filter: ecology:Forest es.nca:BiogeographicRegionType
-//			columns: (
-//				{ title: "Value"  filter: start }
-//			)
-//		},
-//	rows: (
-//		{ title: "{target}", target: es.nca:ConditionIndicator } 
-//	)
-//};
-//
-//define table forest_connectivity_condition_static as {
-//	target: percentage of ecology:ForestConnectivity
-////	target: geography:Elevation in m
-//	columns:(
-//			 { title: "{classifier}", filter: landcover:LandCoverType}
-////			 { title: "{classifier}", filter: ecology:Forest es.nca:BiogeographicRegionType}
-//
-//    	     { title: "Total", style: bold })
-//	rows:   ({ title: "Forest connectivity"})};  
 
 @var(timespan=(start end))	
-define table test as {
-	name: "banana"
-	title: "banana",
-	label: "banana",
+define table forest_connectivity_row_variable as {
+	name: "forest_connectivity_variable"
+	title: "Forest Connectivity Variable Account",
+	label: "Forest Connectivity Variable",
 	target: percentage of ecology:ForestConnectivity
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
 		rowsummary = { filter: "change" title: "Net change"}, 
-		colsummary=  { filter: "total", title: "Total" },
+//		colsummary=  { filter: "mean", title: "Mean" },
 		rows =       { filter: %timespan% }, 
 		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
-		statistic = "mean",
+		statistic =  "mean",
 		empty='', 
 		no-data = ''
 	)
 };
-//ecology:Forest es.nca:BiogeographicRegionType 
-	
 
+@var(timespan=(start end))	
+define table forest_connectivity_row_variable as {
+	name: "forest_connectivity_indicator"
+	title: "Forest Connectivity Indicator Account",
+	label: "Forest Connectivity Indicator",
+	target: im:Indicator value of ecology:ForestConnectivity
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
 	     

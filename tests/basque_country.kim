@@ -13,6 +13,6 @@ observe /* a:urn:to:use#objectid as */ earth:Region named basque_country
     // add any space and/or time extents: for example
     over space(shape="EPSG:4326 POLYGON ((-1.4077847477904217 42.82418558757945, -3.6050503727904215 42.82418558757945, -3.6050503727904215 43.557079282564246, -1.4077847477904217 43.557079282564246, -1.4077847477904217 42.82418558757945))",
     	grid="100 m"),
-    	time (year=2002);
+    	 time(start=2018, end=2020, step=1.year); 
 
 // add any models here
