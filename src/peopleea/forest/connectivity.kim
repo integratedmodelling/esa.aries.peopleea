@@ -103,7 +103,7 @@ define table forest_connectivity_row_variable as {
 };
 
 @var(timespan=(start end))	
-define table forest_connectivity_row_variable as {
+define table forest_connectivity_indicator_variable as {
 	name: "forest_connectivity_indicator"
 	title: "Forest Connectivity Indicator Account",
 	label: "Forest Connectivity Indicator",
