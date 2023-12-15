@@ -1,2 +1,4 @@
 project private namespace peopleea.forest.variables;
 
+model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=true' 
+	 as ratio of ecology:Vegetation im:Area to im:Area; 

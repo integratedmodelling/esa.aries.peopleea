@@ -1,0 +1,4 @@
+private namespace peopleea.soil.retention;
+
+model 'local:ferdinando.villa:im.openeo.sandbox:vito.cfactor#output_warp=true&synchronous=true' 
+ 	as soil:CoverManagement; 
