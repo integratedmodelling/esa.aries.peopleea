@@ -10,7 +10,7 @@ action init:
 	set keyoutputs ()
 	set indicators ()
 	set self.timespan (start end)
-	set target "Indicators" 
+	set target "Raw variables" 
 	
 @left(width=450)
 action main:
@@ -32,7 +32,7 @@ action main:
 	separator("PEOPLE-EA deliverables" :iconname "cog" :info) 
 	(
 		()
-		combo("Indicators" "Raw variables" #target_observations width="90%"): (
+		combo("Raw variables" "Indicators" #target_observations width="90%"): (
 			set self.target $
 			if [self.target == 'Indicators'] (
 				rawvars.hide
@@ -77,7 +77,7 @@ action main:
 		
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
 				["PEOPLE-EA Forest Condition Index " + target], true) #lctchangematrix444
-		)  #indics
+		)  :hidden #indics
 
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
@@ -111,7 +111,7 @@ action main:
 		
 		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				["Aggregated " + target], true) #lctchangematrix333
-		) :hidden #rawvars 
+		) #rawvars 
 		
 
 	) :hfill :altbg #peopleea_deliverables 
