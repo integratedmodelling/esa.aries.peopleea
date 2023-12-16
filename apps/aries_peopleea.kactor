@@ -76,7 +76,9 @@ action main:
 			separator(:empty)
 		
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index " + target], true) #lctchangematrix444
+				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix444
+//				["PEOPLE-EA Forest Condition Index " + target], true) #lctchangematrix444 //target stays always "Raw Variables"
+
 		)  :hidden #indics
 
 		(
