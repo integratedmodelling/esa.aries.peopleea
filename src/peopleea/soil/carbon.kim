@@ -78,7 +78,7 @@ model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:M
 
 
 @var(timespan=(start end))	
-define table soc_row_variable as {
+define table soc_raw_variable as {
 	name: "soil_organic_carbon_variable"
 	title: "Soil Organic Carbon Variable Account",
 	label: "Soil Organic Carbon Variable",

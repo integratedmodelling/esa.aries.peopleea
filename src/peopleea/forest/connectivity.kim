@@ -84,7 +84,7 @@ model im:Indicator value of ecology:ForestConnectivity
        
 
 @var(timespan=(start end))	
-define table forest_connectivity_row_variable as {
+define table forest_connectivity_raw_variable as {
 	name: "forest_connectivity_variable"
 	title: "Forest Connectivity Variable Account",
 	label: "Forest Connectivity Variable",

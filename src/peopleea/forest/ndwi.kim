@@ -78,7 +78,7 @@ model im:Indicator value of ecology:NormalizedDifferenceWaterIndex
 
 
 @var(timespan=(start end))	
-define table ndwi_row_variable as {
+define table ndwi_raw_variable as {
 	name: "NDWI_variable"
 	title: "NDWI Variable Account",
 	label: "NDWI Variable",

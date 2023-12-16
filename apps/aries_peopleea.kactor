@@ -90,7 +90,7 @@ action main:
 				"Above Ground Biomass", true) #lctchangematrix17
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
 				"Net Primary Productivity", true) #lctchangematrix18
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_row_variable, 
+			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_raw_variable, 
 				"Forest Connectivity", true) #lctchangematrix19
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"LAI", true) #lctchangematrix20

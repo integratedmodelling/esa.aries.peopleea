@@ -83,7 +83,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 
 
 @var(timespan=(start end))	
-define table npp_row_variable as {
+define table npp_raw_variable as {
 	name: "net_primary_productivity_variable"
 	title: "Net Primary Productivity Variable Account",
 	label: "TNet Primary Producticvity Variable",
