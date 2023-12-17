@@ -111,8 +111,10 @@ action main:
 
 		separator(:empty)
 		
-		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				["Aggregated " + target], true) #lctchangematrix333
+		create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
+				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
+//		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+//				["Aggregated " + target], true) #lctchangematrix333
 		) #rawvars 
 		
 
