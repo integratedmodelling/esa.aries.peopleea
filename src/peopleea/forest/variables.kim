@@ -28,28 +28,28 @@ define table fraction_green_vegetation_raw_variable as {
 }; 
 		
 /* DROUGHT SEVERITY */		
-model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1999',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2000',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2001',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2002',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2003',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2004',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2005',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2006',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2007',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2008',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2009',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2010',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2011',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2012',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2013',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2014',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2015',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2016',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2017',
-		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2018'
-	as soil:DroughtSeverity;
+//model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1999',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2000',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2001',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2002',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2003',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2004',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2005',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2006',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2007',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2008',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2009',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2010',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2011',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2012',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2013',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2014',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2015',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2016',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2017',
+//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2018'
+//	as soil:DroughtSeverity;
 	
 model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2013',
@@ -143,4 +143,4 @@ define table landscape_naturalness_raw_variable as {
 		empty='', 
 		no-data = ''
 	)
-}; 
+};
