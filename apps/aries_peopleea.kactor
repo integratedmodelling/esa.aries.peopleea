@@ -29,8 +29,7 @@ action main:
 			lctchangematrix.enable
 		)
 	)
-	( separator("PEOPLE-EA indicators" :iconname "cog" :info) 
-	
+	//separator("PEOPLE-EA indicators" :iconname "cog" :info) 
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
@@ -38,9 +37,9 @@ action main:
 		) :hfill :altbg :name "PEOPLE-EA indicators" :iconname "cog" :opened
 	) :shelf
 
-	separator("PEOPLE-EA deliverables" :iconname "cog" :info) 
 	(
-		()
+	  (
+		() //space
 		combo("Raw variables" "Indicators" #target_observations width="90%"): (
 			set self.target $
 			if [self.target == 'Indicators'] (
@@ -107,18 +106,12 @@ action main:
 				"Plant Phenology Index", true) #lctchangematrix26
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				" Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
-//
-//		separator(:empty)
-		
-//		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-//				["Aggregated " + target], true) #lctchangematrix333
 		) #rawvars 
 		
-
-	) :hfill :altbg #peopleea_deliverables 
-	
-	separator("ARIES for SEEA accounting tables" :iconname "cog" :info)
-	( 
+	  ) :hfill :altbg :name "PEOPLE-EA deliverables" :iconname "cog" :opened #peopleea_deliverables 
+	) :shelf
+	(
+	  ( 
 		// Extent panel
 		(
 			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_basic,
@@ -218,12 +211,13 @@ action main:
 				
 		) :hfill :altbg :name #ECOSYSTEM_SERVICES_ACCOUNTS_MONETARY
 		 
-	) :shelf :hfill :vfill // :multiple
+	  ) :hfill :vfill :name "ARIES for SEEA accounting tables" :iconname "cog"// :multiple
+	) :shelf
 		
 	separator(#ADDITIONAL_SEEA_INDICATORS #addheader :hidden)
 	(
 	) :hfill #additionaloutputs
-	) :shelf
+	
 	(((
 		separator(#ECOSYSTEM_ACCOUNTING_AREAS :iconname "puzzle" :info)
 		checkbutton(#PRIMARY_ONLY_NO_SUBDIVISIONS :checked)
