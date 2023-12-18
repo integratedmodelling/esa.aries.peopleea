@@ -6,7 +6,26 @@ model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=t
 	 as ratio of ecology:Vegetation im:Area to im:Area; 
 	 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
-		 as ratio of ecology:Vegetation im:Area to im:Area; 
+		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m;  
+
+@var(timespan=(start end))	
+define table fraction_green_vegetation_raw_variable as {
+	name: "fcover_variable"
+	title: "Fraction of Green Vegetation Cover Variable Account",
+	label: "Fraction of Green Vegetation Cover Variable",
+	target: ratio of ecology:Vegetation im:Area to im:Area
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+}; 
 		
 /* DROUGHT SEVERITY */		
 model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
@@ -67,5 +86,5 @@ model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_
 
 /*PPI Tier 2 */
 
-model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'
-		as ecology:PlantPhenologyIndex;
+model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'  
+		as ecology:PlantPhenologyIndex named ppi_10m; 
