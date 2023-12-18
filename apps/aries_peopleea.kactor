@@ -110,10 +110,11 @@ action main:
 		
 	  ) :hfill :altbg :name "PEOPLE-EA deliverables" :iconname "cog" :opened #peopleea_deliverables 
 	) :shelf
+	
 	(
 	  ( 
 		// Extent panel
-		(
+		((
 			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_basic,
 				#EXTENT_ACCOUNT_NET_BALANCE, true)
 			create aries.components.selectors.observation(seea.aries.tables.ecosystemextent.extents_additions_reductions, 
@@ -210,7 +211,7 @@ action main:
 				#GLOBAL_CLIMATE_REGULATION_VALUE_OF_CHANGE_IN_C_STORAGE, true) #carbonmonetary
 				
 		) :hfill :altbg :name #ECOSYSTEM_SERVICES_ACCOUNTS_MONETARY
-		 
+		) :shelf		 
 	  ) :hfill :vfill :name "ARIES for SEEA accounting tables" :iconname "cog"// :multiple
 	) :shelf
 		
