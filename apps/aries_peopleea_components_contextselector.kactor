@@ -58,7 +58,7 @@ action main:
 				(label("Years" width="content")
 				// TODO initialize from restored state
 				textinput("2015" :width "col1" #yearfrom): set self.startyear $ 
-				checkbutton("To" :checked :width "content" #yearselector): (
+				checkbutton("To" :width "content" #yearselector): (
 		 			true -> (
 //		 				set self.timetype GRID
 		 				set self.endyear endyear
@@ -73,7 +73,7 @@ action main:
 		 			)
 			 	)
 				
-		 		textinput("2016" #yearto :width "col1" :right): ( 
+		 		textinput("2016" #yearto :width "col1" :right :disabled): ( 
 		 				set self.endyear $
 		 				set endyear $
 		 			)
