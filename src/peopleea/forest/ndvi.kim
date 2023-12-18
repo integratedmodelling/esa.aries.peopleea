@@ -69,7 +69,7 @@ number min_forest_productivity_ndvi
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI; 
 
-@key(en="NDVI condition indicator", es="Índice NDVI de vegetación")
+//@key(en="NDVI condition indicator", es="Índice NDVI de vegetación")
 model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
 	observing 
 		max_forest_productivity_ndvi,
@@ -81,3 +81,41 @@ model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex; 
+	
+@var(timespan=(start end))	
+define table ndvi_raw_variable as {
+	name: "ndvi_variable"
+	title: "NDVI Variable Account",
+	label: "NDVI Variable",
+	target: ecology:NormalizedDifferenceVegetationIndex 
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table ndvi_indicator as {
+	name: "ndvi_indicator"
+	title: "NDVI Indicator Account",
+	label: "NDVI Indicator",
+	target: im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};

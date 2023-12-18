@@ -67,4 +67,5 @@ model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_
 
 /*PPI Tier 2 */
 
-//local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m
+model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'
+		as ecology:PlantPhenologyIndex;

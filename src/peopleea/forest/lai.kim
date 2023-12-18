@@ -80,3 +80,41 @@ number max_leaf_area_index
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
 	as ecology:LeafAreaIndex;
+	
+@var(timespan=(start end))	
+define table lai_raw_variable as {
+	name: "lai_variable"
+	title: "Leaf Area Index Variable Account",
+	label: "Leaf Area Index Variable",
+	target: ecology:LeafAreaIndex
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table lai_raw_variable as {
+	name: "lai_indicator"
+	title: "Leaf Area Index Indicator Account",
+	label: "Leaf Area Index Indicator",
+	target: im:Indicator value of ecology:LeafAreaIndex	
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
