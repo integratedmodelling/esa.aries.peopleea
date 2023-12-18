@@ -64,7 +64,26 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2021',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
-	as im:Indicator landcover:AgriculturalVegetation soil:DroughtSeverity;
+	as im:Relative value of soil:DroughtSeverity;
+
+define table drought_severity_raw_variable as {
+	name: "drought_severity_variable"
+	title: "Drought Severity Variable Account",
+	label: "Drought Severity Variable",
+	target: im:Relative value of soil:DroughtSeverity
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
 
 /* TREE COVER DENSITY */
 model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2012',
@@ -119,7 +138,27 @@ define table landscape_naturalness_raw_variable as {
 
 /*FAPAR Tier 2 */
 
-//local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m
+ model 'local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m#output_warp=true&synchronous=true'  
+ 	 as ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation named fapar_10m; 
+
+@var(timespan=(start end))	
+define table fapar_raw_variable as {
+	name: "fapar_variable"
+	title: "FAPAR Variable Account",
+	label: "FAPAR Variable",
+	target: ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation 
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
 
 /*PPI Tier 2 */
 
@@ -127,7 +166,7 @@ model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&sync
 		as ecology:PlantPhenologyIndex named ppi_10m; 
 		
 @var(timespan=(start end))	
-define table landscape_naturalness_raw_variable as {
+define table ppi_raw_variable as {
 	name: "ppi_variable"
 	title: "PPI Variable Account",
 	label: "PPI Variable",
