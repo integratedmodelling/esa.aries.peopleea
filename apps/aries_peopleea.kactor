@@ -70,15 +70,9 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
 				"NDVI", true) #lctchangematrix8
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 9", true) #lctchangematrix9
+				"Burned Severity", true) #lctchangematrix9
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 10", true) #lctchangematrix10
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 11", true) #lctchangematrix11
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 12", true) #lctchangematrix12
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 13", true) #lctchangematrix13
 
 //			separator(:empty)
 //		
@@ -106,15 +100,17 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
 				"NDVI", true) #lctchangematrix21
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 9", true) #lctchangematrix22
+				"Fraction of Green Vegetation Cover", true) #lctchangematrix22
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 10", true) #lctchangematrix23
+				"Drought Severity", true) #lctchangematrix23
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 11", true) #lctchangematrix24
+				"Canopy Cover Percentage", true) #lctchangematrix24
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 12", true) #lctchangematrix25
+				"Landcsape Naturalness", true) #lctchangematrix25
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Variable 13", true) #lctchangematrix26
+				"Plant Phenology Index", true) #lctchangematrix26
+			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+				" Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
 //
 //		separator(:empty)
 		
