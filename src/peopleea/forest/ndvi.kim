@@ -80,7 +80,7 @@ model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex
 /* Tier 2 NDVI */ 
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
-	as ecology:NormalizedDifferenceVegetationIndex; 
+	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
 	
 @var(timespan=(start end))	
 define table ndvi_raw_variable as {

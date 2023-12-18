@@ -6,7 +6,7 @@ model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=t
 	 as ratio of ecology:Vegetation im:Area to im:Area; 
 	 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
-		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m;  
+		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m; 
 
 @var(timespan=(start end))	
 define table fraction_green_vegetation_raw_variable as {
@@ -72,6 +72,25 @@ model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.coper
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018'
 	as percentage of ecology:CanopyCover;
 
+@var(timespan=(start end))	
+define table canopy_cover_raw_variable as {
+	name: "canopy_cover_variable"
+	title: "Canopy Cover Variable Account",
+	label: "Canopy Cover Variable",
+	target: percentage of ecology:CanopyCover
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
 /* LANDSCAPE NATURALNESS */
 model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2000',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2006',
@@ -79,6 +98,24 @@ model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2018'
 			  as percentage of ecology:Natural landcover:LandscapeHeterogeneity; 
 
+@var(timespan=(start end))	
+define table landscape_naturalness_raw_variable as {
+	name: "landscape_naturalness_variable"
+	title: "Landscape Naturalness Variable Account",
+	label: "Landscape Naturalness Variable",
+	target: percentage of ecology:Natural landcover:LandscapeHeterogeneity
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
 
 /*FAPAR Tier 2 */
 
@@ -88,3 +125,22 @@ model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'  
 		as ecology:PlantPhenologyIndex named ppi_10m; 
+		
+@var(timespan=(start end))	
+define table landscape_naturalness_raw_variable as {
+	name: "ppi_variable"
+	title: "PPI Variable Account",
+	label: "PPI Variable",
+	target: ecology:PlantPhenologyIndex
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+}; 
