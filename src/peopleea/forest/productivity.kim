@@ -86,7 +86,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 define table npp_raw_variable as {
 	name: "net_primary_productivity_variable"
 	title: "Net Primary Productivity Variable Account",
-	label: "TNet Primary Producticvity Variable",
+	label: "Net Primary Productivity Variable",
 	target: ecology:PrimaryProductivity in kg/ha*year 
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
