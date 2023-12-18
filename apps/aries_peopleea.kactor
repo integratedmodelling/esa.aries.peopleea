@@ -94,18 +94,20 @@ action main:
 				"LAI", true) #lctchangematrix20
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
 				"NDVI", true) #lctchangematrix21
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
 				"Fraction of Green Vegetation Cover", true) #lctchangematrix22
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_raw_variable, 
 				"Drought Severity", true) #lctchangematrix23
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.variables.canopy_cover_raw_variable, 
 				"Canopy Cover Percentage", true) #lctchangematrix24
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_raw_variable, 
 				"Landscape Naturalness", true) #lctchangematrix25
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
 				"Plant Phenology Index", true) #lctchangematrix26
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				" Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
+			create aries.components.selectors.observation(peopleea.forest.variables.fapar_raw_variable, 
+				"Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
+			create aries.components.selectors.observation(peopleea.forest.connectivity.forest.fragmentation.raw.variable, 
+				"Forest Fragmentation", true) #lctchangematrix28
 		) #rawvars 
 		
 	  ) :hfill :altbg :name "PEOPLE-EA deliverables" :iconname "cog" :opened #peopleea_deliverables 
