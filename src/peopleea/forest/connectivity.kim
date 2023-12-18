@@ -120,4 +120,22 @@ define table forest_connectivity_indicator as {
 		no-data = ''
 	)
 };
-	     
+
+@var(timespan=(start end))	
+define table forest_fragmentation_raw_variable as {
+	name: "forest_fragmentation_variable"
+	title: "Forest Fragmentation Variable Account",
+	label: "Forest Fragmentation Variable",
+	target: ecology:ForestFragmentation
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};	     
