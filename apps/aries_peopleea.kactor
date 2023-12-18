@@ -29,6 +29,13 @@ action main:
 			lctchangematrix.enable
 		)
 	)
+	( separator("PEOPLE-EA indicators" :iconname "cog" :info) 
+	
+	(
+			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
+				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
+	)
+
 	separator("PEOPLE-EA deliverables" :iconname "cog" :info) 
 	(
 		()
@@ -73,11 +80,11 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Indicator 13", true) #lctchangematrix13
 
-			separator(:empty)
-		
-			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix444
-//				["PEOPLE-EA Forest Condition Index " + target], true) #lctchangematrix444 //target stays always "Raw Variables"
+//			separator(:empty)
+//		
+//			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
+//				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix444
+////				["PEOPLE-EA Forest Condition Index " + target], true) #lctchangematrix444 //target stays always "Raw Variables"
 
 		)  :hidden #indics
 
@@ -108,11 +115,9 @@ action main:
 				"Variable 12", true) #lctchangematrix25
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Variable 13", true) #lctchangematrix26
-
-		separator(:empty)
+//
+//		separator(:empty)
 		
-		create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
 //		create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 //				["Aggregated " + target], true) #lctchangematrix333
 		) #rawvars 
@@ -226,7 +231,7 @@ action main:
 	separator(#ADDITIONAL_SEEA_INDICATORS #addheader :hidden)
 	(
 	) :hfill #additionaloutputs
-
+	) :shelf
 	(((
 		separator(#ECOSYSTEM_ACCOUNTING_AREAS :iconname "puzzle" :info)
 		checkbutton(#PRIMARY_ONLY_NO_SUBDIVISIONS :checked)
