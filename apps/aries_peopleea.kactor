@@ -102,9 +102,8 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Canopy Cover Percentage", true) #lctchangematrix24
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Landcsape Naturalness", true) #lctchangematrix25
+				"Landscape Naturalness", true) #lctchangematrix25
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-<<<<<<< HEAD
 				"Plant Phenology Index", true) #lctchangematrix26
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				" Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
