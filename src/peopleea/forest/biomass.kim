@@ -1,4 +1,4 @@
-private namespace peopleea.forest.biomass;
+project private namespace peopleea.forest.biomass;
 
 @intensive(space)   
 @extensive(time)
@@ -18,11 +18,58 @@ model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp
 //try reimporting the resources	
 
 define BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS as {{		
-bio_region_by_forest_type                                    |	max   |	min     
-------------------------------------------------------------------------------	      	
-es.nca:Alpine landcover:BroadleafForest                      |	0|	0
-// to be filled in
+bio_region_by_forest_type                                    |	max   |	min
+-------------------------------------------------------------------------	      	
+es.nca:Alpine landcover:BroadleafForest                      |	447   |	0  ,
+es.nca:Alpine landcover:ConiferousForest                     |	443   |	0  ,
+es.nca:Alpine landcover:MixedForest                          |	448   |	10 ,
+es.nca:Alpine landcover:TransitionalWoodlandScrub            |	350   |	0  ,
+es.nca:Arctic landcover:BroadleafForest                      |	80    |	0  ,
+es.nca:Arctic landcover:ConiferousForest                     |	96    |	0  ,
+es.nca:Arctic landcover:MixedForest                          |	98    |	0  ,
+es.nca:Arctic landcover:TransitionalWoodlandScrub            |	98.68 |	0  ,
+//es.nca:Anatolian landcover:BroadleafForest                   |		
+//es.nca:Anatolian landcover:ConiferousForest                  |		
+//es.nca:Anatolian landcover:MixedForest                       |		
+//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
+es.nca:Atlantic landcover:BroadleafForest                    |	203   |	0  ,
+es.nca:Atlantic landcover:ConiferousForest                   |	149   |	0  ,
+es.nca:Atlantic landcover:MixedForest                        |	173.42|	0  ,
+es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	191.96|	0  ,
+es.nca:BlackSea landcover:BroadleafForest                    |	189   |	0  ,
+es.nca:BlackSea landcover:ConiferousForest                   |	357   |	0  ,
+es.nca:BlackSea landcover:MixedForest                        |	352.66|	0  ,
+es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	317   |	0  ,
+es.nca:Boreal landcover:BroadleafForest                      |	275   |	0  ,
+es.nca:Boreal landcover:ConiferousForest                     |	216   |	4  ,
+es.nca:Boreal landcover:MixedForest                          |	285   |	5  ,
+es.nca:Boreal landcover:TransitionalWoodlandScrub            |	229   |	1  ,
+es.nca:Continental landcover:BroadleafForest                 |	369   |	0  ,
+es.nca:Continental landcover:ConiferousForest                |	432   |	6  ,
+es.nca:Continental landcover:MixedForest                     |	409   |	1  ,
+es.nca:Continental landcover:TransitionalWoodlandScrub       |	295.6 |	0  ,
+es.nca:Macaronesian landcover:BroadleafForest                |	340   |	0  ,
+es.nca:Macaronesian landcover:ConiferousForest               |	318   |	0  ,
+es.nca:Macaronesian landcover:MixedForest                    |	361.62|	0  ,
+es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	242.34|	0  ,
+es.nca:Mediterranean landcover:BroadleafForest               |	325   |	0  ,
+es.nca:Mediterranean landcover:ConiferousForest              |	311   |	0  ,
+es.nca:Mediterranean landcover:MixedForest                   |	342   |	0  ,
+es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	223   |	0  ,
+es.nca:Pannonian landcover:BroadleafForest                   |	353   |	0  ,
+es.nca:Pannonian landcover:ConiferousForest                  |	357   |	0  ,
+es.nca:Pannonian landcover:MixedForest                       |	352.66|	0  ,
+es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	317   |	0  ,
+es.nca:Steppic landcover:BroadleafForest                     |	224   |	0  ,
+es.nca:Steppic landcover:ConiferousForest                    |	352.66|	0  ,
+es.nca:Steppic landcover:MixedForest                         |	317   |	0  ,
+es.nca:Steppic landcover:TransitionalWoodlandScrub           |	317   |	0  ,
+es.nca:AlpineScandinavian landcover:BroadleafForest          |	80    |	0  ,
+es.nca:AlpineScandinavian landcover:ConiferousForest         |	96    |	0  ,
+es.nca:AlpineScandinavian landcover:MixedForest              |	98    |	0  ,
+es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	98.68 |	0  
 }};
+
 
 number max_above_ground_biomass 
 	observing
@@ -42,3 +89,41 @@ model im:Indicator value of ecology:AboveGroundBiomass
 		min_above_ground_biomass,
 		ecology:AboveGroundBiomass named above_ground_biomass
 	set to [above_ground_biomass < min_above_ground_biomass ? 0 : ( above_ground_biomass > max_above_ground_biomass ? 1 : ((above_ground_biomass - min_above_ground_biomass)/(max_above_ground_biomass - min_above_ground_biomass)) )];
+
+@var(timespan=(start end))	
+define table agb_raw_variable as {
+	name: "above_ground_biomass_variable"
+	title: "Above Ground Biomass Variable Account",
+	label: "Above Ground Biomass Variable",
+	target: ecology:AboveGroundBiomass
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))	
+define table agb_indicator as {
+	name: "above_ground_biomass_indicator"
+	title: "Above Ground Biomass Indicator Account",
+	label: "Above Ground Biomass Indicator",
+	target: im:Indicator value of ecology:AboveGroundBiomass
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};	

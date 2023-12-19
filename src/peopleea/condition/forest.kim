@@ -10,9 +10,12 @@ model  im:Indicator ecology:Forest es.nca:Condition
 		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
 		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
 	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
-	set to [(0.27 * indicator_normalized_difference_water_index) + (0.07 * indicator_soil_organic_carbon) 
-		     + (0.10 * indicator_threathened_bird_species) +  (0.18 * indicator_above_ground_biomass) 
-		     + (0.22 * indicator_net_primary_production) + (0.16 * indicator_forest_connectivity)]; 
+	set to [
+		(0.27 * indicator_normalized_difference_water_index) + (0.07 * indicator_soil_organic_carbon) 
+		     + (0.10 * indicator_threathened_bird_species) +  (0.18 * indicator_above_ground_biomass)
+		      (0.22 * indicator_net_primary_production) + (0.16 * indicator_forest_connectivity)]; 
+//		     set to[(0.22 * indicator_net_primary_production) + (0.16 * indicator_forest_connectivity)]; 
+		     
 		     
 		     
 @var(timespan=(start end))	
