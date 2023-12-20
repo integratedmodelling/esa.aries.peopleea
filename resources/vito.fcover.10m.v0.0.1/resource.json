@@ -7,11 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.fcover.10m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1702634577375,
+  "resourceTimestamp" : 1703065177879,
   "metadata" : {
     "dc:description" : "Annual mean composite of Sentinel-2 FCOVER. Returns a single band RasterCube.",
-    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of FCOVER (https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf).",
-    "dc:title" : "Annual mean composite of Sentinel-2 FCOVER"
+    "im:keywords" : "FCOVER",
+    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of FCOVER. FCOVER  corresponds to the gap fraction for nadir direction. FCOVER is used to separate vegetation and soil in energy balance processes, including temperature and evapotranspiration. It is computed from the leaf area index and other canopy structural variables. Because of its quasi-linear relationship with reflectances, FCOVER will be only marginally scale dependent (Weiss et al. 2000). Note that similarly to LAI and FAPAR, only the green elements (leaf chlorophyll content higher than 15μg.cm-2P) are considered.",
+    "im:notes" : "",
+    "dc:title" : "Annual mean composite of Sentinel-2 FCOVER",
+    "dc:url" : "https://terrascope.be/en/satellites/sentinel-2",
+    "dc:creator" : "Isabelle Piccard\r\nElse Swinnen\r\nLiesbeth De Keukelaere\r\nRuben Van De Kerchove\r\nHerman Eerens",
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "VITO",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Piccard et al. (2020). Terrascope Sentinel-2 Algorithm Theoretical Base Document S2 – NDVI & BIOPAR – V200. https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf\r\nWeiss, M., Baret, F., Myneni, R., Pragnère, A., & Knyazikhin, Y. (2000). Investigation of a model inversion technique for the estimation of crop charcteristics from spectral and directional reflectance data. Agronomie, 20, 3-22."
   },
   "parameters" : {
     "space.shape" : "geometry",

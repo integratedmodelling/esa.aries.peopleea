@@ -7,11 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.fcover",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1685349527826,
+  "resourceTimestamp" : 1703064937725,
   "metadata" : {
     "dc:description" : "Annual mean composite of Copernicus Global Land FCOVER. Returns a single band RasterCube.",
-    "dc:comment" : "Given a year and area of interest, returns a mean composite of [FCover](https://land.copernicus.eu/global/products/fcover).",
-    "dc:title" : "Annual mean composite of Copernicus Global Land FCOVER"
+    "im:keywords" : "Vegetation cover",
+    "dc:comment" : "Given a year and area of interest, returns a mean composite of FCover. The Fraction of Vegetation Cover (FCover) corresponds to the fraction of ground covered by green vegetation. Practically, it quantifies the spatial extent of the vegetation. FCOVER is estimated by applying a Neural Network is applied on Top-of-Canopy (TOC) input reflectances in visible, near-infrared and shortwave infrared, at 1km resolution, to get instantaneous FCover estimates. Temporal smoothing and gap filling use climatology information from version 1 to ensure continuity and consistency. Temporal compositing is adapted to provide a near-real time (10-daily) estimate and successive updated estimates until a consolidated value is reached after about 2 months.",
+    "im:notes" : "",
+    "dc:title" : "Annual mean composite of Copernicus Global Land FCOVER",
+    "dc:url" : "https://land.copernicus.eu/global/products/fcover",
+    "dc:creator" : "",
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "European Union",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Baret, F. ; Weiss, M. ; Lacaze, R. ; Camacho, F. ; Makhmara, H. ; Pacholczyk, P. ; Smets, B. GEOV1: LAI, FAPAR Essential Climate Variables and FCover global times series capitalizing over existing products. Part1: Principles of development and production. Remote Sensing of Environment 2013, vol. 137, 299–309.\r\nVerger, A. ; Baret, F. ; Weiss, M. Near real-time vegetation monitoring at global scale. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing 2014, 7, 3473-3481. DOI 10.1109/JSTARS.2014.2328632."
   },
   "parameters" : {
     "space.shape" : "geometry",

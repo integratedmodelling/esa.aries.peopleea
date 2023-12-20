@@ -7,11 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.ndvi.10m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1702635894563,
+  "resourceTimestamp" : 1703066837083,
   "metadata" : {
     "dc:description" : "Annual mean composite of Sentinel-2 NDVI. Returns a single band RasterCube.",
-    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of NDVI (https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf).",
-    "dc:title" : "Annual mean composite of Sentinel-2 NDVI"
+    "im:keywords" : "Normalized Difference Vegetation Index (NDVI)",
+    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of NDVI. The NDVI is a dimensionless vegetation index, which provides information on the greenness of the surface. It is closely related to the Fraction of Absorbed Photosynthetically Active Radiation (FAPAR), and is little scale-dependent. Even though it is not a physical property of the vegetation cover, its simple formulation makes it widely used for ecosystem monitoring.",
+    "im:notes" : "",
+    "dc:title" : "Annual mean composite of Sentinel-2 NDVI",
+    "dc:url" : "https://terrascope.be/en/satellites/sentinel-2",
+    "dc:creator" : "Isabelle Piccard\r\nElse Swinnen\r\nLiesbeth De Keukelaere\r\nRuben Van De Kerchove\r\nHerman Eerens",
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "VITO",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Piccard et al. (2020). Terrascope Sentinel-2 Algorithm Theoretical Base Document S2 – NDVI & BIOPAR – V200. https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf"
   },
   "parameters" : {
     "space.shape" : "geometry",

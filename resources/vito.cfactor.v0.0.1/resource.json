@@ -7,19 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.cfactor",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1693988060760,
+  "resourceTimestamp" : 1703064430996,
   "metadata" : {
     "dc:description" : "Loads the prepared annual INCA c-factor raster for RUSLE calculation. Returns a single band RasterCube.",
-    "im:keywords" : "",
-    "dc:comment" : "Loads the prepared c-factor raster dataset from the INCA tool for the soil retention claculation.",
+    "im:keywords" : "C-factor, soil retention",
+    "dc:comment" : "Loads the prepared c-factor raster dataset from the INCA tool for the soil retention claculation.  C-Factor is a raster dataset (preferred: GeoTiff) representing the vegetation cover factor (dimensionless) derived from (i) crop information and farm structure survey for cropland areas and (ii) from fraction of vegetation cover for non-cropland area’s. Values in range [0.0001 , 0.55].",
     "im:notes" : "",
     "dc:title" : "Loads the prepared annual INCA c-factor raster for RUSLE calculation",
-    "dc:url" : "",
+    "dc:url" : "https://ecosystem-accounts.jrc.ec.europa.eu/sites/default/files/2023-11/INCA_ToolPlugIn_UserGuide_1_1.pdf",
     "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "im:thematic-area" : "Soil",
+    "dc:originator" : "Eurostat",
+    "im:geographic-area" : "Global",
+    "dc:source" : "La Notte, A., Vallecillo Rodriguez, S., Garcia Bendito, E., Grammatikopoulou, I., Czucz, B.,\r\nFerrini, S., Grizzetti, B., Rega, C., Herrando, S., Villero, D., Zurbaran Nucci, M. and Maes, J.,\r\nEcosystem Services Accounting – Part III - Pilot accounts for habitat and species maintenance, on-site soil retention and water purification, EUR 30856 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-42052-1, doi:10.2760/707, JRC126566.\r\nMaes, Joachim; Vallecillo, Sara; La Notte, Alessandra; Zurbaran, Mayra (2021): INCA - Soil\r\nRetention. European Commission, Joint Research Centre (JRC) [Dataset] PID:\r\nhttp://data.europa.eu/89h/2e120644-aee8-42f0-811a-c2bede08c604"
   },
   "parameters" : {
     "space.shape" : "geometry",

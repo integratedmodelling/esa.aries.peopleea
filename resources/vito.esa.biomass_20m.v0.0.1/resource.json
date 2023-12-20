@@ -7,19 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.esa.biomass_20m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1702651395688,
+  "resourceTimestamp" : 1703064651179,
   "metadata" : {
     "dc:description" : "Load the ESA forest carbon monitoring dataset for specified year and band. Returns a single band RasterCube.",
-    "im:keywords" : "",
-    "dc:comment" : "Given a year and area of interest, returns the specified band of the ESA forest carbon monitoring 20m DEMO dataset.",
+    "im:keywords" : "Above-ground biomass (AGB)",
+    "dc:comment" : "Given a year and area of interest, returns the specified band of the ESA forest carbon monitoring 20m DEMO dataset. Three major datasets were used. The growing stock volume and biomass estimation was based on Sentinel-1 and PALSAR-2 data. The change detection was conducted using Sentinel-2 data. The growing stock volume (GSV), above ground biomass (AGB) and below ground biomass (BGB) estimation in the Europe demonstration was conducted with the BIOMASAR approach (Santoro et al. 2021a) developed at Gamma Remote Sensing (https://www.gamma-rs.ch/).",
     "im:notes" : "",
     "dc:title" : "Load the ESA forest carbon monitoring dataset for specified year and band",
-    "dc:url" : "",
+    "dc:url" : "https://www.forestcarbonplatform.org/",
     "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "European Space Agency",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Santoro, M., Cartus, O., Fransson, J.E.S., 2021a. Integration of allometric equations in the water cloud model towards an improved retrieval of forest stem volume with L-band SAR data in Sweden. Remote Sensing of Environment 253, 112235."
   },
   "parameters" : {
     "space.shape" : "geometry",

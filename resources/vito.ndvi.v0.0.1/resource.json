@@ -7,19 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.ndvi",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1693988038540,
+  "resourceTimestamp" : 1703066673111,
   "metadata" : {
     "dc:description" : "Annual mean composite of Copernicus Global Land NDVI. Returns a single band RasterCube.",
-    "im:keywords" : "",
-    "dc:comment" : "Given a year and area of interest, returns a mean composite of [NDVI](https://land.copernicus.eu/global/products/ndvi).",
+    "im:keywords" : "Normalized Difference Vegetation Index (NDVI)",
+    "dc:comment" : "Given a year and area of interest, returns a mean composite of NDVI. The Normalized Difference Vegetation Index (NDVI) is an indicator of the greenness of the biomes.  Even though it is not a physical property of the vegetation cover, its very simple formulation NDVI = (REF_nir – REF_red)/(REF_nir + REF_red) where REF_nir and REF_red are the spectral reflectances measured in the near infrared and red wavebands respectively, makes it widely used for ecosystems monitoring.",
     "im:notes" : "",
     "dc:title" : "Annual mean composite of Copernicus Global Land NDVI",
-    "dc:url" : "",
+    "dc:url" : "https://land.copernicus.eu/global/products/ndvi",
     "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "European Union",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Baret, F. ; Weiss, M. ; Lacaze, R. ; Camacho, F. ; Makhmara, H. ; Pacholczyk, P. ; Smets, B. GEOV1: LAI, FAPAR Essential Climate Variables and FCover global times series capitalizing over existing products. Part1: Principles of development and production. Remote Sensing of Environment 2013, vol. 137, 299–309.\r\nLeon-Tavares, J. ; Roujean, J. - L. ; Smets, B. ; Wolters, E. ; Toté, C. ; Swinnen, E. Correction of Directional Effects in VEGETATION NDVI Time-Series. Remote Sensing 2021, 134023Volume 16, 1130. DOI 10.3390/rs13061130."
   },
   "parameters" : {
     "space.shape" : "geometry",

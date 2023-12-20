@@ -7,11 +7,19 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.lai.10m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1702635707637,
+  "resourceTimestamp" : 1703066494692,
   "metadata" : {
     "dc:description" : "Annual mean composite of Sentinel-2 LAI. Returns a single band RasterCube.",
-    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of LAI (https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf).",
-    "dc:title" : "Annual mean composite of Sentinel-2 LAI"
+    "im:keywords" : "Leaf Area Index (LAI)",
+    "dc:comment" : "Given a year and area of interest, returns an annual mean composite of LAI. LAI is defined as half the developed area of photosynthetically active elements of the vegetation per unit horizontal ground area. It determines the size of the interface for exchange of energy (including radiation) and mass between the canopy and the atmosphere. This is an intrinsic canopy primary variable that should not depend on observation conditions. LAI is strongly non-linear related to reflectance. Therefore, its estimation from remote sensing observations will be strongly scale dependent (Garrigues et al. 2006a; Weiss et al. 2000). Note that vegetation LAI as estimated from remote sensing will include all the green contributors, i.e. including understory when existing under forests canopies. However, except when using directional observations (i.e. observed with a specific sun and viewing geometry) (Chen et al. 2005), LAI is not directly accessible from remote sensing observations due to the possible heterogeneity in leaf distribution within the canopy volume. Therefore, remote sensing observations are rather sensitive to the ‘effective’ leaf area index, i.e. the value that would produce the same remote sensing signal as that actually recorded, while assuming a random distribution of leaves. The difference between the actual LAI and effective LAI may be quantified by the clumping index (Chen et al. 2005) that roughly varies between 0.5 (very clumped canopies) and 1.0 (randomly distributed leaves). The LAI provided by Terrascope is actual LAI. Moreover, it is related to all green vegetation (not only leaves or needles), but excluding non-green parts (e.g. stems). This is sometimes referred to as GAI (Green Area Index).",
+    "im:notes" : "",
+    "dc:title" : "Annual mean composite of Sentinel-2 LAI",
+    "dc:url" : "https://terrascope.be/en/satellites/sentinel-2",
+    "dc:creator" : "Isabelle Piccard\r\nElse Swinnen\r\nLiesbeth De Keukelaere\r\nRuben Van De Kerchove\r\nHerman Eerens",
+    "im:thematic-area" : "Ecology",
+    "dc:originator" : "VITO",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Piccard et al. (2020). Terrascope Sentinel-2 Algorithm Theoretical Base Document S2 – NDVI & BIOPAR – V200. https://docs.terrascope.be/DataProducts/Sentinel-2/references/VITO_S2_ATBD_S2_NDVI_BIOPAR_V200.pdf\r\nGarrigues, S., Allard, D., Baret, F., & Weiss, M. (2006a). Influence landscape spatial heterogeneity on the non-linear estimation of leaf area index from moderate spatial resolution remote sensing data. Remote Sensing of Enviroment, 105, 286-298.\r\nWeiss, M., Baret, F., Myneni, R., Pragnère, A., & Knyazikhin, Y. (2000). Investigation of a model inversion technique for the estimation of crop charcteristics from spectral and directional reflectance data. Agronomie, 20, 3-22.\r\nChen, J.M., Menges, C.H., & Leblanc, S.G. (2005). Global mapping of foliage clumping index using multi-angular satellite data. Remote Sensing of Environment, 97, 447-457."
   },
   "parameters" : {
     "space.shape" : "geometry",
