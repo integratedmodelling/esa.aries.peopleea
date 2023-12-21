@@ -7,15 +7,15 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "esa-people_eu_biogeoregions_4326",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1703184695444,
+  "resourceTimestamp" : 1703184959516,
   "metadata" : {
     "im:keywords" : "features,eu_biogeoregions_4326, ecoregions,",
     "dc:comment" : "The biogeographical regions dataset contains the official delineations used in the Habitats Directive (92/43/EEC) and for the EMERALD Network set up under the Convention on the Conservation of European Wildlife and Natural Habitats (Bern Convention). Biogeographical boundaries were obtained from the EU Member States and from the Emerald Network countries. These were merged together to produce a European wide map of the biogeographical regions independent of political boundaries. A number of the regions were updated during the work under Article 17 of the Habitats Directive (92/43/EEC) and in 2010 the Standing Committee to the Bern Convention adopted a number of changes according to progress in the setting-up of the Emerald Network.\r\nTo define Forest Types, 11 ecoregions were defined using this dataset:\r\n*Alpine,\r\n*Arctic,\r\n*Atlantic,\r\n*Black Sea,\r\n*Boreal,\r\n*Continental,\r\n*Macaronesian,\r\n*Mediterranean,\r\n*Pannonian,\r\n*Steppic regions,\r\n*Alpine (Scandinavia).\r\n\r\nThe Scandinavian Alpine zone was differentiate from the rest of the Alpine bioregion for its characteristics, and covers the forest in the Scandinavian mountains on the border between Norway and Sweden.",
     "im:notes" : "",
-    "dc:title" : "eu_biogeoregions_4326",
+    "dc:title" : "European biogeographical regions",
     "dc:url" : "https://www.eea.europa.eu/en/datahub/datahubitem-view/11db8d14-f167-4cd5-9205-95638dfd9618",
     "dc:creator" : "",
-    "im:thematic-area" : "Ecoregion",
+    "im:thematic-area" : "Ecology",
     "dc:originator" : "European Environment Agency",
     "im:geographic-area" : "European",
     "dc:source" : ""
