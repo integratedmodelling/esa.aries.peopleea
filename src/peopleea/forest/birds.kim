@@ -74,7 +74,6 @@ number min_threatened_forest_birds_species_richness
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-@documented(forest_condition_index.condition_indicators.indicator_species_richness)
 model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness 
 	observing 
 		max_threatened_forest_birds_species_richness,

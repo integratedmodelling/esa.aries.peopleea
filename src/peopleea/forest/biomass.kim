@@ -83,7 +83,6 @@ number min_above_ground_biomass
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
-@documented(forest_condition_index.condition_indicators.indicator_agb)
 model im:Indicator value of ecology:AboveGroundBiomass 
 	observing 
 		max_above_ground_biomass,
