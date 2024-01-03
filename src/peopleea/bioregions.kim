@@ -19,6 +19,7 @@ model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_432
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');
 
 
+
 @colormap(values={
 	landcover:BroadleafForest:           (56 168 0),
 	landcover:MixedForest:               (76 115 0),
