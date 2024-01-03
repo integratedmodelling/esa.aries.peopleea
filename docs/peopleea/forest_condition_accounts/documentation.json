@@ -29,7 +29,7 @@
     "section" : "Introduction",
     "documentedId" : "peopleea.forest_condition_accounts.indicators",
     "extended" : null,
-    "template" : "@require(peopleea.forest_condition_accounts.introduction, Introduction)",
+    "template" : "@require(ConditionAccountsIntroduction, Introduction)",
     "sectionType" : "BODY",
     "documentedUrns" : [ ],
     "eventType" : null,
