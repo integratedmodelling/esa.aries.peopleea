@@ -18,7 +18,6 @@ model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_432
 		es.nca:Steppic 			    if "Steppic"
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');
 
-
 @documented(peopleea.forest_type.european_forest_type)
 @colormap(values={
 	landcover:BroadleafForest:           (56 168 0),
