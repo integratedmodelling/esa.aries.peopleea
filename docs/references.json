@@ -1,10 +1,10 @@
 {
   "corine.coniferous.forest" : {
-    "examplecitation" : "Coniferous forest (312) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-312.html",
+    "examplecitation" : "Coniferous forest (raster code 312) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-312.html",
     "key" : "corine.coniferous.forest"
   },
   "corine.mixed.forest" : {
-    "examplecitation" : "Mixed forest (313) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-313.html",
+    "examplecitation" : "Mixed forest (raster code 313) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-313.html",
     "key" : "corine.mixed.forest"
   },
   " EUCopernicusLMS2020" : {
@@ -48,7 +48,7 @@
     "key" : "EUCopernicusLMS2019"
   },
   "corine.broadleave.forest" : {
-    "examplecitation" : "Broad-leave forest (311) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-311.html",
+    "examplecitation" : "Broad-leave forest (raster code 311) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-311.html",
     "key" : "corine.broadleave.forest"
   },
   "EUCopernicusLMS2018" : {
@@ -60,7 +60,7 @@
     "key" : "corine.landcover.accounts-adjusted.2000"
   },
   "ConditionAccountsIntroduction" : {
-    "examplecitation" : "# Condition Accounts\r\nThe Ecosystem Conditions Accounts study the status of the ecosystems conditions. The accounts produced in this project focus on quantifying the condition of terrestrial forest ecosystems by observing different European ecological metrics and combining them to provide an overview of the status of the healthiness of a forest. The accounts are composed of three main outputs:\r\n\r\n## 1.Variable (descriptor)\r\nthe original ecological measurement (raw variable) used to study a certain aspect of the forest's condition.\r\n## 2.Indicator\r\nthe rescaled ecological measurement (raw variable) to allow a consistent representation of the dimensions of the conditions captured in the variable. *Reference values* are used to determine upper and lower bounds used as thresholds to determine the good or bad status for a particular variable in the same type of forest (aka forest with similar characteristics). The goal of the indicator is to compare the results of a particular variable against other dimensions of condition in the same type of forest, or against results for the same variable in a different area.\r\n## 3.Index\r\nthe composite weighted average of a set of indicators, whose goal is to combine different information from several variables into a unique figure, representative of the overall condition of that type of forest in the area under analysis.",
+    "examplecitation" : "# Condition Accounts\r\nThe Ecosystem Conditions Accounts study the status of the ecosystems conditions. The accounts produced in this project focus on quantifying the condition of terrestrial forest ecosystems by observing different European ecological metrics and combining them to provide an overview of the status of the healthiness of a forest. The accounts are composed of three main outputs:\r\n\r\n### 1.Variable (descriptor)\r\nthe original ecological measurement (raw variable) used to study a certain aspect of the forest's condition.\r\n### 2.Indicator\r\nthe rescaled ecological measurement (raw variable) to allow a consistent representation of the dimensions of the conditions captured in the variable. *Reference values* are used to determine upper and lower bounds used as thresholds to determine the good or bad status for a particular variable in the same type of forest (aka forest with similar characteristics). The goal of the indicator is to compare the results of a particular variable against other dimensions of condition in the same type of forest, or against results for the same variable in a different area.\r\n### 3.Index\r\nthe composite weighted average of a set of indicators, whose goal is to combine different information from several variables into a unique figure, representative of the overall condition of that type of forest in the area under analysis.",
     "key" : "ConditionAccountsIntroduction"
   },
   "MaesEtAl2023" : {
@@ -72,7 +72,7 @@
     "key" : "european.bioregions"
   },
   "corine.transitionalwoodland.and.shrub" : {
-    "examplecitation" : "Transitional woodland & shrub (324) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html",
+    "examplecitation" : "Transitional woodland & shrub (raster code 324) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html",
     "key" : "corine.transitionalwoodland.and.shrub"
   }
 }
