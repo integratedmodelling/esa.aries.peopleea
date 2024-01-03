@@ -81,7 +81,8 @@ model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
-	
+
+@documented(peopleea.forest_condition_accounts.variable)	
 @var(timespan=(start end))	
 define table ndvi_raw_variable as {
 	name: "ndvi_variable"
@@ -101,6 +102,7 @@ define table ndvi_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table ndvi_indicator as {
 	name: "ndvi_indicator"

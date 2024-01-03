@@ -83,6 +83,7 @@ number min_above_ground_biomass
 	lookup (bio_region_by_forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
+
 model im:Indicator value of ecology:AboveGroundBiomass 
 	observing 
 		max_above_ground_biomass,
@@ -90,6 +91,7 @@ model im:Indicator value of ecology:AboveGroundBiomass
 		ecology:AboveGroundBiomass named above_ground_biomass
 	set to [above_ground_biomass < min_above_ground_biomass ? 0 : ( above_ground_biomass > max_above_ground_biomass ? 1 : ((above_ground_biomass - min_above_ground_biomass)/(max_above_ground_biomass - min_above_ground_biomass)) )];
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table agb_raw_variable as {
 	name: "above_ground_biomass_variable"
@@ -109,6 +111,7 @@ define table agb_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table agb_indicator as {
 	name: "above_ground_biomass_indicator"

@@ -8,6 +8,8 @@ model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=t
 model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
 		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m; 
 
+
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table fraction_green_vegetation_raw_variable as {
 	name: "fcover_variable"
@@ -66,6 +68,7 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
 	as im:Relative value of soil:DroughtSeverity;
 
+@documented(peopleea.forest_condition_accounts.variable)
 define table drought_severity_raw_variable as {
 	name: "drought_severity_variable"
 	title: "Drought Severity Variable Account",
@@ -91,6 +94,7 @@ model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.coper
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018'
 	as percentage of ecology:CanopyCover;
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table canopy_cover_raw_variable as {
 	name: "canopy_cover_variable"
@@ -117,6 +121,7 @@ model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2018'
 			  as percentage of ecology:Natural landcover:LandscapeHeterogeneity; 
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table landscape_naturalness_raw_variable as {
 	name: "landscape_naturalness_variable"
@@ -141,6 +146,7 @@ define table landscape_naturalness_raw_variable as {
  model 'local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m#output_warp=true&synchronous=true'  
  	 as ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation named fapar_10m; 
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table fapar_raw_variable as {
 	name: "fapar_variable"
@@ -164,7 +170,8 @@ define table fapar_raw_variable as {
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'  
 		as ecology:PlantPhenologyIndex named ppi_10m; 
-		
+
+@documented(peopleea.forest_condition_accounts.variable)		
 @var(timespan=(start end))	
 define table ppi_raw_variable as {
 	name: "ppi_variable"

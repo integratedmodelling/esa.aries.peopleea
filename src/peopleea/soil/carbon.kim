@@ -77,6 +77,7 @@ model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:M
 	set to [soil_organic_carbon < min_soil_organic_carbon_inspire ? 0 : ( soil_organic_carbon > max_soil_organic_carbon_inspire ? 1 : ((soil_organic_carbon - min_soil_organic_carbon_inspire)/(max_soil_organic_carbon_inspire - min_soil_organic_carbon_inspire)) )];
 
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table soc_raw_variable as {
 	name: "soil_organic_carbon_variable"
@@ -96,6 +97,7 @@ define table soc_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table soc_indicator as {
 	name: "soil_organic_carbon_indicator"

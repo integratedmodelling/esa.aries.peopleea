@@ -80,7 +80,8 @@ number max_leaf_area_index
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
 	as ecology:LeafAreaIndex named lai_10m;
-	
+
+@documented(peopleea.forest_condition_accounts.indicators)	
 @var(timespan=(start end))	
 define table lai_raw_variable as {
 	name: "lai_variable"
@@ -100,6 +101,7 @@ define table lai_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table lai_raw_variable as {
 	name: "lai_indicator"

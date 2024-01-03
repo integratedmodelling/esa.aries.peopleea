@@ -102,6 +102,7 @@ define table forest_connectivity_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table forest_connectivity_indicator as {
 	name: "forest_connectivity_indicator"
@@ -121,6 +122,7 @@ define table forest_connectivity_indicator as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.variable
 @var(timespan=(start end))	
 define table forest_fragmentation_raw_variable as {
 	name: "forest_fragmentation_variable"

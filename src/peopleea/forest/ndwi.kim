@@ -76,7 +76,7 @@ model im:Indicator value of ecology:NormalizedDifferenceWaterIndex
 		ecology:NormalizedDifferenceWaterIndex named ndwi 
 	set to [ndwi < min_ndwi ? 0 : ( ndwi > max_ndwi ? 1 : ((ndwi - min_ndwi)/(max_ndwi - min_ndwi)) )]; 
 
-
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table ndwi_raw_variable as {
 	name: "NDWI_variable"
@@ -96,6 +96,7 @@ define table ndwi_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table ndwi_indicator as {
 	name: "NDWI_indicator"

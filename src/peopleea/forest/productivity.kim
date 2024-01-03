@@ -82,6 +82,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 	];
 
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table npp_raw_variable as {
 	name: "net_primary_productivity_variable"
@@ -101,6 +102,7 @@ define table npp_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table npp_indicator as {
 	name: "net_primary_productivity_indicator"

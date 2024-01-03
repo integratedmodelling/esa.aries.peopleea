@@ -81,6 +81,7 @@ model im:Indicator value of conservation:Threatened biology:Bird ecology:Species
 		conservation:Threatened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
 	set to [threatened_forest_birds_species_richness < min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)/(max_threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)) )];
 
+@documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table birds_raw_variable as {
 	name: "threatened_bird_species_variable"
@@ -100,6 +101,7 @@ define table birds_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table birds_indicator as {
 	name: "threatened_bird_species_indicator"

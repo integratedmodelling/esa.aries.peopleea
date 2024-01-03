@@ -17,7 +17,8 @@ model 'local:alessio.bulckaen:esa.people.sandbox:esa-people_eu_biogeoregions_432
 		es.nca:Pannonian 			if "Pannonian",
 		es.nca:Steppic 			    if "Steppic"
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');
-	
+
+
 @colormap(values={
 	landcover:BroadleafForest:           (56 168 0),
 	landcover:MixedForest:               (76 115 0),
@@ -35,7 +36,7 @@ model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20
 		landcover:TransitionalWoodlandScrub if 324
 	over space(urn = 'local:srwohl:im.data.global:im-data-global-landcover_corine_extent');  
 	
-
+@documented(peopleea.forest_type.european_forest_type)	
 model  ecology:Forest es.nca:BiogeographicRegionType
 	observing
 		type of ecology:Forest          named forest_type,
