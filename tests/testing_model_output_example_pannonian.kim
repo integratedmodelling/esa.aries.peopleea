@@ -1,0 +1,19 @@
+worldview im;
+
+@test(
+    name = "testing.model.output.example_pannonian",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = ("peopleea.condition.forest.indicator-forest-condition-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named testing_model_output_example_pannonian
+    // add any space and/or time extents: for example
+	over space(shape="EPSG:4326 POLYGON ((29.688662337114636 45.119453847093354, 29.542149351885147 45.119453847093354, 29.542149351885147 45.166674832182935, 29.688662337114636 45.166674832182935, 29.688662337114636 45.119453847093354))",
+//    over space(shape="EPSG:4326 POLYGON ((29.683822472826844 45.14701359837201, 29.675936778323056 45.14701359837201, 29.675936778323056 45.15027485706315, 29.683822472826844 45.15027485706315, 29.683822472826844 45.14701359837201))",
+    	grid="100 m"),
+    	time(start=2015, end=2016, step=1.year);
+
+// add any models here

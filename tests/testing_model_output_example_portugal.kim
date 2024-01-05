@@ -1,0 +1,17 @@
+worldview im;
+
+@test(
+    name = "testing.model.output.example_portugal",
+    description  = "Resource local:rubencc:esa.people.sandbox:im-data-global-soil.esdac_lucas_topsoil_soil_organic_carbon_of_eu_2014 contextualized in 12 secs
+					Server returned error code 400",
+    // add to the list any concepts to be observed in the context below
+    observations = ("peopleea.condition.forest.indicator-forest-condition-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named testing_model_output_example_portugal
+    // add any space and/or time extents: for example
+	over space(shape="EPSG:4326 POLYGON ((-7.667773485771094 38.91128992311437, -8.15597844182578 38.91128992311437, -8.15597844182578 39.098312175270394, -7.667773485771094 39.098312175270394, -7.667773485771094 38.91128992311437))",
+    	grid="100 m"),
+    	time(start=2015, end=2016, step=1.year);
