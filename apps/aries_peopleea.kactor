@@ -33,16 +33,16 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
+				["PEOPLE-EA Forests Conditions Index"], true) #lctchangematrix333
 		) :hfill :altbg :name "PEOPLE-EA Conditions Index" :iconname "cog" :opened
 	) :shelf
 
 	(
 	  (
 		() //space
-		combo("Raw variables" "Indicators" #target_observations width="90%"): (
+		combo("Forests Conditions Variables (raw values)" "Forests Conditions Indicators" #target_observations width="90%"): (
 			set self.target $
-			if [self.target == 'Indicators'] (
+			if [self.target == 'Forests Conditions Indicators'] (
 				rawvars.hide
 				indics.show
 			) else ( 
