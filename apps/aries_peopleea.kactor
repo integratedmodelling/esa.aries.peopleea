@@ -110,7 +110,7 @@ action main:
 				"Forest Fragmentation", true) #lctchangematrix28
 		) #rawvars 
 		
-	  ) :hfill :altbg :name "PEOPLE-EA Conditions Metrics" :iconname "cog" :opened #peopleea_forest_conditions_metrics
+	  ) :hfill :altbg :name "PEOPLE-EA Conditions Metrics" :iconname "cog" :opened #peopleea_conditions_metrics
 	) :shelf
 	
 	(
