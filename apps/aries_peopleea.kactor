@@ -34,7 +34,7 @@ action main:
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
 				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
-		) :hfill :altbg :name "PEOPLE-EA indicators" :iconname "cog" :opened
+		) :hfill :altbg :name "PEOPLE-EA Conditions Index" :iconname "cog" :opened
 	) :shelf
 
 	(
@@ -110,7 +110,7 @@ action main:
 				"Forest Fragmentation", true) #lctchangematrix28
 		) #rawvars 
 		
-	  ) :hfill :altbg :name "PEOPLE-EA deliverables" :iconname "cog" :opened #peopleea_deliverables 
+	  ) :hfill :altbg :name "PEOPLE-EA Conditions Metrics" :iconname "cog" :opened #peopleea_forest_conditions_metrics
 	) :shelf
 	
 	(

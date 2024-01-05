@@ -15,17 +15,9 @@
     "examplecitation" : "Sabatini, F.M., Bluhm, H., Kun, Z. et al. European primary forest database v2.0. Sci Data 8, 220. 2021. DOI: 10.1038/s41597-021-00988-7.",
     "key" : "SabatiniEtAl2021"
   },
-  "IUCN.protected.areas" : {
-    "examplecitation" : "https://www.protectedplanet.net/en/thematic-areas/wdpa?tab=WDPA",
-    "key" : "IUCN.protected.areas"
-  },
   "UNEPIUCN2023" : {
-    "examplecitation" : "UNEP-WCMC and IUCN. Protected Planet: The World Database on Protected Areas (WDPA) [On-line]. 2023. Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.",
+    "examplecitation" : "UNEP-WCMC and IUCN. Protected Planet: The World Database on Protected Areas (WDPA) [On-line]. 2023. Cambridge, UK: UNEP-WCMC and IUCN. Available at: https://www.protectedplanet.net/en/thematic-areas/wdpa?tab=WDPA",
     "key" : "UNEPIUCN2023"
-  },
-  "EPFD.PrimaryForest" : {
-    "examplecitation" : "https://www.nature.com/articles/s41597-021-00988-7",
-    "key" : "EPFD.PrimaryForest"
   },
   "corine.landcover.2000" : {
     "examplecitation" : "Corine land cover dataset in the year 2000 - https://land.copernicus.eu/en/products/corine-land-cover/clc-2000",
@@ -50,6 +42,10 @@
   "corine.broadleave.forest" : {
     "examplecitation" : "Broad-leave forest (raster code 311) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-311.html",
     "key" : "corine.broadleave.forest"
+  },
+  "EEA.european.bioregions" : {
+    "examplecitation" : "European bioregions from the EEA catalogue of geospatial datasets - https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
+    "key" : "EEA.european.bioregions"
   },
   "EUCopernicusLMS2018" : {
     "examplecitation" : "European Union's Copernicus Land Monitoring Service. High Resolution Layer Tree Cover Density. 2018. URL: https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
