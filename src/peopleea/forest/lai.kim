@@ -83,7 +83,7 @@ model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&sync
 
 @documented(peopleea.forest_condition_accounts.indicators)	
 @var(timespan=(start end))	
-define table lai_raw_variable as {
+define table lai_raw_indicator as {
 	name: "lai_variable"
 	title: "Leaf Area Index Variable Account",
 	label: "Leaf Area Index Variable",
