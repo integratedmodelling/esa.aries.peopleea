@@ -1,7 +1,8 @@
 project private namespace peopleea.condition.forest;
 
 // weighted average index aka PEOPLE FOREST CONDITION INDEX
-
+@documented(peopleea.forest_condition_accounts.index)
+number o;
 @documented(peopleea.forest_condition_accounts.index)
 model  im:Indicator ecology:Forest es.nca:Condition
 	observing 

@@ -1,0 +1,18 @@
+worldview im;
+
+@test(
+    name = "testing.finer.resoultion",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = ("peopleea.forest.biomass.vegetation-biomass-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named testing_finer_resoultion
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-1.9728570981631355 40.6526019854808, -1.9757176740775186 40.6526019854808, -1.9757176740775186 40.65363164754726, -1.9728570981631355 40.65363164754726, -1.9728570981631355 40.6526019854808))",
+//    	grid="20 m"),
+		grid="100 m"),
+		time(start=2015, end=2016, step=1.year);
+// add any models here

@@ -1,0 +1,73 @@
+project private namespace peopleea.forest.tables;
+
+define BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY as {{					
+bioregion                |	forest_type                        |	upper_people|	lower_people|	upper_maes|	lower_maes
+---------------------------------------------------------------------------------------------------------------------------	                                   			          	          
+es.nca:Alpine            |	landcover:BroadleafForest          |	100         |	21          |	100       |	0         ,
+es.nca:Alpine            |	landcover:ConiferousForest         |	100         |	21          |	100       |	2         ,
+es.nca:Alpine            |	landcover:MixedForest              |	100         |	24          |	100       |	3         ,
+es.nca:Alpine            |	landcover:TransitionalWoodlandScrub|	89          |	14          |	100       |	0         ,
+es.nca:Arctic            |	landcover:BroadleafForest          |	100         |	5           |	100       |	3         ,
+es.nca:Arctic            |	landcover:ConiferousForest         |	100         |	4           |	100       |	5         ,
+es.nca:Arctic            |	landcover:MixedForest              |	100         |	4           |	100       |	5         ,
+es.nca:Arctic            |	landcover:TransitionalWoodlandScrub|	87          |	3.06        |	100       |	4         ,
+es.nca:Atlantic          |	landcover:BroadleafForest          |	98          |	5           |	100       |	0         ,
+es.nca:Atlantic          |	landcover:ConiferousForest         |	100         |	8           |	100       |	0         ,
+es.nca:Atlantic          |	landcover:MixedForest              |	99          |	5           |	92        |	0         ,
+es.nca:Atlantic          |	landcover:TransitionalWoodlandScrub|	69.2        |	5           |	100       |	2         ,
+es.nca:BlackSea          |	landcover:BroadleafForest          |	100         |	12          |	100       |	4         ,
+es.nca:BlackSea          |	landcover:ConiferousForest         |	100         |	15          |	100       |	4         ,
+es.nca:BlackSea          |	landcover:MixedForest              |	98          |	16          |	100       |	5         ,
+es.nca:BlackSea          |	landcover:TransitionalWoodlandScrub|	95          |	10          |	100       |	4         ,
+es.nca:Boreal            |	landcover:BroadleafForest          |	100         |	10          |	100       |	2         ,
+es.nca:Boreal            |	landcover:ConiferousForest         |	100         |	28          |	100       |	3         ,
+es.nca:Boreal            |	landcover:MixedForest              |	100         |	18          |	100       |	3         ,
+es.nca:Boreal            |	landcover:TransitionalWoodlandScrub|	90          |	19          |	100       |	2         ,
+es.nca:Continental       |	landcover:BroadleafForest          |	100         |	8           |	100       |	0         ,
+es.nca:Continental       |	landcover:ConiferousForest         |	100         |	13          |	100       |	0         ,
+es.nca:Continental       |	landcover:MixedForest              |	100         |	9           |	100       |	2         ,
+es.nca:Continental       |	landcover:TransitionalWoodlandScrub|	85          |	9           |	100       |	0         ,
+es.nca:Macaronesian      |	landcover:BroadleafForest          |	98          |	6           |	100       |	3         ,
+es.nca:Macaronesian      |	landcover:ConiferousForest         |	100         |	10          |	100       |	5         ,
+es.nca:Macaronesian      |	landcover:MixedForest              |	91          |	8           |	95        |	5         ,
+es.nca:Macaronesian      |	landcover:TransitionalWoodlandScrub|	74.1        |	5           |	98        |	4         ,
+es.nca:Mediterranean     |	landcover:BroadleafForest          |	100         |	7           |	100       |	0         ,
+es.nca:Mediterranean     |	landcover:ConiferousForest         |	100         |	9           |	100       |	0         ,
+es.nca:Mediterranean     |	landcover:MixedForest              |	100         |	10          |	100       |	2         ,
+es.nca:Mediterranean     |	landcover:TransitionalWoodlandScrub|	86          |	6           |	100       |	0         ,
+es.nca:Pannonian         |	landcover:BroadleafForest          |	100         |	6           |	100       |	0         ,
+es.nca:Pannonian         |	landcover:ConiferousForest         |	100         |	14          |	100       |	5         ,
+es.nca:Pannonian         |	landcover:MixedForest              |	98          |	8           |	100       |	3         ,
+es.nca:Pannonian         |	landcover:TransitionalWoodlandScrub|	95          |	5           |	100       |	0         ,
+es.nca:Steppic           |	landcover:BroadleafForest          |	100         |	6           |	100       |	3         ,
+es.nca:Steppic           |	landcover:MixedForest              |	100         |	28          |	100       |	6         ,
+es.nca:Steppic           |	landcover:TransitionalWoodlandScrub|	98          |	2           |	100       |	11        ,
+es.nca:Steppic           |	landcover:TransitionalWoodlandScrub|	95          |	5           |	100       |	3         ,
+es.nca:AlpineScandinavian|	landcover:BroadleafForest          |	100         |	13          |	100       |	0         ,
+es.nca:AlpineScandinavian|	landcover:ConiferousForest         |	100         |	26          |	100       |	3         ,
+es.nca:AlpineScandinavian|	landcover:MixedForest              |	100         |	18          |	100       |	4         ,
+es.nca:AlpineScandinavian|	landcover:TransitionalWoodlandScrub|	87          |	18          |	100       |	0         }};
+
+define PRUEBA as {{					
+bioregion                |	lower_maes
+---------------------------------------------------------------------------------------------------------------------------	                                   			          	          
+es.nca:Alpine            |	0         ,
+es.nca:Alpine            |	2         ,
+es.nca:Alpine            |	3         ,
+es.nca:Alpine            |	0         ,
+es.nca:Arctic            |	3         ,
+es.nca:Arctic            |	5         ,
+es.nca:Arctic            |	5         ,
+es.nca:Arctic            |	4         ,
+es.nca:Atlantic          |	0         ,
+es.nca:Atlantic          |	0         ,
+es.nca:Atlantic          |	0         ,
+es.nca:Atlantic          |	2         }};
+
+number eoeo;
+
+number prueba
+	observing
+		es.nca:BiogeographicRegionType named bioregion
+	lookup (bioregion, ?)
+		into PRUEBA;
