@@ -165,15 +165,13 @@ model  im:Indicator ecology:Forest es.nca:Condition
 	    im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
 		im:Indicator value of ecology:CanopyCover named indicator_tree_cover_density
-// TO-DO adjust weights
 	set to [
-			1/7*
-			(indicator_threathened_bird_species
-			+ indicator_forest_connectivity
-			+ indicator_landscape_naturalness
-			+ indicator_normalized_difference_vegetation_index
-			+ indicator_normalized_difference_water_index
-			+ indicator_soil_organic_carbon
-			+ indicator_tree_cover_density
+			  0.22 * indicator_threathened_bird_species 
+			+ 0.13 * indicator_forest_connectivity 
+			+ 0.11 * indicator_landscape_naturalness 
+			+ 0.13 * indicator_normalized_difference_vegetation_index 
+			+ 0.08 * indicator_normalized_difference_water_index 
+			+ 0.12 * indicator_soil_organic_carbon 
+			+ 0.21 * indicator_tree_cover_density 
 			)
 	];
