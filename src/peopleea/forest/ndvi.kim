@@ -1,72 +1,21 @@
-project private namespace peopleea.forest.ndvi;
+project private namespace peopleea.forest.ndvi
+	using (BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI) from peopleea.forest.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.ndvi#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex;
 
-define BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI as {{		
-bio_region_by_forest_type                                    |	max   |	min     
-------------------------------------------------------------------------------	      	
-es.nca:Alpine landcover:BroadleafForest                      |	0.6779|	0.444824,
-es.nca:Alpine landcover:ConiferousForest                     |	0.6438|	0.374714,
-es.nca:Alpine landcover:MixedForest                          |	0.6724|	0.4295  ,
-es.nca:Alpine landcover:TransitionalWoodlandScrub            |	0.6219|	0.3454  ,
-es.nca:Arctic landcover:BroadleafForest                      |	0.6131|	0.2222  ,
-es.nca:Arctic landcover:ConiferousForest                     |	0.6185|	0.141111,
-es.nca:Arctic landcover:MixedForest                          |	0.6091|	0.215732,
-es.nca:Arctic landcover:TransitionalWoodlandScrub            |	0.6375|	0.17104 ,
-//es.nca:Anatolian landcover:BroadleafForest                   |		
-//es.nca:Anatolian landcover:ConiferousForest                  |		
-//es.nca:Anatolian landcover:MixedForest                       |		
-//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
-es.nca:Atlantic landcover:BroadleafForest                    |	0.68  |	0.437714,
-es.nca:Atlantic landcover:ConiferousForest                   |	0.662 |	0.4698  ,
-es.nca:Atlantic landcover:MixedForest                        |	0.6858|	0.462118,
-es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	0.6731|	0.458778,
-es.nca:BlackSea landcover:BroadleafForest                    |	0.6531|	0.386061,
-es.nca:BlackSea landcover:ConiferousForest                   |	0.6443|	0.316667,
-es.nca:BlackSea landcover:MixedForest                        |	0.6537|	0.35744 ,
-es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	0.6238|	0.239286,
-es.nca:Boreal landcover:BroadleafForest                      |	0.6143|	0.432258,
-es.nca:Boreal landcover:ConiferousForest                     |	0.6058|	0.442462,
-es.nca:Boreal landcover:MixedForest                          |	0.6124|	0.439692,
-es.nca:Boreal landcover:TransitionalWoodlandScrub            |	0.616 |	0.459   ,
-es.nca:Continental landcover:BroadleafForest                 |	0.6593|	0.421   ,
-es.nca:Continental landcover:ConiferousForest                |	0.7262|	0.442424,
-es.nca:Continental landcover:MixedForest                     |	0.706 |	0.4335  ,
-es.nca:Continental landcover:TransitionalWoodlandScrub       |	0.6438|	0.344   ,
-es.nca:Macaronesian landcover:BroadleafForest                |	0.7575|	0.378667,
-es.nca:Macaronesian landcover:ConiferousForest               |	0.6392|	0.235778,
-es.nca:Macaronesian landcover:MixedForest                    |	0.694 |	0.331   ,
-es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	0.761 |	0.182444,
-es.nca:Mediterranean landcover:BroadleafForest               |	0.7039|	0.306514,
-es.nca:Mediterranean landcover:ConiferousForest              |	0.6974|	0.244444,
-es.nca:Mediterranean landcover:MixedForest                   |	0.7101|	0.280333,
-es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	0.6685|	0.210444,
-es.nca:Pannonian landcover:BroadleafForest                   |	0.644 |	0.381333,
-es.nca:Pannonian landcover:ConiferousForest                  |	0.6443|	0.397765,
-es.nca:Pannonian landcover:MixedForest                       |	0.6537|	0.387314,
-es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	0.6238|	0.351657,
-es.nca:Steppic landcover:BroadleafForest                     |	0.6251|	0.326118,
-es.nca:Steppic landcover:ConiferousForest                    |	0.6537|	0.395394,
-es.nca:Steppic landcover:MixedForest                         |	0.6238|	0.313125,
-es.nca:Steppic landcover:TransitionalWoodlandScrub           |	0.6238|	0.30725 ,
-es.nca:AlpineScandinavian landcover:BroadleafForest          |	0.6131|	0.388   ,
-es.nca:AlpineScandinavian landcover:ConiferousForest         |	0.6185|	0.41275 ,
-es.nca:AlpineScandinavian landcover:MixedForest              |	0.6091|	0.413538,
-es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	0.6375|	0.458222
-}};
-
-
 number max_forest_productivity_ndvi  
 	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type 
-	lookup (bio_region_by_forest_type, ?, *) 
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *, *, *) 
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI;   
 
 number min_forest_productivity_ndvi  
 	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
-	lookup (bio_region_by_forest_type, *, ?) 
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI; 
 
 //@key(en="NDVI condition indicator", es="Índice NDVI de vegetación")
@@ -78,7 +27,6 @@ model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex
 	set to [forest_productivity_ndvi < min_forest_productivity_ndvi ? 0 : ( forest_productivity_ndvi > max_forest_productivity_ndvi ? 1 : ((forest_productivity_ndvi - min_forest_productivity_ndvi)/(max_forest_productivity_ndvi - min_forest_productivity_ndvi)) )];
 
 /* Tier 2 NDVI */ 
-
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
 
