@@ -1,77 +1,22 @@
-project private namespace peopleea.forest.birds;
+project private namespace peopleea.forest.birds
+	using (BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS) from peopleea.forest.tables;
 
 model 'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2000',
 	   'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2018'
 	   as conservation:Threatened biology:Bird ecology:SpeciesRichness;        
 	   
-// Template for richness of threatened bird species
-
-define BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS as {{		
-bio_region_by_forest_type                                    |	max   |	min     
-------------------------------------------------------------------------------	      	
-es.nca:Alpine landcover:BroadleafForest                      |	7.6017|	2.674617,
-es.nca:Alpine landcover:ConiferousForest                     |	7.265 |	2.553424,
-es.nca:Alpine landcover:MixedForest                          |	7.6071|	3.207221,
-es.nca:Alpine landcover:TransitionalWoodlandScrub            |	6.8984|	2.165974,
-es.nca:Arctic landcover:BroadleafForest                      |	5.9195|	0.51866 ,
-es.nca:Arctic landcover:ConiferousForest                     |	6.8473|	0.848192,
-es.nca:Arctic landcover:MixedForest                          |	6.9348|	0.762449,
-es.nca:Arctic landcover:TransitionalWoodlandScrub            |	6.8027|	0.557681,
-//es.nca:Anatolian landcover:BroadleafForest                   |		
-//es.nca:Anatolian landcover:ConiferousForest                  |		
-//es.nca:Anatolian landcover:MixedForest                       |		
-//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
-es.nca:Atlantic landcover:BroadleafForest                    |	6.2662|	0.392716,
-es.nca:Atlantic landcover:ConiferousForest                   |	6.1246|	0.403892,
-es.nca:Atlantic landcover:MixedForest                        |	5.8549|	0.313437,
-es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	6.4542|	0.329833,
-es.nca:BlackSea landcover:BroadleafForest                    |	4.6363|	1.160743,
-es.nca:BlackSea landcover:ConiferousForest                   |	6.9923|	2.280772,
-es.nca:BlackSea landcover:MixedForest                        |	6.9923|	1.75212 ,
-es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	6.9513|	1.687628,
-es.nca:Boreal landcover:BroadleafForest                      |	8.1089|	3.235203,
-es.nca:Boreal landcover:ConiferousForest                     |	7.9493|	3.439066,
-es.nca:Boreal landcover:MixedForest                          |	8.3002|	3.499144,
-es.nca:Boreal landcover:TransitionalWoodlandScrub            |	8.139 |	3.477013,
-es.nca:Continental landcover:BroadleafForest                 |	7.3008|	1.710221,
-es.nca:Continental landcover:ConiferousForest                |	7.1492|	2.54302 ,
-es.nca:Continental landcover:MixedForest                     |	7.3008|	2.122629,
-es.nca:Continental landcover:TransitionalWoodlandScrub       |	6.2485|	1.475721,
-es.nca:Macaronesian landcover:BroadleafForest                |	0.2504|	0.01706 ,
-es.nca:Macaronesian landcover:ConiferousForest               |	0.8794|	0.018391,
-es.nca:Macaronesian landcover:MixedForest                    |	0.7402|	0.016446,
-es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	0.7402|	0.015403,
-es.nca:Mediterranean landcover:BroadleafForest               |	4.4619|	0.311696,
-es.nca:Mediterranean landcover:ConiferousForest              |	4.5261|	0.315709,
-es.nca:Mediterranean landcover:MixedForest                   |	4.7065|	0.308433,
-es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	4.4741|	0.280909,
-es.nca:Pannonian landcover:BroadleafForest                   |	6.9513|	1.862266,
-es.nca:Pannonian landcover:ConiferousForest                  |	6.9923|	2.578837,
-es.nca:Pannonian landcover:MixedForest                       |	6.9923|	2.111654,
-es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	6.9513|	1.612562,
-es.nca:Steppic landcover:BroadleafForest                     |	5.477 |	1.40394 ,
-es.nca:Steppic landcover:ConiferousForest                    |	6.9923|	4.35908 ,
-es.nca:Steppic landcover:MixedForest                         |	6.9513|	1.623326,
-es.nca:Steppic landcover:TransitionalWoodlandScrub           |	6.9513|	1.353413,
-es.nca:AlpineScandinavian landcover:BroadleafForest          |	5.9195|	2.116232,
-es.nca:AlpineScandinavian landcover:ConiferousForest         |	6.8473|	2.818252,
-es.nca:AlpineScandinavian landcover:MixedForest              |	6.9348|	2.73166 ,
-es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	6.8027|	3.101808
-}};
-
-
-
-
 number max_threatened_forest_birds_species_richness 
 	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
-	lookup (bio_region_by_forest_type, ?, *) 
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
 number min_threatened_forest_birds_species_richness
 	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
-	lookup (bio_region_by_forest_type, *, ?) 
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
 model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness 
