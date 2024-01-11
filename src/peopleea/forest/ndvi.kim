@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.ndvi
-	using (BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI) from peopleea.forest.tables;
+	using (BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI) from peopleea.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.ndvi#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex;

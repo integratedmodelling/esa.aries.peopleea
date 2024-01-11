@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.lai
-	using (BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX) from peopleea.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
 	 as ecology:LeafAreaIndex; 

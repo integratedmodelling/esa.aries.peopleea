@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.productivity
-	using (BIO_REGION_FOREST_REFERENCES_NPP) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_NPP) from peopleea.tables;
 
 @intensive(time)
 model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"

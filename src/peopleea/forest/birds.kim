@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.birds
-	using (BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS) from peopleea.tables;
 
 model 'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2000',
 	   'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2018'

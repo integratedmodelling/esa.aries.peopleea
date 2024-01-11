@@ -1,7 +1,7 @@
 project private namespace peopleea.forest.ndwi
-	using (BIO_REGION_FOREST_REFERENCES_NDWI) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_NDWI) from peopleea.tables;
 
-model 'local:stefano.balbi:esa.aries.peopleea:vito.ndwi#output_warp=true&synchronous=true' //
+model 'local:stefano.balbi:esa.aries.peopleea:vito.ndwi#output_warp=true&synchronous=true'
 	  as ecology:NormalizedDifferenceWaterIndex; 
 
 number max_ndwi  

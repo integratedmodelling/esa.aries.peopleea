@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.connectivity
-	using (BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY) from peopleea.tables;
 
 model 'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2000',
 			  'local:caterina.gilli:esa.people.sandbox:esa_people.forest_connectivity_europe_4326_2006',

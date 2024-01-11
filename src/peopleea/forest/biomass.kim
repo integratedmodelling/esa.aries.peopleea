@@ -1,5 +1,5 @@
 project private namespace peopleea.forest.biomass
-	using (BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS) from peopleea.forest.tables;
+	using (BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS) from peopleea.tables;
 
 @intensive(space)   
 @extensive(time)
