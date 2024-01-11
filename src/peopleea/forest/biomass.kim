@@ -11,6 +11,7 @@ model 'local:stefano.balbi:im.openeo.sandbox:vito.biomas.cci#output_warp=true&sy
 model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_100m#output_warp=true&synchronous=true' 
 	as ecology:Vegetation ecology:Biomass in t/ha; 
 
+/* BIOMASS Tier 2 */
 @intensive(space)   
 @extensive(time)
 model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp=true&synchronous=true'
@@ -31,7 +32,6 @@ number min_above_ground_biomass
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
-
 
 model im:Indicator value of ecology:AboveGroundBiomass 
 	observing 

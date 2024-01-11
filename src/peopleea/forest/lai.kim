@@ -1,72 +1,25 @@
-project private namespace peopleea.forest.lai;
+project private namespace peopleea.forest.lai
+	using (BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX) from peopleea.forest.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
 	 as ecology:LeafAreaIndex; 
-
-
-define BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX as {{		
-bio_region_by_forest_type                                    |	max   |	min     
-------------------------------------------------------------------------------	      	
-es.nca:Alpine landcover:BroadleafForest                      |	2.8914|	1.037037,
-es.nca:Alpine landcover:ConiferousForest                     |	2.8861|	0.90463 ,
-es.nca:Alpine landcover:MixedForest                          |	3.0315|	1.162037,
-es.nca:Alpine landcover:TransitionalWoodlandScrub            |	2.6306|	0.62037 ,
-es.nca:Arctic landcover:BroadleafForest                      |	1.1769|	0.24537 ,
-es.nca:Arctic landcover:ConiferousForest                     |	1.4426|	0.32037 ,
-es.nca:Arctic landcover:MixedForest                          |	1.4611|	0.343519,
-es.nca:Arctic landcover:TransitionalWoodlandScrub            |	1.5028|	0.174074,
-//es.nca:Anatolian landcover:BroadleafForest                   |		
-//es.nca:Anatolian landcover:ConiferousForest                  |		
-//es.nca:Anatolian landcover:MixedForest                       |		
-//es.nca:Anatolian landcover:TransitionalWoodlandScrub         |		
-es.nca:Atlantic landcover:BroadleafForest                    |	2.6028|	0.883333,
-es.nca:Atlantic landcover:ConiferousForest                   |	1.8352|	1.040741,
-es.nca:Atlantic landcover:MixedForest                        |	2.3176|	1.075926,
-es.nca:Atlantic landcover:TransitionalWoodlandScrub          |	2.0028|	1.043519,
-es.nca:BlackSea landcover:BroadleafForest                    |	3.0259|	0.782407,
-es.nca:BlackSea landcover:ConiferousForest                   |	2.7942|	0.575   ,
-es.nca:BlackSea landcover:MixedForest                        |	2.7   |	0.70463 ,
-es.nca:BlackSea landcover:TransitionalWoodlandScrub          |	2.7417|	0.350926,
-es.nca:Boreal landcover:BroadleafForest                      |	2.2481|	0.826852,
-es.nca:Boreal landcover:ConiferousForest                     |	1.8102|	0.732407,
-es.nca:Boreal landcover:MixedForest                          |	2.0546|	0.825   ,
-es.nca:Boreal landcover:TransitionalWoodlandScrub            |	1.9361|	0.782407,
-es.nca:Continental landcover:BroadleafForest                 |	3.1556|	0.906482,
-es.nca:Continental landcover:ConiferousForest                |	3.8139|	1.025926,
-es.nca:Continental landcover:MixedForest                     |	3.512 |	1.007407,
-es.nca:Continental landcover:TransitionalWoodlandScrub       |	2.6278|	0.619444,
-es.nca:Macaronesian landcover:BroadleafForest                |	5.8444|	0       ,
-es.nca:Macaronesian landcover:ConiferousForest               |	2.9602|	0       ,
-es.nca:Macaronesian landcover:MixedForest                    |	4.6593|	0       ,
-es.nca:Macaronesian landcover:TransitionalWoodlandScrub      |	5.4315|	0       ,
-es.nca:Mediterranean landcover:BroadleafForest               |	3.5667|	0.534259,
-es.nca:Mediterranean landcover:ConiferousForest              |	3.5722|	0.348148,
-es.nca:Mediterranean landcover:MixedForest                   |	3.6028|	0.437037,
-es.nca:Mediterranean landcover:TransitionalWoodlandScrub     |	2.9296|	0.262963,
-es.nca:Pannonian landcover:BroadleafForest                   |	2.8278|	0.77037 ,
-es.nca:Pannonian landcover:ConiferousForest                  |	2.7942|	0.737037,
-es.nca:Pannonian landcover:MixedForest                       |	2.7   |	0.728704,
-es.nca:Pannonian landcover:TransitionalWoodlandScrub         |	2.7417|	0.639815,
-es.nca:Steppic landcover:BroadleafForest                     |	2.6787|	0.536111,
-es.nca:Steppic landcover:ConiferousForest                    |	2.7   |	0.742593,
-es.nca:Steppic landcover:MixedForest                         |	2.7417|	0.486111,
-es.nca:Steppic landcover:TransitionalWoodlandScrub           |	2.7417|	0.458333,
-es.nca:AlpineScandinavian landcover:BroadleafForest          |	1.1769|	0.437963,
-es.nca:AlpineScandinavian landcover:ConiferousForest         |	1.4426|	0.476852,
-es.nca:AlpineScandinavian landcover:MixedForest              |	1.4611|	0.473148,
-es.nca:AlpineScandinavian landcover:TransitionalWoodlandScrub|	1.5028|	0.590741
-}};
-
-number min_leaf_area_index  
-	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
-	lookup (bio_region_by_forest_type, *, ?) 
-		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
+	 
+/*LAI Tier 2 */	
+model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
+	as ecology:LeafAreaIndex named lai_10m;
 
 number max_leaf_area_index  
 	observing
-		ecology:Forest es.nca:BiogeographicRegionType named bio_region_by_forest_type
-	lookup (bio_region_by_forest_type, ?, *) 
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
+		
+number min_leaf_area_index  
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
 
  model im:Indicator value of ecology:LeafAreaIndex	
@@ -75,11 +28,6 @@ number max_leaf_area_index
 		max_leaf_area_index,
         ecology:LeafAreaIndex named leaf_area_index
 	set to [leaf_area_index < min_leaf_area_index ? 0 : ( leaf_area_index > max_leaf_area_index ? 1 : ((leaf_area_index - min_leaf_area_index)/(max_leaf_area_index - min_leaf_area_index)) )];
-
-/*LAI Tier 2 */	
-
-model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
-	as ecology:LeafAreaIndex named lai_10m;
 
 @documented(peopleea.forest_condition_accounts.variable)	
 @var(timespan=(start end))	
