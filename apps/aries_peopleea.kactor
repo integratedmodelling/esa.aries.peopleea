@@ -33,16 +33,16 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forests Conditions Index"], true) #lctchangematrix333
-		) :hfill :altbg :name "PEOPLE-EA Conditions Index" :iconname "cog" :opened
+				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
+		) :hfill :altbg :name "PEOPLE-EA Condition Index" :iconname "cog" :opened
 	) :shelf
 
 	(
 	  (
 		() //space
-		combo("Forests Conditions Variables (raw values)" "Forests Conditions Indicators" #target_observations width="90%"): (
+		combo("Forest Condition Variables (raw values)" "Forest Condition Indicators" #target_observations width="90%"): (
 			set self.target $
-			if [self.target == 'Forests Conditions Indicators'] (
+			if [self.target == 'Forest Condition Indicators'] (
 				rawvars.hide
 				indics.show
 			) else ( 
@@ -110,13 +110,13 @@ action main:
 				"Forest Fragmentation", true) #lctchangematrix28
 		) #rawvars 
 		
-	  ) :hfill :altbg :name "PEOPLE-EA Conditions Metrics" :iconname "cog" :opened #peopleea_conditions_metrics
+	  ) :hfill :altbg :name "PEOPLE-EA Condition Metrics" :iconname "cog" :opened #peopleea_condition_metrics
 	) :shelf
 
 	(
 		(
 			create aries.components.selectors.observation("peopleea.soil.retention.cover-management-resolver",  
-				"OpenEO Cover Management ", true, "cog") #lctchangematrix
+				"OpenEO Cover Management ", true, "map") #lctchangematrix
 			create aries.components.selectors.observation(peopleea.soil.retention.sediment_biophysical,  
 				"Sediment regulation: soil erosion control", true, "table") #lctchangematrix30
 		) :hfill :altbg :name "PEOPLE-EA Ecosystem Services" :iconname "cog" :opened
