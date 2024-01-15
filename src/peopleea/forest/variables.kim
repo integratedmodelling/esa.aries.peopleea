@@ -146,7 +146,7 @@ define table landscape_naturalness_raw_variable as {
  model 'local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m#output_warp=true&synchronous=true'  
  	 as ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation named fapar_10m; 
 
-@documented(peopleea.forest_condition_accounts.variable)
+@documented(peopleea.forest_condition_accounts.variable) 
 @var(timespan=(start end))	
 define table fapar_raw_variable as {
 	name: "fapar_variable"
