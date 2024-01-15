@@ -1,0 +1,125 @@
+worldview im;
+
+@test(
+    name = "testing.indicator.no.soc.bermeo",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    	"im|esa.aries.peopleea/tests/testing_indicator_no_soc_bermeo.indicator-forest-condition-resolver"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named bermeo
+    // add any space and/or time extents: for example
+//    over space(shape = "EPSG:4326 POLYGON ((-2.749527044048491 43.42902042252052, -2.753341145267669 43.42902042252052, -2.753341145267669 43.43038587902038, -2.749527044048491 43.43038587902038, -2.749527044048491 43.42902042252052))",
+//    	grid = "150 m"),
+    over space(shape="EPSG:4326 POLYGON ((-2.738103598164683 43.41970540114042, -2.776938194065562 43.41970540114042, -2.776938194065562 43.43259301757641, -2.738103598164683 43.43259301757641, -2.738103598164683 43.41970540114042))",
+    		   grid="150 m"),
+    	time(start=2015, end=2016, step=1.year);
+@documented(peopleea.forest_condition_accounts.index)
+model  im:Indicator ecology:Forest es.nca:Condition
+	observing 
+		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+	set to [
+		if (nodata(indicator_soil_organic_carbon)){
+			return(	 0.31 * indicator_normalized_difference_water_index 
+					+ 0.11 * indicator_threatened_bird_species
+			 		+ 0.19 * indicator_above_ground_biomass
+					+ 0.24 * indicator_net_primary_production 
+					+ 0.15 * indicator_forest_connectivity
+			)
+		} else {
+			return(	0.27 * indicator_normalized_difference_water_index
+					+ 0.07 * indicator_soil_organic_carbon
+					+ 0.10 * indicator_threatened_bird_species
+			 		+ 0.18 * indicator_above_ground_biomass
+					+ 0.22 * indicator_net_primary_production 
+					+ 0.16 * indicator_forest_connectivity
+			)
+		}
+	];
+		
+//@documented(peopleea.forest_condition_accounts.index)
+//model  im:Indicator ecology:Forest es.nca:Condition
+//	observing 
+//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+//	set to [
+//		def w_ndwi
+//		def w_soc
+//		def w_tbs
+//		def w_agb
+//		def w_npp
+//		def w_fc
+//		if (nodata(indicator_soil_organic_carbon)){
+//			w_ndwi= 0.28 
+//			w_tbs = 0.1
+//			w_agb = 0.18
+//			w_npp = 0.23
+//			w_fc  = 0.16
+//			return(	(w_ndwi * indicator_normalized_difference_water_index)  
+//					+ (w_tbs * indicator_threatened_bird_species)
+//			 		+ (w_agb * indicator_above_ground_biomass)
+//					+ (w_npp * indicator_net_primary_production) 
+//					+ (w_fc * indicator_forest_connectivity)
+//			)
+//		} else {
+//			w_ndwi= 0.27
+//			w_soc = 0.07
+//			w_tbs = 0.11
+//			w_agb = 0.20
+//			w_npp = 0.22
+//			w_fc  = 0.18
+//			return(	(w_ndwi * indicator_normalized_difference_water_index)  
+//					+ (w_soc * indicator_soil_organic_carbon)
+//					+ (w_tbs * indicator_threatened_bird_species)
+//			 		+ (w_agb * indicator_above_ground_biomass)
+//					+ (w_npp * indicator_net_primary_production) 
+//					+ (w_fc * indicator_forest_connectivity)
+//			)
+//		}
+//	];
+
+//
+//@documented(peopleea.forest_condition_accounts.index)
+//model  im:Indicator ecology:Forest es.nca:Condition
+//	observing 
+//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species
+//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass
+//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+//	set to [
+//		if (nodata(indicator_soil_organic_carbon)){
+//			def w_ndwi= 0.28 
+//			def w_soc = 0
+////			def w_tbs = 0.1
+////			def w_agb = 0.18
+////			def w_npp = 0.23
+////			def w_fc  = 0.16
+//		} else {
+//			w_ndwi= 0.27
+//			w_soc = 0.07
+////			w_tbs = 0.11
+////			w_agb = 0.20
+////			w_npp = 0.22
+////			w_fc  = 0.18
+//		}
+//		return((w_ndwi * indicator_normalized_difference_water_index) + (w_soc * indicator_soil_organic_carbon)
+////			+ (w_agb * indicator_above_ground_biomass)
+//		)];
+//			+ (w_tbs * indicator_threatened_bird_species))];
+//			 + (w_agb * indicator_above_ground_biomass))];
+//			+ (w_npp * indicator_net_primary_production) + (w_fc * indicator_forest_connectivity))];
