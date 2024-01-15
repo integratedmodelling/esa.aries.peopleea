@@ -158,7 +158,7 @@ model im:Indicator value of ecology:CanopyCover
 // TO-DO documentation
 model  im:Indicator ecology:Forest es.nca:Condition
 	observing 
-		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threathened_bird_species,
+		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
 	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity,
 		im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity named indicator_landscape_naturalness,
 		im:Indicator value of ecology:NormalizedDifferenceVegetationIndex named indicator_normalized_difference_vegetation_index,    	
@@ -166,12 +166,22 @@ model  im:Indicator ecology:Forest es.nca:Condition
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
 		im:Indicator value of ecology:CanopyCover named indicator_tree_cover_density
 	set to [
-			  0.22 * indicator_threathened_bird_species 
-			+ 0.13 * indicator_forest_connectivity 
-			+ 0.11 * indicator_landscape_naturalness 
-			+ 0.13 * indicator_normalized_difference_vegetation_index 
-			+ 0.08 * indicator_normalized_difference_water_index 
-			+ 0.12 * indicator_soil_organic_carbon 
-			+ 0.21 * indicator_tree_cover_density 
+		if (nodata(indicator_soil_organic_carbon)){
+			return(	 0.26 * indicator_threatened_bird_species 
+					+ 0.14 * indicator_forest_connectivity 
+					+ 0.12 * indicator_landscape_naturalness 
+					+ 0.15 * indicator_normalized_difference_vegetation_index 
+					+ 0.10 * indicator_normalized_difference_water_index 
+					+ 0.23 * indicator_tree_cover_density
 			)
+		} else {
+			return(	 0.22 * indicator_threatened_bird_species 
+					+ 0.13 * indicator_forest_connectivity 
+					+ 0.11 * indicator_landscape_naturalness 
+					+ 0.13 * indicator_normalized_difference_vegetation_index 
+					+ 0.08 * indicator_normalized_difference_water_index 
+					+ 0.12 * indicator_soil_organic_carbon 
+					+ 0.21 * indicator_tree_cover_density 
+			)
+		}
 	];
