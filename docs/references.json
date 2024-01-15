@@ -31,13 +31,25 @@
     "examplecitation" : "Corine land cover dataset in the year 2000 - https://land.copernicus.eu/en/products/corine-land-cover/clc-2000",
     "key" : "corine.landcover.2000"
   },
+  "EUCopernicusLMS2020CLC18" : {
+    "examplecitation" : "European Union's Copernicus Land Monitoring Service. CORINE Land cover 2018 (vector/raster 100 m), Europe, 6-yearly. URL: https://land.copernicus.eu/en/products/corine-land-cover/clc2018",
+    "key" : "EUCopernicusLMS2020CLC18"
+  },
   "EEA2019" : {
     "examplecitation" : "European Environmental Agency. Corine Land Cover 2000 (raster 100m) version 20 accounting layer. 2019. URL: https://www.eea.europa.eu/en/datahub/datahubitem-view/a55d9224-a326-4cb1-9b9c-3a324520341a?activeAccordion=1069872%2C1069948",
     "key" : "EEA2019"
   },
+  "HansenEtAl2013" : {
+    "examplecitation" : "Hansen M. C., Potapov P. V., Moore R., Hancher M., Turubanova S. A., Tyukavina A., Thau D., Stehman S. V., Goetz S. J., Loveland T. R., Kommareddy A., Egorov A., Chini L., Justice C. O., G. Townshend J. R. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342, 850-853. 2013. DOI:10.1126/science.1244693",
+    "key" : "HansenEtAl2013"
+  },
   "Copernicus.highly.tree-covered.forest" : {
     "examplecitation" : "https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
     "key" : "Copernicus.highly.tree-covered.forest"
+  },
+  "EEA2016" : {
+    "examplecitation" : "European Environmental Agency. Biogeographical regions, Europe 2016, version 1. URL: https://www.eea.europa.eu/en/datahub/datahubitem-view/11db8d14-f167-4cd5-9205-95638dfd9618",
+    "key" : "EEA2016"
   },
   "EEA2015" : {
     "examplecitation" : "European Environmental Agency. Bio-regions. 2015. URL: https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",

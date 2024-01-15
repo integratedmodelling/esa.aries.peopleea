@@ -47,6 +47,18 @@
     "eventType" : null,
     "variables" : { }
   },
+  "peopleea.forest_condition_accounts.maes_indicators#Definition#Introduction" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "INTRODUCTION",
+    "section" : "Introduction",
+    "documentedId" : "peopleea.forest_condition_accounts.maes_indicators",
+    "extended" : null,
+    "template" : "@require(ConditionAccountsIntroduction, Introduction)",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
   "peopleea.forest_condition_accounts.variable#Definition#Methods" : {
     "trigger" : "DEFINITION",
     "sectionRole" : "METHODS",
@@ -59,6 +71,18 @@
     "eventType" : null,
     "variables" : { }
   },
+  "peopleea.forest_condition_accounts.maes_index#Definition#Introduction" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "INTRODUCTION",
+    "section" : "Introduction",
+    "documentedId" : "peopleea.forest_condition_accounts.maes_index",
+    "extended" : null,
+    "template" : "@require(ConditionAccountsIntroduction, Introduction)",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
   "peopleea.forest_condition_accounts.index#Definition#Methods" : {
     "trigger" : "DEFINITION",
     "sectionRole" : "METHODS",
@@ -66,6 +90,30 @@
     "documentedId" : "peopleea.forest_condition_accounts.index",
     "extended" : null,
     "template" : "# Forest Condition Index\r\n\r\nThe Forest Condition Index quantifies the forest health by synthetizing the information from indicator accounts representing different forest conditions. The index is composed of one indicator account per Ecosystem Typology Class (ETC) as variables from the same class may be highly correlated. Specifically, the index involves the Net Difference Water Index (NDWI), Soil Organic Carbon (SOC), Threatened forest bird species diversity (TFBSD), Above-Ground Biomass (AGB), Net Primary Production (NPP), Burn severity (BS) and Forest connectivity (FC). Given the low correlation of BS with NPP, both variables have been included despite pertaining to the same ETC.\r\n\r\nIn order to obtain the indicator accounts, the index uses their weighted average. The weights for indicator accounts are determined according to their spatial resolution (i.e. the size of the smallest feature detected by a satellite sensor or displayed in a satellite image, usually expressed as a single value measuring the length of one side of a square), temporal resolution (i.e. the total amount of years in a dataset), temporal frequency (i.e. the availability of temporal observations over the same period) and dataset quality (referring to the proximity of the latest year to the present). In particular, indicator accounts are ranked according to each of these categories. Larger quantities of these criteria are associated to better representation of the ecological conditions and, consequently, report indicators a higher position. The relative sum of the indicator accounts positions results in their index weight. When data of several indicators coincides in one aspect, each indicator is attributed the average of the positions they would represent. For example, if there are three indicator accounts that should be ranked 7, they will be assigned 6 since it is the average of the positions these variables represent (5th, 6th and 7th). Positions and weights attributed to indicator accounts are detailed in the table below:\r\n\r\n| Indicator | Spatial resolution | Temporal resolution | Temporal frequency | Dataset quality | Weight |\r\n|:---------:|:------------------:|:-------------------:|:------------------:|:---------------:|:------:|\r\n|    NDWI   |          6         |          7          |          7         |       6.5       |  0.24  |\r\n|    SOC    |          2         |          1          |          1         |        2        |  0.05  |\r\n|   TBFSD   |          1         |         3.5         |          3         |        1        |  0.08  |\r\n|    AGB    |          6         |         3.5         |          3         |       4.5       |  0.15  |\r\n|    NPP    |          4         |          5          |          6         |       6.5       |  0.19  |\r\n|     BS    |          3         |          6          |          5         |       4.5       |  0.17  |\r\n|     FC    |          6         |          2          |          3         |        3        |  0.12  |\r\nThe formulation of the resulting Forest Condition Index is the following:\r\nForest Condition Index = \r\n(NDWI x 0.24) + (SOC x 0.05) + (TBFSD x 0.08) + (AGB x 0.15) + (NPP x 0.19) + (BS x 0.17) + (FC x 0.12)\r\n",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "peopleea.forest_condition_accounts.maes_indicators#Definition#Methods" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "METHODS",
+    "section" : "Methods",
+    "documentedId" : "peopleea.forest_condition_accounts.maes_indicators",
+    "extended" : null,
+    "template" : "# Forest Indicators Accounts by Maes et al. (2023) standards\r\nIndicator accounts measure the proximity in the forest condition of an area to those representative of degraded and primary forests in the year 2000 for the same forest type and biogeographic zone in order to assess the health of the area of interest. The combination of the forest classes @cite(EUCopernicusLMS2020) @cite(EUCopernicusLMS2020CLC18) and the biogeographic zones @cite(EEA2016) leads to the presence of 44 different classes.\r\n\r\n## Reference values\r\nReference values are defined to assess the healthiness of an area, by comparing the raw values of the variable against the reference values from healthy forests and forests in bad conditions. This comparison is done across forests of the same type and biogeographic zone.\r\nThe upper bound threshold, representing the healthiest forest conditions, is taken from primary forests @cite(SabatiniEtAl2021) or least disturbed forests from protected areas @cite(UNEPIUCN2023) when the former do not exist, retaining the areas with tree cover loss lower than 5% @cite(HansenEtAl2013). The lower bound threshold, representing the most degraded conditions, corresponds to the minimum value of the distribution.  \r\n\r\n### Rescaling of the variables\r\nThe maximum and minimum values, obtained respectively from primary and degraded reference areas, define the thresholds used to rescale the observed raw values of the variable into indicators ranging from 0 to 1.  \r\nIn order to assess the forest healthiness in a particular location, the value in the variable account is rescaled with the reference values for the same forest type and bioregion as follows:\r\nIndicator account =  (Variable account – Lower reference) / (Upper reference – Lower reference). \r\nValues of the variable accounts below or above the reference ones are constrained to 0 and 1, respectively. Consequently, the indicator accounts range between 0 and 1, taking larger values when the area of interest is closer to the healthiest conditions.\r\n\r\n### Reference areas\r\nReference values for healthy forest conditions are extracted from areas considered to be minimally disturbed by anthropogenic actions, which are mainly primary forest. By contrast, reference values of degraded conditions are extracted from the remaining areas.  \r\n\r\n#### Reference areas representing healthy forests\r\nThese areas are used to identify forests considered in good health, so as to define the upper reference values of that variable. In particular, primary forests are considered as reference areas for upper reference values to show the best forest conditions @cite(SabatiniEtAl2021). In case, primary forests do not exist, the three classes of most protected areas are considered @cite(UNEPIUCN2023). In both cases, only forests with a tree cover loss @cite(HansenEtAl2013) lower than 5% from 2001 to 2020 with respect to 2000. \r\n\r\n### Reference values: upper and lower thresholds\r\n * The upper reference threshold (healthier conditions) corresponds to the maximum value of the variable observed in the reference healthy areas for each type of forest and biogeographic zone. \r\n * The lower reference threshold (worse conditions) was set at the minimum value of the variable for each type of forest and biogeographic zone.\r\n",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "peopleea.forest_condition_accounts.maes_index#Definition#Methods" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "METHODS",
+    "section" : "Methods",
+    "documentedId" : "peopleea.forest_condition_accounts.maes_index",
+    "extended" : null,
+    "template" : "# Forest Condition Index by Maes et al. (2023) standards\r\n\r\nThe Forest Condition Index quantifies the forest health by synthesising the information from indicator accounts representing different forest conditions. The indicators composing the index aim to fully represent all the components of ecosystems (abiotic, biotic and landscape). They are selected considering their relevance, their direct relationship to forest condition and the availability of data for their measurement. Specifically, the index involves the Net Difference Water Index (NDWI), Soil Organic Carbon (SOC), Threatened forest bird species diversity (TFBSD), Tree cover density (TCD), Forest productivity (NDVI),  Forest connectivity (FC) and Landscape naturalness (LN). \r\n\r\nIn order to obtain a unique assessment on the forest condition, the index uses the weighted average of indicator accounts. The weights for indicator accounts are assigned based on their capacity to represent the ecosystem structure (intrinsic relevance), the ecosystem services provided (instrumental relevance), the changes in forest condition derived from external factors (directionality meaning) and the anthropogenic repercussion (sensibility to human influence) as well as on their adequacy to the SEEA EA framework (framework adequacy). Indicators are ranked between 1 (lowest position) and 7 (highest position) regarding each of these aspects, being attributed higher positions with better conditions. Having an overall better positioning reports indicators a larger weight in the index. In particular, the relative sum of the indicator positions results in their index weight. Positions and weights attributed to indicator accounts are detailed in the table below, which corresponds to the Supplementary Table 9 in @cite(MaesEtAl2023).\r\n\r\n|          Conceptual criteria            | NDWI | SOC | TFBSD | TCD | NDVI | FC | LN |\r\n|:----------------------------------------:|:--------:|:-----:|:-------:|:------:|:------:|:---:|:---:|\r\n| Intrinsic relevance                       |     1     |     3   |     7     |    6   |     2    |  5   |  4  |\r\n| Instrumental relevance              |     4     |     5   |     3     |    6   |     7    |  2   |  1  |\r\n| Directional meaning                   |     1     |     3   |     7     |    5   |     2    |  4   |  6  |\r\n| Sensibility to human influence |     2     |     1   |     7     |    6   |     3    |  5   |  4  |\r\n| Framework conformity              |     3     |     5   |     7     |    6   |     4    |  2   |  1  |\r\n| Sum of the ranks                         |    11    |   17   |    31    |   29  |   18  | 18  | 16 |\r\n| Weights                                         |  0.08  | 0.12  |   0.22  | 0.21 | 0.13 |0.13|0.11|\r\n\r\nThe formulation of the resulting Forest Condition Index is the following:\r\nForest Condition Index = \r\n(NDWI x 0.08) + (SOC x 0.12) + (TBFSD x 0.22) + (TCD x 0.21) + (NDVI x 0.13) + (FC x 0.13) + (LN x 0.11).",
     "sectionType" : "BODY",
     "documentedUrns" : [ ],
     "eventType" : null,
