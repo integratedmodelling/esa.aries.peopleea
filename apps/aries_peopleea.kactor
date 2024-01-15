@@ -72,8 +72,8 @@ action main:
 				"NDVI", true) #lctchangematrix8
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 				"Burned Severity", true) #lctchangematrix9
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Indicator 10", true) #lctchangematrix10
+//			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+//				"Indicator 10", true) #lctchangematrix10
 
 		)  :hidden #indics
 
@@ -112,6 +112,14 @@ action main:
 		
 	  ) :hfill :altbg :name "PEOPLE-EA Conditions Metrics" :iconname "cog" :opened #peopleea_conditions_metrics
 	) :shelf
+
+	(
+		(
+			create aries.components.selectors.observation(peopleea.soil.retention.sediment_biophysical,  
+				["Sediment regulation: soil erosion control"], true) #lctchangematrix
+		) :hfill :altbg :name "PEOPLE-EA Ecosystem Services" :iconname "cog" :opened
+	) :shelf
+	
 	
 	(
 	  ( 
