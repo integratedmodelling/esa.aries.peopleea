@@ -115,8 +115,10 @@ action main:
 
 	(
 		(
+			create aries.components.selectors.observation("peopleea.soil.retention.cover-management-resolver",  
+				"OpenEO Cover Management ", true, "cog") #lctchangematrix
 			create aries.components.selectors.observation(peopleea.soil.retention.sediment_biophysical,  
-				["Sediment regulation: soil erosion control"], true) #lctchangematrix
+				"Sediment regulation: soil erosion control", true, "table") #lctchangematrix30
 		) :hfill :altbg :name "PEOPLE-EA Ecosystem Services" :iconname "cog" :opened
 	) :shelf
 	
