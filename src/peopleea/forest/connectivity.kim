@@ -34,7 +34,7 @@ define table forest_connectivity_raw_variable as {
 	name: "forest_connectivity_variable"
 	title: "Forest Connectivity Variable Account",
 	label: "Forest Connectivity Variable",
-	target: percentage of ecology:ForestConnectivity
+	target: percentage of ecology:ForestConnectivity where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -74,7 +74,7 @@ define table forest_fragmentation_raw_variable as {
 	name: "forest_fragmentation_variable"
 	title: "Forest Fragmentation Variable Account",
 	label: "Forest Fragmentation Variable",
-	target: ecology:ForestFragmentation
+	target: ecology:ForestFragmentation where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 

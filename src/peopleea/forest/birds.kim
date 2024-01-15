@@ -4,7 +4,7 @@ project private namespace peopleea.forest.birds
 model 'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2000',
 	   'local:rubencc:esa.people.sandbox:im-data-global-conservation.threatened_forest_birds_richness_100m_4326_of_europe_2018'
 	   as conservation:Threatened biology:Bird ecology:SpeciesRichness;        
-	   
+  
 number max_threatened_forest_birds_species_richness 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
@@ -32,7 +32,7 @@ define table birds_raw_variable as {
 	name: "threatened_bird_species_variable"
 	title: "Threatened Bird Species Variable Account",
 	label: "Threatened Bird Species Variable",
-	target: conservation:Threatened biology:Bird ecology:SpeciesRichness
+	target: conservation:Threatened biology:Bird ecology:SpeciesRichness where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 

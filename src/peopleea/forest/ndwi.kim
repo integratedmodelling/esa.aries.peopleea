@@ -31,7 +31,7 @@ define table ndwi_raw_variable as {
 	name: "NDWI_variable"
 	title: "NDWI Variable Account",
 	label: "NDWI Variable",
-	target: ecology:NormalizedDifferenceWaterIndex
+	target: ecology:NormalizedDifferenceWaterIndex where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
