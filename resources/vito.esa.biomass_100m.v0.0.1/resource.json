@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "openeo",
   "localPath" : "esa.aries.peopleea/resources/vito.esa.biomass_100m.v0.0.1",
-  "geometry" : "t1{ttype=GRID}S2",
+  "geometry" : "t1{ttype=GRID}S2(101054,37777){bbox=[-56.5051419017043699 72.906104934 24.284682929 72.663269668], proj=EPSG:4326}",
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.esa.biomass_100m",
   "type" : "NUMBER",
