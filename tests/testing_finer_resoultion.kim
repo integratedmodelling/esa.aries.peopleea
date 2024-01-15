@@ -4,7 +4,7 @@ worldview im;
     name = "testing.finer.resoultion",
     description  = "",
     // add to the list any concepts to be observed in the context below
-    observations = ("peopleea.forest.biomass.vegetation-biomass-resolver"),
+    observations = ("im|esa.aries.peopleea/tests/testing_finer_resoultion.indicator-value-of-vegetation-biomass-resolver"),
     // add assertions to check the observations after execution
     assertions = ()
 )
@@ -12,7 +12,13 @@ worldview im;
 observe /* a:urn:to:use#objectid as */ earth:Region named testing_finer_resoultion
     // add any space and/or time extents: for example
     over space(shape="EPSG:4326 POLYGON ((-1.9728570981631355 40.6526019854808, -1.9757176740775186 40.6526019854808, -1.9757176740775186 40.65363164754726, -1.9728570981631355 40.65363164754726, -1.9728570981631355 40.6526019854808))",
-//    	grid="20 m"),
-		grid="100 m"),
+    	grid="20 m"),
+//		grid="100 m"),
 		time(start=2015, end=2016, step=1.year);
 // add any models here
+
+@intensive(space)   
+@extensive(time)
+model im:Indicator value of ecology:Vegetation ecology:Biomass
+	observing ecology:Vegetation ecology:Biomass in t/ha named prueba
+	set to [prueba];
