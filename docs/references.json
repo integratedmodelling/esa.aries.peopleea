@@ -15,17 +15,9 @@
     "examplecitation" : "Sabatini, F.M., Bluhm, H., Kun, Z. et al. European primary forest database v2.0. Sci Data 8, 220. 2021. DOI: 10.1038/s41597-021-00988-7.",
     "key" : "SabatiniEtAl2021"
   },
-  "ATBD" : {
-    "examplecitation" : "The Product Specification and Algorithm Theoretical Base Document details the technical requirements of the selected accounting pilot demonstrators for the PEOPLE-EA project - written by Marcel Buchhorn over 2023",
-    "key" : "ATBD"
-  },
   "UNEPIUCN2023" : {
     "examplecitation" : "UNEP-WCMC and IUCN. Protected Planet: The World Database on Protected Areas (WDPA) [On-line]. 2023. Cambridge, UK: UNEP-WCMC and IUCN. Available at: https://www.protectedplanet.net/en/thematic-areas/wdpa?tab=WDPA",
     "key" : "UNEPIUCN2023"
-  },
-  "BuchornEtAl2024" : {
-    "examplecitation" : "The Product Specification and Algorithm Theoretical Base Document details the technical requirements of the selected accounting pilot demonstrators for the PEOPLE-EA project",
-    "key" : "BuchornEtAl2024"
   },
   "corine.landcover.2000" : {
     "examplecitation" : "Corine land cover dataset in the year 2000 - https://land.copernicus.eu/en/products/corine-land-cover/clc-2000",
@@ -90,5 +82,9 @@
   "corine.transitionalwoodland.and.shrub" : {
     "examplecitation" : "Transitional woodland & shrub (raster code 324) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html",
     "key" : "corine.transitionalwoodland.and.shrub"
+  },
+  "BuchhornEtAl2024" : {
+    "examplecitation" : "The Product Specification and Algorithm Theoretical Base Document detail the technical requirements of the selected accounting pilot demonstrators for the PEOPLE-EA project",
+    "key" : "BuchhornEtAl2024"
   }
 }
