@@ -1,6 +1,6 @@
 project private namespace peopleea.tables;
 
-define BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS as {{			
+define BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS as {{	 		
 bioregion                |	forest_type                        |	upper_people|	lower_people
 -------------------------------------------------------------------------------------------------	                                   		
 es.nca:Alpine            |	landcover:BroadleafForest          |	447  		|	0    ,
