@@ -115,10 +115,27 @@ action main:
 
 	(
 		(
+			create aries.components.selectors.observation(peopleea.highresolution.lai_10m,   
+				"LAI", true, "map") #lctchangematrix29
+			create aries.components.selectors.observation(peopleea.highresolution.ndvi_10m,  
+				"NDVI", true, "map") #lctchangematrix30
+			create aries.components.selectors.observation(peopleea.highresolution.esa_biomass_20m,  
+				"Above Ground Biomass", true, "map") #lctchangematrix31
+			create aries.components.selectors.observation(peopleea.highresolution.fcover_10m,  
+				"Fraction of Green Vegetation Cover", true, "map") #lctchangematrix32
+			create aries.components.selectors.observation(peopleea.highresolution.ppi_10m,  
+				"Plant Phenology Index", true, "map") #lctchangematrix33
+			create aries.components.selectors.observation(peopleea.highresolution.fapar_10m,  
+				"Fraction of Absorbed Photosynthetically Active Radiation", true, "map") #lctchangematrix34			
+		) :hfill :altbg :name "PEOPLE-EA High Resolution Variables" :iconname "cog" :opened
+	) :shelf
+	
+	(
+		(
 			create aries.components.selectors.observation("peopleea.soil.retention.cover-management-resolver",  
-				"OpenEO Cover Management ", true, "map") #lctchangematrix
+				"OpenEO Cover Management ", true, "map") #lctchangematrix35
 			create aries.components.selectors.observation(peopleea.soil.retention.sediment_biophysical,  
-				"Sediment regulation: soil erosion control", true, "table") #lctchangematrix30
+				"Sediment regulation: soil erosion control", true, "table") #lctchangematrix36
 		) :hfill :altbg :name "PEOPLE-EA Ecosystem Services" :iconname "cog" :opened
 	) :shelf
 	
