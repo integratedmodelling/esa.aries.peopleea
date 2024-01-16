@@ -11,14 +11,6 @@ model 'local:stefano.balbi:im.openeo.sandbox:vito.biomas.cci#output_warp=true&sy
 model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_100m#output_warp=true&synchronous=true' 
 	as ecology:Vegetation ecology:Biomass in t/ha; 
 
-/* BIOMASS Tier 2 */
-@intensive(space)   
-@extensive(time)
-model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp=true&synchronous=true'
-	as ecology:Vegetation ecology:Biomass in t/ha named esa_biomass_20m;  
-
-//try reimporting the resources	
-
 number max_above_ground_biomass 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,

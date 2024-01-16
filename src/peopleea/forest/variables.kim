@@ -4,10 +4,6 @@ project private namespace peopleea.forest.variables;
 
 model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=true' 
 	 as ratio of ecology:Vegetation im:Area to im:Area; 
-	 
-model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
-		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m; 
-
 
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
@@ -141,52 +137,3 @@ define table landscape_naturalness_raw_variable as {
 	)
 };
 
-/*FAPAR Tier 2 */
-
- model 'local:stefano.balbi:esa.aries.peopleea:vito.fapar.10m#output_warp=true&synchronous=true'  
- 	 as ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation named fapar_10m; 
-
-@documented(peopleea.forest_condition_accounts.variable) 
-@var(timespan=(start end))	
-define table fapar_raw_variable as {
-	name: "fapar_variable"
-	title: "FAPAR Variable Account",
-	label: "FAPAR Variable",
-	target: ratio of physical:Absorbed to earth.incubation:PhotosyntheticallyActiveRadiation 
-	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
-	when: end
-	use: tables.compiler.summarize(contabilize-nulls = true, 
-		rowsummary = { filter: "change" title: "Net change"}, 
-//		colsummary=  { filter: "mean", title: "Mean" },
-		rows =       { filter: %timespan% }, 
-		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
-		statistic =  "mean",
-		empty='', 
-		no-data = ''
-	)
-};
-
-/*PPI Tier 2 */
-
-model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&synchronous=true'  
-		as ecology:PlantPhenologyIndex named ppi_10m; 
-
-@documented(peopleea.forest_condition_accounts.variable)		
-@var(timespan=(start end))	
-define table ppi_raw_variable as {
-	name: "ppi_variable"
-	title: "PPI Variable Account",
-	label: "PPI Variable",
-	target: ecology:PlantPhenologyIndex
-	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
-	when: end
-	use: tables.compiler.summarize(contabilize-nulls = true, 
-		rowsummary = { filter: "change" title: "Net change"}, 
-//		colsummary=  { filter: "mean", title: "Mean" },
-		rows =       { filter: %timespan% }, 
-		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
-		statistic =  "mean",
-		empty='', 
-		no-data = ''
-	)
-};

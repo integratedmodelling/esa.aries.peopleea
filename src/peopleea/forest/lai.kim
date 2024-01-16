@@ -3,10 +3,6 @@ project private namespace peopleea.forest.lai
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
 	 as ecology:LeafAreaIndex; 
-	 
-/*LAI Tier 2 */	
-model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
-	as ecology:LeafAreaIndex named lai_10m;
 
 number max_leaf_area_index  
 	observing

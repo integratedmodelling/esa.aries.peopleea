@@ -26,10 +26,6 @@ model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex
         ecology:NormalizedDifferenceVegetationIndex named forest_productivity_ndvi
 	set to [forest_productivity_ndvi < min_forest_productivity_ndvi ? 0 : ( forest_productivity_ndvi > max_forest_productivity_ndvi ? 1 : ((forest_productivity_ndvi - min_forest_productivity_ndvi)/(max_forest_productivity_ndvi - min_forest_productivity_ndvi)) )];
 
-/* Tier 2 NDVI */ 
-model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
-	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
-
 @documented(peopleea.forest_condition_accounts.variable)	
 @var(timespan=(start end))	
 define table ndvi_raw_variable as {
