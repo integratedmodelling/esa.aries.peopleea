@@ -116,11 +116,11 @@ action main:
 	(
 		(
 			
-			(
-		button(#bcontext "Set test context" :iconname "earth" :tooltip "This context is predefined for a high resolution test case in Slovakia"): (
-					context(peopleea.highresolution.test_slovakia) 
-			)
-				)
+//			(
+//		button(#bcontext "Set test context" :iconname "earth" :tooltip "This context is predefined for a high resolution test case in Slovakia"): (
+//					context(peopleea.highresolution.test_slovakia) 
+//			)
+//				)
 		
 			create aries.components.selectors.observation(peopleea.highresolution.ndvi_10m,  
 				"NDVI", true, "map") #tag30
