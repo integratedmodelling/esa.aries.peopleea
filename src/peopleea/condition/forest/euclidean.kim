@@ -1,0 +1,82 @@
+private namespace peopleea.condition.forest.euclidean;
+
+//model im:Indicator ecology:Forest es.nca:Condition
+//	observing any im:Indicator
+//	using klab.data.euclideandistance(source=im:Indicator, indicator="distance");
+	
+//model im:Indicator ecology:Forest es.nca:Condition
+//	observing
+//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+//	using klab.data.euclideandistance(source=im:Indicator ecology:Forest es.nca:Condition, indicator="distance");
+
+// WEIGHTED EUCLIDEAN DISTANCE
+model  im:Indicator ecology:Forest es.nca:Condition
+	observing 
+		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+	set to [
+		if (nodata(indicator_soil_organic_carbon)){
+			return(	Math.sqrt( 
+					0.31 * Math.pow(indicator_normalized_difference_water_index, 2)
+					+ 0.11 * Math.pow(indicator_threatened_bird_species, 2)
+			 		+ 0.19 * Math.pow(indicator_above_ground_biomass, 2)
+					+ 0.24 * Math.pow(indicator_net_primary_production, 2)
+					+ 0.15 * Math.pow(indicator_forest_connectivity, 2)
+					)
+			)
+		} else {
+			return(	Math.sqrt(
+					0.27 * Math.pow(indicator_normalized_difference_water_index, 2)
+					+ 0.07 * Math.pow(indicator_soil_organic_carbon, 2)
+					+ 0.10 * Math.pow(indicator_threatened_bird_species, 2)
+			 		+ 0.18 * Math.pow(indicator_above_ground_biomass, 2)
+					+ 0.22 * Math.pow(indicator_net_primary_production, 2)
+					+ 0.16 * Math.pow(indicator_forest_connectivity, 2)
+					)
+			)
+		}
+	];
+
+// nNORMALISED but EQUALLY WEIGHTED EUCLIDEAN DISTANCE
+model  im:Indicator ecology:Forest es.nca:Condition
+	observing 
+		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+	set to [
+		if (nodata(indicator_soil_organic_carbon)){
+			return(	Math.sqrt( 
+					1/5 * Math.pow(indicator_normalized_difference_water_index, 2)
+					+ 1/5 * Math.pow(indicator_threatened_bird_species, 2)
+			 		+ 1/5 * Math.pow(indicator_above_ground_biomass, 2)
+					+ 1/5 * Math.pow(indicator_net_primary_production, 2)
+					+ 1/5 * Math.pow(indicator_forest_connectivity, 2)
+					)
+			)
+		} else {
+			return(	Math.sqrt(
+					1/6 * Math.pow(indicator_normalized_difference_water_index, 2)
+					+ 1/6 * Math.pow(indicator_soil_organic_carbon, 2)
+					+ 1/6 * Math.pow(indicator_threatened_bird_species, 2)
+			 		+ 1/6 * Math.pow(indicator_above_ground_biomass, 2)
+					+ 1/6 * Math.pow(indicator_net_primary_production, 2)
+					+ 1/6 * Math.pow(indicator_forest_connectivity, 2)
+					)
+			)
+		}
+	];
+		
+		
+		
