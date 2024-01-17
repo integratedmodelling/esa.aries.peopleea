@@ -34,6 +34,11 @@ action main:
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
 				["PEOPLE-EA Forest Condition Index"], true) #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
+				["NatCom Condition Index"], true) #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
+				["Euclidean Distance Forest Condition Index"], true) #tag333
+				
 		) :hfill :altbg :name "PEOPLE-EA Condition Index" :iconname "cog" :opened
 	) :shelf
 
