@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "openeo",
   "localPath" : "esa.aries.peopleea/resources/vito.ndvi.10m.v0.0.1",
-  "geometry" : "t1S2",
+  "geometry" : "t1{ttype=GRID}S2",
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.ndvi.10m",
   "type" : "NUMBER",

@@ -2,12 +2,11 @@ scenario peopleea.highresolution;
 
 /*Tier 2 variables */
 	
-model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
-	as ecology:LeafAreaIndex named lai_10m;
-
-/* Tier 2 NDVI */ 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
 	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
+	
+model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&synchronous=true'
+	as ecology:LeafAreaIndex named lai_10m;
 
 @intensive(space)   
 @extensive(time)
@@ -63,3 +62,11 @@ model 'local:stefano.balbi:esa.aries.peopleea:vito.ppi.10m#output_warp=true&sync
 //		no-data = ''
 //	)
 //};
+
+/*Test Case for Slovakia */
+observe earth:Region named test_slovakia
+    over space(shape='EPSG:4326 POLYGON ((19.249353550856167 48.69240508634127, 19.084558628981164 48.69240508634127, 19.084558628981164 48.746370205308125, 19.249353550856167 48.746370205308125, 19.249353550856167 48.69240508634127))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(year =2021); 
+ 

@@ -33,7 +33,7 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #lctchangematrix333
+				["PEOPLE-EA Forest Condition Index"], true) #tag333
 		) :hfill :altbg :name "PEOPLE-EA Condition Index" :iconname "cog" :opened
 	) :shelf
 
@@ -55,59 +55,59 @@ action main:
 		
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_indicator, 
-				"NDWI", true) #lctchangematrix1
+				"NDWI", true) #tag1
 			create aries.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
-				"Soil Organic Carbon Percentage in Top Soil", true) #lctchangematrix2
+				"Soil Organic Carbon Percentage in Top Soil", true) #tag2
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
-				"Threatened Bird Species", true) #lctchangematrix3
+				"Threatened Bird Species", true) #tag3
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Above Ground Biomass", true) #lctchangematrix4
+				"Above Ground Biomass", true) #tag4
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
-				"Net Primary Productivity", true) #lctchangematrix5
+				"Net Primary Productivity", true) #tag5
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_indicator, 
-				"Forest Connectivity", true) #lctchangematrix6
+				"Forest Connectivity", true) #tag6
 			create aries.components.selectors.observation(peopleea.forest.lai.lai_indicator, 
-				"LAI", true) #lctchangematrix7
+				"LAI", true) #tag7
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
-				"NDVI", true) #lctchangematrix8
+				"NDVI", true) #tag8
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Burned Severity", true) #lctchangematrix9
+				"Burned Severity", true) #tag9
 //			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-//				"Indicator 10", true) #lctchangematrix10
+//				"Indicator 10", true) #tag10
 
 		)  :hidden #indics
 
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
-				"NDWI", true) #lctchangematrix14
+				"NDWI", true) #tag14
 			create aries.components.selectors.observation(peopleea.soil.carbon.soc_raw_variable, 
-				"Soil Organic Carbon Percentage in Top Soil", true) #lctchangematrix15
+				"Soil Organic Carbon Percentage in Top Soil", true) #tag15
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
-				"Threatened Bird Species", true) #lctchangematrix16
+				"Threatened Bird Species", true) #tag16
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Above Ground Biomass", true) #lctchangematrix17
+				"Above Ground Biomass", true) #tag17
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
-				"Net Primary Productivity", true) #lctchangematrix18
+				"Net Primary Productivity", true) #tag18
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_raw_variable, 
-				"Forest Connectivity", true) #lctchangematrix19
+				"Forest Connectivity", true) #tag19
 			create aries.components.selectors.observation(peopleea.forest.lai.lai_raw_variable, 
-				"LAI", true) #lctchangematrix20
+				"LAI", true) #tag20
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
-				"NDVI", true) #lctchangematrix21
+				"NDVI", true) #tag21
 			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
-				"Fraction of Green Vegetation Cover", true) #lctchangematrix22
+				"Fraction of Green Vegetation Cover", true) #tag22
 			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_raw_variable, 
-				"Drought Severity", true) #lctchangematrix23
+				"Drought Severity", true) #tag23
 			create aries.components.selectors.observation(peopleea.forest.variables.canopy_cover_raw_variable, 
-				"Canopy Cover Percentage", true) #lctchangematrix24
+				"Canopy Cover Percentage", true) #tag24
 			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_raw_variable, 
-				"Landscape Naturalness", true) #lctchangematrix25
+				"Landscape Naturalness", true) #tag25
 			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
-				"Plant Phenology Index", true) #lctchangematrix26
+				"Plant Phenology Index", true) #tag26
 			create aries.components.selectors.observation(peopleea.forest.variables.fapar_raw_variable, 
-				"Fraction of Absorbed Photosynthetically Active Radiation", true) #lctchangematrix27
+				"Fraction of Absorbed Photosynthetically Active Radiation", true) #tag27
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest.fragmentation.raw.variable, 
-				"Forest Fragmentation", true) #lctchangematrix28
+				"Forest Fragmentation", true) #tag28
 		) #rawvars 
 		
 	  ) :hfill :altbg :name "PEOPLE-EA Condition Metrics" :iconname "cog" :opened #peopleea_condition_metrics
@@ -115,10 +115,34 @@ action main:
 
 	(
 		(
+			
+//			(
+//		button(#bcontext "Set test context" :iconname "earth" :tooltip "This context is predefined for a high resolution test case in Slovakia"): (
+//					context(peopleea.highresolution.test_slovakia) 
+//			)
+//				)
+		
+			create aries.components.selectors.observation(peopleea.highresolution.ndvi_10m,  
+				"NDVI", true, "map") #tag30
+			create aries.components.selectors.observation(peopleea.highresolution.lai_10m,   
+				"LAI", true, "map") #tag29
+			create aries.components.selectors.observation(peopleea.highresolution.esa_biomass_20m,  
+				"Above Ground Biomass", true, "map") #tag31
+			create aries.components.selectors.observation(peopleea.highresolution.fcover_10m,  
+				"Fraction of Green Vegetation Cover", true, "map") #tag32
+			create aries.components.selectors.observation(peopleea.highresolution.ppi_10m,  
+				"Plant Phenology Index", true, "map") #tag33
+			create aries.components.selectors.observation(peopleea.highresolution.fapar_10m,  
+				"Fraction of Absorbed Photosynthetically Active Radiation", true, "map") #tag34			
+		) :hfill :altbg :name "PEOPLE-EA High Resolution Variables" :iconname "cog" :opened
+	) :shelf
+	
+	(
+		(
 			create aries.components.selectors.observation("peopleea.soil.retention.cover-management-resolver",  
-				"OpenEO Cover Management ", true, "map") #lctchangematrix
+				"OpenEO Cover Management ", true, "map") #tag35
 			create aries.components.selectors.observation(peopleea.soil.retention.sediment_biophysical,  
-				"Sediment regulation: soil erosion control", true, "table") #lctchangematrix30
+				"Sediment regulation: soil erosion control", true, "table") #tag36
 		) :hfill :altbg :name "PEOPLE-EA Ecosystem Services" :iconname "cog" :opened
 	) :shelf
 	
@@ -138,7 +162,7 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_additions_reductions, 
 				#LAND_ACCOUNT_ADDITIONS_AND_REDUCTIONS, true) #lctaddred
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				#LAND_COVER_TYPE_CHANGE_MATRIX, true) #lctchangematrix
+				#LAND_COVER_TYPE_CHANGE_MATRIX, true) #tag
 
 		) :hfill :altbg :name #EXTENT_ACCOUNTS
 
