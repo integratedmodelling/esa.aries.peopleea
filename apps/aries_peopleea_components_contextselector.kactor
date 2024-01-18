@@ -9,8 +9,8 @@ action init:
 	// defaults for the session state. Names are mandatory.
 	set self.lockspace false
 	set self.timeresolution 1.year
-	set self.startyear 2015
-	set self.endyear 2016
+	set self.startyear 2018
+	set self.endyear 2019
 	set self.timetype GRID
 	set self.spaceresolutionunit "m"
 	set self.spacemultiplier 300
@@ -55,10 +55,11 @@ action main:
 				combo (#unit  "m" "km" width="15%" ): set self.spaceresolutionunit $
 			) :hbox
 			(
-				(label("Years" width="content")
+				(
+				// label("Years" width="content")
 				// TODO initialize from restored state
-				textinput("2015" :width "col1" #yearfrom): set self.startyear $ 
-				checkbutton("To" :width "content" #yearselector): (
+				textinput("2018" :width "col1" #yearfrom): set self.startyear $ 
+				checkbutton("Until" :width "content" #yearselector): (
 		 			true -> (
 //		 				set self.timetype GRID
 		 				set self.endyear endyear
@@ -73,7 +74,7 @@ action main:
 		 			)
 			 	)
 				
-		 		textinput("2016" #yearto :width "col1" :right :disabled): ( 
+		 		textinput("2019" #yearto :width "col1" :right :disabled): ( 
 		 				set self.endyear $
 		 				set endyear $
 		 			)
