@@ -33,7 +33,7 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true, "table") #tag333
+				["PEOPLE-EA Forest Condition Index"], true, "table") #tag333 
 			create aries.components.selectors.observation(peopleea.condition.forest.maes.natcom_forest_condition_index, 
 				["NatCom Forest Condition Index"], true, "map") #tag333
 			create aries.components.selectors.observation(peopleea.condition.forest.euclidean.euclidian_distance_forest_condition_index, 
