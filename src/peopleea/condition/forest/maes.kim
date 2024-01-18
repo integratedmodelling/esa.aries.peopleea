@@ -156,7 +156,8 @@ model im:Indicator value of ecology:CanopyCover
 	set to [tree_cover_density < min_tree_cover_density ? 0 : ( tree_cover_density > max_tree_cover_density ? 1 : ((tree_cover_density - min_tree_cover_density)/(max_tree_cover_density - min_tree_cover_density)) )];
 
 // TO-DO documentation
-model  im:Indicator ecology:Forest es.nca:Condition
+//model  im:Indicator ecology:Forest es.nca:Condition
+number natcom_forest_condition_index
 	observing 
 		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
 	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity,

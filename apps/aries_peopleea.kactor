@@ -33,11 +33,11 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #tag333
-			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["NatCom Forest Condition Index"], true) #tag333
-			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["Euclidean Distance Forest Condition Index"], true :tooltip)  #tag333
+				["PEOPLE-EA Forest Condition Index"], true, "table") #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.maes.natcom_forest_condition_index, 
+				["NatCom Forest Condition Index"], true, "map") #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.euclidean.euclidian_distance_forest_condition_index, 
+				["Euclidean Distance Forest Condition Index"], true, "map")  #tag333
 				
 		) :hfill :altbg :name "PEOPLE-EA Condition Indexes" :iconname "cog" :opened //:tooltip "This section provides different methods"
 	) :shelf
@@ -281,7 +281,7 @@ action main:
 	/*
 	 * Container for key observations, defined later in a when: call
 	 */
-	separator(#KEY_SEEA_OUTPUTS :iconname "cloud-download" :info)
+	separator(#KEY_OUTPUTS :iconname "cloud-download" :info)
 
 	// empty group for additional outputs
 	() :hfill :altbg #outputs
