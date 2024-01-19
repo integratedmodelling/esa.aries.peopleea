@@ -1,22 +1,9 @@
 private namespace peopleea.condition.forest.euclidean;
 
-//model im:Indicator ecology:Forest es.nca:Condition
-//	observing any im:Indicator
-//	using klab.data.euclideandistance(source=im:Indicator, indicator="distance");
-	
-//model im:Indicator ecology:Forest es.nca:Condition
-//	observing
-//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
-//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
-//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
-//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
-//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
-//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
-//	using klab.data.euclideandistance(source=im:Indicator ecology:Forest es.nca:Condition, indicator="distance");
-
 // WEIGHTED EUCLIDEAN DISTANCE
+@documented(peopleea.forest_condition_accounts.euclidean_index)
 //model  im:Indicator ecology:Forest es.nca:Condition
-number euclidian_distance_forest_condition_index
+number euclidean_distance_forest_condition_index
 	observing 
 		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
@@ -46,8 +33,68 @@ number euclidian_distance_forest_condition_index
 			)
 		}
 	];
+	
+	/* 
+	 * EUCLIDEAN DISTANCE FOREST CONDITION INDICATOR 2: 
+ 	* when a variable is missing, the weight associated to that indicator gets redistributed between the other variables
+	*/
+//number euclidean_distance_forest_condition_index_2
+//	observing 
+//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+//	set to [
+//		def indicatorList = Arrays.asList(indicator_normalized_difference_water_index, indicator_soil_organic_carbon, indicator_threatened_bird_species, indicator_above_ground_biomass, indicator_net_primary_production, indicator_forest_connectivity)
+//		def weightsList = Arrays.asList(0.27, 0.07, 0.10, 0.18, 0.22, 0.16)	
+//		def indicatorNum = indicatorList.size()
+//		def reassignedWeight = 0
+//		def ret = 0
+//		for(int i=0; i < indicatorList.size(); i++){
+//			if (nodata(indicatorList.get(i))){
+//				indicatorNum -= 1
+//				reassignedWeight += weightsList.get(i)
+//				weightsList.set(i, 0)
+//			}
+//		}
+//		if(indicatorNum == 0){
+//			return nodata;
+//		}
+//		for(int i=0; i < indicatorList.size(); i++){			
+//			if (weightsList.get(i) != 0) {
+//        		weightsList.set(i, weightsList.get(i) + reassignedWeight/indicatorNum)
+//        		ret += Math.pow(indicatorList.get(i), 2) * weightsList.get(i)
+//			}
+//		}
+//		return(ret)];
 
-// nNORMALISED but EQUALLY WEIGHTED EUCLIDEAN DISTANCE
+	/*
+	 * TABLE FOR EUCLIDEAN FOREST CONDITION INDEX
+	 */
+//@var(timespan=(start end))	
+//define table euclidean_forest_condition_index as {
+//	name: "euclidean_forest_condition_index"
+//	title: "Euclidean Forest Condition Index Account",
+//	label: "Euclidean Forest Condition Index",
+//	target: euclidean_distance_forest_condition_index
+//	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+//	when: end
+//	use: tables.compiler.summarize(contabilize-nulls = true, 
+//		rowsummary = { filter: "change" title: "Net change"}, 
+////		colsummary=  { filter: "mean", title: "Mean" },
+//		rows =       { filter: %timespan% }, 
+//		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+//		statistic =  "mean",
+//		empty='', 
+//		no-data = ''
+//	)
+//};
+
+	/*
+	 * EQUALLY WEIGHTED EUCLIDEAN DISTANCE
+ 	*/ 
 //model  im:Indicator ecology:Forest es.nca:Condition
 //	observing 
 //		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,

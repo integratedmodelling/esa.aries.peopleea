@@ -4,6 +4,8 @@ project private namespace peopleea.condition.forest;
 //Model to adjust weight for missing SOC variable from 2015 onwards
 //TODO: this is just a temporary fix, it would be better solved using im:Role
 //If any other variable is not observed (i.e. not loaded from OpenEO) the whole index is not computed
+@main
+@key("PEOPLE-EA Forest Condition Index")
 @documented(peopleea.forest_condition_accounts.index)
 model  im:Indicator ecology:Forest es.nca:Condition
 	observing 
@@ -31,6 +33,43 @@ model  im:Indicator ecology:Forest es.nca:Condition
 			)
 		}
 	];
+	
+	/* 
+	* DISTANCE FOREST CONDITION INDICATOR 2: 
+ 	* when a variable is missing, the weight associated to that indicator gets redistributed between the other variables
+	*/
+//number forest_condition_index_2
+//	observing 
+//		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+//		im:Indicator value of ecology:AboveGroundBiomass named indicator_above_ground_biomass,
+//		im:Indicator value of ecology:PrimaryProductivity named indicator_net_primary_production, 
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity
+//	set to [
+//		def indicatorList = Arrays.asList(indicator_normalized_difference_water_index, indicator_soil_organic_carbon, indicator_threatened_bird_species, indicator_above_ground_biomass, indicator_net_primary_production, indicator_forest_connectivity)
+//		def weightsList = Arrays.asList(0.27, 0.07, 0.10, 0.18, 0.22, 0.16)	
+//		def indicatorNum = indicatorList.size()
+//		def reassignedWeight = 0
+//		def ret = 0
+//		for(int i=0; i < indicatorList.size(); i++){
+//			if (nodata(indicatorList.get(i))){
+//				indicatorNum -= 1
+//				reassignedWeight += weightsList.get(i)
+//				weightsList.set(i, 0)
+//			}
+//		}
+//		if(indicatorNum == 0){
+//			return nodata;
+//		}
+//		for(int i=0; i < indicatorList.size(); i++){			
+//			if (weightsList.get(i) != 0) {
+//        		weightsList.set(i, weightsList.get(i) + reassignedWeight/indicatorNum)
+//        		ret += indicatorList.get(i) * weightsList.get(i)
+//			}
+//		}
+//		return(ret)];
+
 		          		     
 @var(timespan=(start end))	
 define table peopleea_forest_condition_index as {

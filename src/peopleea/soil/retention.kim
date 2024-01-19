@@ -7,7 +7,7 @@ model 'local:ferdinando.villa:im.openeo.sandbox:vito.cfactor#output_warp=true&sy
 @var(timespan=(start end))	
 define table sediment_biophysical as {
 	name: "sediment_biophysical"
-	title: "Soil Erosion Control Physical Supply (tons soil retained)",
+	title: "Soil Erosion Control Physical Supply (tons soil retained per ha per year)",
 	label: "Soil Erosion Control Service Physical Supply Change Summary",
 	target: im:Retained soil:Soil im:Mass caused by ecology:Vegetation in t/ha
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType) 
