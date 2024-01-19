@@ -281,7 +281,7 @@ action main:
 	/*
 	 * Container for key observations, defined later in a when: call
 	 */
-	separator(#KEY_OUTPUTS :iconname "cloud-download" :info)
+	separator(#KEY_PEOPLE_OUTPUTS :iconname "cloud-download" :info)
 
 	// empty group for additional outputs
 	() :hfill :altbg #outputs
@@ -416,7 +416,7 @@ action addindicator(choices):
 @modal(width=700, height=640, title=#ABOUT_ARIES_FOR_SEEA)
 action aboutpage:
 	// html("static/en/about.html")
-	html("https://www.integratedmodelling.org/statics/un.seea.aries/en/about.html")
+	html("https://esa-people-ea.org/en")
 
 //@modal(width=600, height=460)
 //action conditionweights:
