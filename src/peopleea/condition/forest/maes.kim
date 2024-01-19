@@ -155,6 +155,7 @@ model im:Indicator value of ecology:CanopyCover
 		percentage of ecology:CanopyCover named tree_cover_density 
 	set to [tree_cover_density < min_tree_cover_density ? 0 : ( tree_cover_density > max_tree_cover_density ? 1 : ((tree_cover_density - min_tree_cover_density)/(max_tree_cover_density - min_tree_cover_density)) )];
 
+
 @documented(peopleea.forest_condition_accounts.maes_index)
 //model  im:Indicator ecology:Forest es.nca:Condition
 number natcom_forest_condition_index

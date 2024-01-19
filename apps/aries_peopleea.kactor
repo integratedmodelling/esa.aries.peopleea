@@ -33,13 +33,13 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true) #tag333
-			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["NatCom Condition Index"], true) #tag333
-			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["Euclidean Distance Forest Condition Index"], true) #tag333
+				["PEOPLE-EA Forest Condition Index"], true, "table") #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.maes.natcom_forest_condition_index, 
+				["NatCom Forest Condition Index"], true, "map") #tag333
+			create aries.components.selectors.observation(peopleea.condition.forest.euclidean.euclidian_distance_forest_condition_index, 
+				["Euclidean Distance Forest Condition Index"], true, "map")  #tag333
 				
-		) :hfill :altbg :name "PEOPLE-EA Condition Index" :iconname "cog" :opened
+		) :hfill :altbg :name "PEOPLE-EA Condition Indexes" :iconname "cog" :opened //:tooltip "This section provides different methods"
 	) :shelf
 
 	(
@@ -65,7 +65,7 @@ action main:
 				"Soil Organic Carbon Percentage in Top Soil", true) #tag2
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
 				"Threatened Bird Species", true) #tag3
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.biomass.agb_indicator, 
 				"Above Ground Biomass", true) #tag4
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
 				"Net Primary Productivity", true) #tag5
@@ -75,8 +75,8 @@ action main:
 				"LAI", true) #tag7
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
 				"NDVI", true) #tag8
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				"Burned Severity", true) #tag9
+//			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+//				"Burned Severity", true) #tag9
 //			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 //				"Indicator 10", true) #tag10
 
@@ -89,7 +89,7 @@ action main:
 				"Soil Organic Carbon Percentage in Top Soil", true) #tag15
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
 				"Threatened Bird Species", true) #tag16
-			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
+			create aries.components.selectors.observation(peopleea.forest.biomass.agb_raw_variable, 
 				"Above Ground Biomass", true) #tag17
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
 				"Net Primary Productivity", true) #tag18
@@ -107,9 +107,9 @@ action main:
 				"Canopy Cover Percentage", true) #tag24
 			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_raw_variable, 
 				"Landscape Naturalness", true) #tag25
-			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
-				"Plant Phenology Index", true) #tag26
-			create aries.components.selectors.observation(peopleea.forest.variables.fapar_raw_variable, 
+//			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
+//				"Plant Phenology Index", true) #tag26
+			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
 				"Fraction of Absorbed Photosynthetically Active Radiation", true) #tag27
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest.fragmentation.raw.variable, 
 				"Forest Fragmentation", true) #tag28
@@ -281,7 +281,7 @@ action main:
 	/*
 	 * Container for key observations, defined later in a when: call
 	 */
-	separator(#KEY_SEEA_OUTPUTS :iconname "cloud-download" :info)
+	separator(#KEY_OUTPUTS :iconname "cloud-download" :info)
 
 	// empty group for additional outputs
 	() :hfill :altbg #outputs

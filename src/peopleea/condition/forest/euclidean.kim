@@ -15,6 +15,7 @@ private namespace peopleea.condition.forest.euclidean;
 //	using klab.data.euclideandistance(source=im:Indicator ecology:Forest es.nca:Condition, indicator="distance");
 
 // WEIGHTED EUCLIDEAN DISTANCE
+
 @documented(peopleea.forest_condition_accounts.euclidean_index)
 //model  im:Indicator ecology:Forest es.nca:Condition
 number euclidean_distance_forest_condition_index
