@@ -137,3 +137,10 @@ define table landscape_naturalness_raw_variable as {
 	)
 };
 
+/* BURNED SEVERITY (categorized by classes)*/
+model local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2000,
+	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2005,
+	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2010,
+	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2015,
+	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2020
+	as im:Relative im:Differential ecology.incubation:NormalizedBurnRatio;
