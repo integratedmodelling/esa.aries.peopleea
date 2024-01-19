@@ -15,7 +15,9 @@ private namespace peopleea.condition.forest.euclidean;
 //	using klab.data.euclideandistance(source=im:Indicator ecology:Forest es.nca:Condition, indicator="distance");
 
 // WEIGHTED EUCLIDEAN DISTANCE
-model  im:Indicator ecology:Forest es.nca:Condition
+@documented(peopleea.forest_condition_accounts.euclidean_index)
+//model  im:Indicator ecology:Forest es.nca:Condition
+number euclidean_distance_forest_condition_index
 	observing 
 		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
@@ -45,8 +47,27 @@ model  im:Indicator ecology:Forest es.nca:Condition
 			)
 		}
 	];
+	
+//@var(timespan=(start end))	
+//define table euclidean_forest_condition_index as {
+//	name: "Euclidean Forest Condition Index"
+//	title: "Euclidean Forest Condition Index Account",
+//	label: "Euclidean Forest Condition Index",
+//	target: euclidean_distance_forest_condition_index
+//	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+//	when: end
+//	use: tables.compiler.summarize(contabilize-nulls = true, 
+//		rowsummary = { filter: "change" title: "Net change"}, 
+////		colsummary=  { filter: "mean", title: "Mean" },
+//		rows =       { filter: %timespan% }, 
+//		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+//		statistic =  "mean",
+//		empty='', 
+//		no-data = ''
+//	)
+//};
 
-// nNORMALISED but EQUALLY WEIGHTED EUCLIDEAN DISTANCE
+// EQUALLY WEIGHTED EUCLIDEAN DISTANCE
 //model  im:Indicator ecology:Forest es.nca:Condition
 //	observing 
 //		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
