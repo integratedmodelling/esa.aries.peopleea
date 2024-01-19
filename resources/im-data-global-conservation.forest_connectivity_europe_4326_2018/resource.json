@@ -1,0 +1,48 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.peopleea:im-data-global-conservation.forest_connectivity_europe_4326_2018",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-conservation.forest_connectivity_europe_4326_2018",
+  "geometry" : "τ1{tend=1546300800000,tstart=1514764800000,ttype=logical}S2(101054,37777){bbox=[-56.50514190170437 72.90610493415676 24.28468292879498 72.66326966834436],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-conservation.forest_connectivity_europe_4326_2018",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1705686049322,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-conservation__forest_connectivity_europe_4326_2018",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-conservation/wcs",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 72.90610493415676,
+    "west" : -56.50514190170437,
+    "north" : 72.66326966834436,
+    "south" : 24.28468292879498,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
