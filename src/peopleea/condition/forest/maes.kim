@@ -8,35 +8,35 @@ private namespace peopleea.condition.forest.maes
 			BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY
 	) from peopleea.tables;
 
-number max_threatened_forest_birds_species_richness 
+number natcom_natcom_max_threatened_forest_birds_species_richness 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-number min_threatened_forest_birds_species_richness
+number natcom_natcom_min_threatened_forest_birds_species_richness
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness 
+model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
 	observing 
-		max_threatened_forest_birds_species_richness,
-		min_threatened_forest_birds_species_richness,
+		natcom_natcom_max_threatened_forest_birds_species_richness,
+		natcom_natcom_min_threatened_forest_birds_species_richness,
 		conservation:Threatened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
-	set to [threatened_forest_birds_species_richness < min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)/(max_threatened_forest_birds_species_richness - min_threatened_forest_birds_species_richness)) )];
+	set to [threatened_forest_birds_species_richness < natcom_natcom_min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > natcom_natcom_max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)/(natcom_natcom_max_threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)) )];
 
-number max_forest_connectivity  
+number natcom_max_forest_connectivity  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-number min_forest_connectivity  
+number natcom_min_forest_connectivity  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -45,19 +45,19 @@ number min_forest_connectivity
 
 model im:Indicator value of ecology:ForestConnectivity 	
         observing 
-			max_forest_connectivity,
-			min_forest_connectivity,
+			natcom_max_forest_connectivity,
+			natcom_min_forest_connectivity,
 			percentage of ecology:ForestConnectivity named forest_connectivity
-       set to [forest_connectivity < min_forest_connectivity ? 0 : ( forest_connectivity > max_forest_connectivity ? 1 : ((forest_connectivity - min_forest_connectivity)/(max_forest_connectivity - min_forest_connectivity)))];
+       set to [forest_connectivity < natcom_min_forest_connectivity ? 0 : ( forest_connectivity > natcom_max_forest_connectivity ? 1 : ((forest_connectivity - natcom_min_forest_connectivity)/(natcom_max_forest_connectivity - natcom_min_forest_connectivity)))];
 
-number max_landscape_naturalness  
+number natcom_max_landscape_naturalness  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS; 
 
-number min_landscape_naturalness  
+number natcom_min_landscape_naturalness  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -66,19 +66,19 @@ number min_landscape_naturalness
 
 model im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity 
 	observing 
-		max_landscape_naturalness,
-		min_landscape_naturalness,
+		natcom_max_landscape_naturalness,
+		natcom_min_landscape_naturalness,
 		percentage of ecology:Natural landcover:LandscapeHeterogeneity named landscape_naturalness 
-	set to [landscape_naturalness < min_landscape_naturalness ? 0 : ( landscape_naturalness > max_landscape_naturalness ? 1 : ((landscape_naturalness - min_landscape_naturalness)/(max_landscape_naturalness - min_landscape_naturalness)) )]; 
+	set to [landscape_naturalness < natcom_min_landscape_naturalness ? 0 : ( landscape_naturalness > natcom_max_landscape_naturalness ? 1 : ((landscape_naturalness - natcom_min_landscape_naturalness)/(natcom_max_landscape_naturalness - natcom_min_landscape_naturalness)) )]; 
 
-number max_forest_productivity_ndvi  
+number natcom_max_forest_productivity_ndvi  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI;   
 
-number min_forest_productivity_ndvi  
+number natcom_min_forest_productivity_ndvi  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -87,19 +87,19 @@ number min_forest_productivity_ndvi
 
 model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
 	observing 
-		max_forest_productivity_ndvi,
-		min_forest_productivity_ndvi,
+		natcom_max_forest_productivity_ndvi,
+		natcom_min_forest_productivity_ndvi,
         ecology:NormalizedDifferenceVegetationIndex named forest_productivity_ndvi
-	set to [forest_productivity_ndvi < min_forest_productivity_ndvi ? 0 : ( forest_productivity_ndvi > max_forest_productivity_ndvi ? 1 : ((forest_productivity_ndvi - min_forest_productivity_ndvi)/(max_forest_productivity_ndvi - min_forest_productivity_ndvi)) )];
+	set to [forest_productivity_ndvi < natcom_min_forest_productivity_ndvi ? 0 : ( forest_productivity_ndvi > natcom_max_forest_productivity_ndvi ? 1 : ((forest_productivity_ndvi - natcom_min_forest_productivity_ndvi)/(natcom_max_forest_productivity_ndvi - natcom_min_forest_productivity_ndvi)) )];
 
-number max_ndwi  
+number natcom_max_ndwi  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_NDWI; 
 
-number min_ndwi  
+number natcom_min_ndwi  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -108,19 +108,19 @@ number min_ndwi
 
 model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
 	observing 
-		max_ndwi,
-		min_ndwi,
+		natcom_max_ndwi,
+		natcom_min_ndwi,
 		ecology:NormalizedDifferenceWaterIndex named ndwi 
-	set to [ndwi < min_ndwi ? 0 : ( ndwi > max_ndwi ? 1 : ((ndwi - min_ndwi)/(max_ndwi - min_ndwi)) )]; 
+	set to [ndwi < natcom_min_ndwi ? 0 : ( ndwi > natcom_max_ndwi ? 1 : ((ndwi - natcom_min_ndwi)/(natcom_max_ndwi - natcom_min_ndwi)) )]; 
 
-number max_soil_organic_carbon_inspire  
+number natcom_max_soil_organic_carbon_inspire  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE; 
 
-number min_soil_organic_carbon_inspire  
+number natcom_min_soil_organic_carbon_inspire  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -129,19 +129,19 @@ number min_soil_organic_carbon_inspire
 
 model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
 	observing 
-		max_soil_organic_carbon_inspire,
-		min_soil_organic_carbon_inspire,
+		natcom_max_soil_organic_carbon_inspire,
+		natcom_min_soil_organic_carbon_inspire,
 		percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named soil_organic_carbon 
-	set to [soil_organic_carbon < min_soil_organic_carbon_inspire ? 0 : ( soil_organic_carbon > max_soil_organic_carbon_inspire ? 1 : ((soil_organic_carbon - min_soil_organic_carbon_inspire)/(max_soil_organic_carbon_inspire - min_soil_organic_carbon_inspire)) )];
+	set to [soil_organic_carbon < natcom_min_soil_organic_carbon_inspire ? 0 : ( soil_organic_carbon > natcom_max_soil_organic_carbon_inspire ? 1 : ((soil_organic_carbon - natcom_min_soil_organic_carbon_inspire)/(natcom_max_soil_organic_carbon_inspire - natcom_min_soil_organic_carbon_inspire)) )];
 
-number max_tree_cover_density  
+number natcom_max_tree_cover_density  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY; 
 
-number min_tree_cover_density  
+number natcom_min_tree_cover_density  
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -150,10 +150,10 @@ number min_tree_cover_density
 
 model im:Indicator value of ecology:CanopyCover
 	observing 
-		max_tree_cover_density,
-		min_tree_cover_density,
+		natcom_max_tree_cover_density,
+		natcom_min_tree_cover_density,
 		percentage of ecology:CanopyCover named tree_cover_density 
-	set to [tree_cover_density < min_tree_cover_density ? 0 : ( tree_cover_density > max_tree_cover_density ? 1 : ((tree_cover_density - min_tree_cover_density)/(max_tree_cover_density - min_tree_cover_density)) )];
+	set to [tree_cover_density < natcom_min_tree_cover_density ? 0 : ( tree_cover_density > natcom_max_tree_cover_density ? 1 : ((tree_cover_density - natcom_min_tree_cover_density)/(natcom_max_tree_cover_density - natcom_min_tree_cover_density)) )];
 
 
 @documented(peopleea.forest_condition_accounts.maes_index)
