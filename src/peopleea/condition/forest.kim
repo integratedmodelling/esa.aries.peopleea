@@ -5,7 +5,7 @@ project private namespace peopleea.condition.forest;
 //TODO: this is just a temporary fix, it would be better solved using im:Role
 //If any other variable is not observed (i.e. not loaded from OpenEO) the whole index is not computed
 @main
-@key
+@key("PEOPLE-EA Forest Condition Index")
 @documented(peopleea.forest_condition_accounts.index)
 model  im:Indicator ecology:Forest es.nca:Condition
 	observing 
