@@ -155,7 +155,8 @@ model im:Indicator value of ecology:CanopyCover
 		percentage of ecology:CanopyCover named tree_cover_density 
 	set to [tree_cover_density < min_tree_cover_density ? 0 : ( tree_cover_density > max_tree_cover_density ? 1 : ((tree_cover_density - min_tree_cover_density)/(max_tree_cover_density - min_tree_cover_density)) )];
 
-// TO-DO documentation
+
+@documented(peopleea.forest_condition_accounts.maes_index)
 //model  im:Indicator ecology:Forest es.nca:Condition
 number natcom_forest_condition_index
 	observing 
@@ -186,3 +187,22 @@ number natcom_forest_condition_index
 			)
 		}
 	];
+	
+//@var(timespan=(start end))	
+//define table natcom_forest_condition_index as {
+//	name: "Nature Communications Forest Condition Index"
+//	title: "Nature Communications Forest Condition Index Account",
+//	label: "Nature Communications Forest Condition Index",
+//	target: natcom_forest_condition_index
+//	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+//	when: end
+//	use: tables.compiler.summarize(contabilize-nulls = true, 
+//		rowsummary = { filter: "change" title: "Net change"}, 
+////		colsummary=  { filter: "mean", title: "Mean" },
+//		rows =       { filter: %timespan% }, 
+//		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+//		statistic =  "mean",
+//		empty='', 
+//		no-data = ''
+//	)
+//};
