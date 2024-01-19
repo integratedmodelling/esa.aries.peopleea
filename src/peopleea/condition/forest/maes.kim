@@ -188,6 +188,46 @@ number natcom_forest_condition_index
 		}
 	];
 	
+	/* 
+	 * NATURE COMMUNICATIONS FOREST CONDITION INDICATOR 2: 
+ 	* when a variable is missing, the weight associated to that indicator gets redistributed between the other variables
+	*/
+//number natcom_distance_forest_condition_index_2
+//	observing
+//		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity,
+//		im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity named indicator_landscape_naturalness,
+//		im:Indicator value of ecology:NormalizedDifferenceVegetationIndex named indicator_normalized_difference_vegetation_index,    	
+//	    im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of ecology:CanopyCover named indicator_tree_cover_density
+//	set to [
+//		def indicatorList = Arrays.asList(indicator_threatened_bird_species, indicator_forest_connectivity, indicator_landscape_naturalness, indicator_normalized_difference_vegetation_index, indicator_normalized_difference_water_index, indicator_soil_organic_carbon, indicator_tree_cover_density)
+//		def weightsList = Arrays.asList(0.22, 0.13, 0.11, 0.13, 0.08, 0.12, 0.21)	
+//		def indicatorNum = indicatorList.size()
+//		def reassignedWeight = 0
+//		def ret = 0
+//		for(int i=0; i < indicatorList.size(); i++){
+//			if (nodata(indicatorList.get(i))){
+//				indicatorNum -= 1
+//				reassignedWeight += weightsList.get(i)
+//				weightsList.set(i, 0)
+//			}
+//		}
+//		if(indicatorNum == 0){
+//			return nodata;
+//		}
+//		for(int i=0; i < indicatorList.size(); i++){			
+//			if (weightsList.get(i) != 0) {
+//        		weightsList.set(i, weightsList.get(i) + reassignedWeight/indicatorNum)
+//        		ret += indicatorList.get(i) * weightsList.get(i)
+//			}
+//		}
+//		return(ret)];
+	
+	/*
+	 * TABLE FOR NATURE COMMUNICATIONS FOREST CONDITION INDICATOR
+	 */
 //@var(timespan=(start end))	
 //define table natcom_forest_condition_index as {
 //	name: "Nature Communications Forest Condition Index"

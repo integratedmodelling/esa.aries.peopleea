@@ -1,0 +1,23 @@
+worldview im;
+
+@test(
+    name = "testing.indexes.with.nodata",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    	"peopleea.condition.forest.forest_condition_index_2"
+    	"peopleea.condition.forest.euclidean.euclidean_distance_forest_condition_index_2"			
+   		//it's private:	"peopleea.condition.forest.maes.natcom_distance_forest_condition_index_2"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named testing_indexes_with_nodata
+    over space(
+    	shape="EPSG:4326 POLYGON ((34.70404629403278 41.8101484220783, 34.16767014787323 41.8101484220783, 34.16767014787323 42.006929797811694, 34.70404629403278 42.006929797811694, 34.70404629403278 41.8101484220783))", 
+    	grid="500 m")
+    over time(start=2015, end=2016, step=1.year);
+
+
+// add any models here
