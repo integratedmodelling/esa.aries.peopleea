@@ -8,14 +8,14 @@ private namespace peopleea.condition.forest.maes
 			BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY
 	) from peopleea.tables;
 
-number natcom_natcom_max_threatened_forest_birds_species_richness 
+number natcom_max_threatened_forest_birds_species_richness 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
 	lookup (bioregion, forest_type, *, *, ?, *) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-number natcom_natcom_min_threatened_forest_birds_species_richness
+number natcom_min_threatened_forest_birds_species_richness
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
 		type of ecology:Forest named forest_type
@@ -24,10 +24,10 @@ number natcom_natcom_min_threatened_forest_birds_species_richness
 
 model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
 	observing 
-		natcom_natcom_max_threatened_forest_birds_species_richness,
-		natcom_natcom_min_threatened_forest_birds_species_richness,
+		natcom_max_threatened_forest_birds_species_richness,
+		natcom_min_threatened_forest_birds_species_richness,
 		conservation:Threatened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
-	set to [threatened_forest_birds_species_richness < natcom_natcom_min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > natcom_natcom_max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)/(natcom_natcom_max_threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)) )];
+	set to [threatened_forest_birds_species_richness < natcom_min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > natcom_max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - natcom_min_threatened_forest_birds_species_richness)/(natcom_max_threatened_forest_birds_species_richness - natcom_min_threatened_forest_birds_species_richness)) )];
 
 number natcom_max_forest_connectivity  
 	observing
