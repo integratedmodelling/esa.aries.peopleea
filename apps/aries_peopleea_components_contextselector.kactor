@@ -9,8 +9,8 @@ action init:
 	// defaults for the session state. Names are mandatory.
 	set self.lockspace false
 	set self.timeresolution 1.year
-	set self.startyear 2018
-	set self.endyear 2019
+	set self.startyear 2022
+	set self.endyear 2023
 	set self.timetype GRID
 	set self.spaceresolutionunit "m"
 	set self.spacemultiplier 300
