@@ -8,6 +8,7 @@ private namespace peopleea.condition.forest.maes
 			BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY
 	) from peopleea.tables;
 
+//model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
 number natcom_max_threatened_forest_birds_species_richness 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
@@ -22,7 +23,7 @@ number natcom_min_threatened_forest_birds_species_richness
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
-model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
+number natcom_indicator_value_of_threatened_forest_birds_species_richness
 	observing 
 		natcom_max_threatened_forest_birds_species_richness,
 		natcom_min_threatened_forest_birds_species_richness,
@@ -43,7 +44,9 @@ number natcom_min_forest_connectivity
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-model im:Indicator value of ecology:ForestConnectivity 	
+
+//model im:Indicator value of ecology:ForestConnectivity
+number natcom_indicator_value_of_forest_connectivity
         observing 
 			natcom_max_forest_connectivity,
 			natcom_min_forest_connectivity,
@@ -64,7 +67,8 @@ number natcom_min_landscape_naturalness
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS;  
 
-model im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity 
+//model im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity
+number natcom_indicator_value_of_landscape_naturalness 
 	observing 
 		natcom_max_landscape_naturalness,
 		natcom_min_landscape_naturalness,
@@ -85,7 +89,8 @@ number natcom_min_forest_productivity_ndvi
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI; 
 
-model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
+//model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
+number natcom_indicator_value_of_normalized_difference_vegetation_index
 	observing 
 		natcom_max_forest_productivity_ndvi,
 		natcom_min_forest_productivity_ndvi,
@@ -106,7 +111,8 @@ number natcom_min_ndwi
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_NDWI;  
 
-model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
+//model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
+number natcom_indicator_value_of_normalized_difference_water_index
 	observing 
 		natcom_max_ndwi,
 		natcom_min_ndwi,
@@ -127,7 +133,8 @@ number natcom_min_soil_organic_carbon_inspire
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE;  
 
-model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+//model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+number natcom_indicator_value_of_soil_organic_carbon
 	observing 
 		natcom_max_soil_organic_carbon_inspire,
 		natcom_min_soil_organic_carbon_inspire,
@@ -148,7 +155,8 @@ number natcom_min_tree_cover_density
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY;  
 
-model im:Indicator value of ecology:CanopyCover
+//model im:Indicator value of ecology:CanopyCover
+number natcom_indicator_value_of_tree_cover_density
 	observing 
 		natcom_max_tree_cover_density,
 		natcom_min_tree_cover_density,
@@ -160,13 +168,19 @@ model im:Indicator value of ecology:CanopyCover
 //model  im:Indicator ecology:Forest es.nca:Condition
 number natcom_forest_condition_index
 	observing 
-		im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness named indicator_threatened_bird_species,
-	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity,
-		im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity named indicator_landscape_naturalness,
-		im:Indicator value of ecology:NormalizedDifferenceVegetationIndex named indicator_normalized_difference_vegetation_index,    	
-	    im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
-		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
-		im:Indicator value of ecology:CanopyCover named indicator_tree_cover_density
+		natcom_indicator_value_of_threatened_forest_birds_species_richness,
+		natcom_indicator_value_of_forest_connectivity,
+		natcom_indicator_value_of_landscape_naturalness,
+		natcom_indicator_value_of_normalized_difference_vegetation_index,
+		natcom_indicator_value_of_normalized_difference_water_index,
+		natcom_indicator_value_of_soil_organic_carbon,
+		natcom_indicator_value_of_tree_cover_density
+//	    im:Indicator value of ecology:ForestConnectivity named indicator_forest_connectivity,
+//		im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity named indicator_landscape_naturalness,
+//		im:Indicator value of ecology:NormalizedDifferenceVegetationIndex named indicator_normalized_difference_vegetation_index,    	
+//	    im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
+//		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,
+//		im:Indicator value of ecology:CanopyCover named indicator_tree_cover_density
 	set to [
 		if (nodata(indicator_soil_organic_carbon)){
 			return(	 0.26 * indicator_threatened_bird_species 
