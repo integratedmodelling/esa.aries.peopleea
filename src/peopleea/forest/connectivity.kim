@@ -68,6 +68,7 @@ define table forest_connectivity_indicator as {
 	)
 };
 
+//TODO add documentation for 2001-2018 layers if URN is confirmed
 model 	local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2000,
 		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2001,
 		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2002,
