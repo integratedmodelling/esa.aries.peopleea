@@ -1,15 +1,51 @@
 {
-  "corine.coniferous.forest" : {
-    "examplecitation" : "Coniferous forest (raster code 312) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-312.html",
-    "key" : "corine.coniferous.forest"
+  "ForestConditionWeightedGeometricAverage" : {
+    "examplecitation" : "### Indicators weighted using a weighted geometric average (Euclidean distance)\r\n\r\nThe formulation of the resulting Forest Condition Index is the following:\r\nForest Condition Index = sqrt(\r\n(NDWI^2 x 0.27) + (SOC^2 x 0.07) + (TBFSD^2 x 0.10) + (AGB^2 x 0.18) + (NPP^2 x 0.22) + (FC^2 x 0.16) )\r\nFor areas where Soil Organic Carbon is missing, because of dataset coverage, the index is calculated redistributing the weights:\r\nForest Condition Index = sqrt(\r\n(NDWI^2 x 0.31) + (TBFSD^2 x 0.11) + (AGB^2 x 0.19) + (NPP^2 x 0.24) + (FC^2 x 0.15) )",
+    "key" : "ForestConditionWeightedGeometricAverage"
+  },
+  "ForestConditionIndexPeopleEA" : {
+    "examplecitation" : "## Forest Condition Index developed using the People EA methodology\r\n\r\nThe index built in the People EA project is the result of the weighted average of these indicators:\r\n\r\nthe Net Difference Water Index (NDWI),\r\nSoil Organic Carbon (SOC),\r\nThreatened forest bird species diversity (TFBSD),\r\nAbove-Ground Biomass (AGB),\r\nNet Primary Production (NPP)\r\nand Forest connectivity (FC).\r\n\r\nThe weights for indicator accounts are determined according to:\r\n\r\ntheir spatial resolution (i.e. the size of the smallest feature detected by a satellite sensor or displayed in a satellite image, usually expressed as a single value measuring the length of one side of a square),\r\ntemporal resolution (i.e. the total amount of years in a dataset),\r\ntemporal frequency (i.e. the availability of temporal observations over the same period) and\r\ndataset quality (referring to the proximity of the latest year to the present).\r\n\r\nIn particular, indicator accounts are ranked according to each of these categories. Larger values of these criteria are associated with a better representation of the ecological conditions and, rank in a higher position. The relative sum of the indicator accounts positions results in their index weight. When data from more than one indicator is considered equal in one particular aspect, each indicator is attributed to the average of the positions they would represent. For example, if three indicator accounts should be ranked 7, they will be assigned 6 since it is the average of the positions these variables represent (5th, 6th and 7th). Ranking and weights attributed to indicator accounts are detailed in the table below:\r\n\r\n| Indicator | Spatial resolution | Temporal resolution | Temporal frequency | Dataset quality | Weight |\r\n|:---------:|:------------------:|:-------------------:|:------------------:|:---------------:|:------:|\r\n|    NDWI   |          5         |          6          |          6         |       5.5       |  0.27  |\r\n|    SOC    |          2         |          1          |          1         |        2        |  0.07  |\r\n|   TBFSD   |          1         |         3.5         |          3         |        1        |  0.10  |\r\n|    AGB    |          5         |         3.5         |          3         |       4       |  0.18  |\r\n|    NPP    |          3         |          5          |          5         |       5.5       |  0.22  |\r\n|     FC    |          5         |          2          |          3         |        3        |  0.16  |",
+    "key" : "ForestConditionIndexPeopleEA"
   },
   "corine.mixed.forest" : {
     "examplecitation" : "Mixed forest (raster code 313) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-313.html",
     "key" : "corine.mixed.forest"
   },
+  "ForestConditionIndexMethod" : {
+    "examplecitation" : "# Forest Condition Index\r\n\r\nThe Forest Condition Index quantifies forest health by summarizing the information of several indicator accounts, each representing a different aspect of the forest conditions. The indicators composing the index aim to represent comprehensively all the components of ecosystems (abiotic, biotic and landscape). The index is usually composed of a single indicator for each Ecosystem Typology Class (ETC), since the variables belonging to the same ETC are usually highly correlated. The indicators are selected considering their relevance, their direct relationship to forest conditions and the availability of data for their measurement.",
+    "key" : "ForestConditionIndexMethod"
+  },
   " EUCopernicusLMS2020" : {
     "examplecitation" : "European Union's Copernicus Land Monitoring Service. CORINE Land Cover 2000 (vector/raster 100 m), Europe, 6-yearly. 2020. DOI: 10.2909/8b85b479-6afb-42c6-817c-11d1a5260b83.",
     "key" : "EUCopernicusLMS2020"
+  },
+  "ForestConditionWeightedArithmticAverage" : {
+    "examplecitation" : "### Indicators weighted using a weighted arithmetic average\r\n\r\nThe formulation of the resulting Forest Condition Index is the following:\r\nForest Condition Index = \r\n(NDWI x 0.27) + (SOC x 0.07) + (TBFSD x 0.10) + (AGB x 0.18) + (NPP x 0.22) + (FC x 0.16)\r\nFor areas where Soil Organic Carbon is missing, because of dataset coverage, the index is calculated by redistributing the weights:\r\nForest Condition Index = \r\n(NDWI x 0.31) + (TBFSD x 0.11) + (AGB x 0.19) + (NPP x 0.24) + (FC x 0.15)",
+    "key" : "ForestConditionWeightedArithmticAverage"
+  },
+  "Copernicus.highly.tree-covered.forest" : {
+    "examplecitation" : "https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
+    "key" : "Copernicus.highly.tree-covered.forest"
+  },
+  "EUCopernicusLMS2019" : {
+    "examplecitation" : "Kosztra, B., Büttner, G., Hazeu, G., Arnold, S. Updated CLC illustrated nomenclature guidelines. Service Contract No 3436/R0-Copernicus/EEA.57441. Task 3, D3.1 – Part 1. European Environment Agency. URL: https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/docs/pdf/CLC2018_Nomenclature_illustrated_guide_20190510.pdf",
+    "key" : "EUCopernicusLMS2019"
+  },
+  "EEA.european.bioregions" : {
+    "examplecitation" : "European bioregions from the EEA catalogue of geospatial datasets - https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
+    "key" : "EEA.european.bioregions"
+  },
+  "EUCopernicusLMS2018" : {
+    "examplecitation" : "European Union's Copernicus Land Monitoring Service. High Resolution Layer Tree Cover Density. 2018. URL: https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
+    "key" : "EUCopernicusLMS2018"
+  },
+  "european.bioregions" : {
+    "examplecitation" : "European bioregions - https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
+    "key" : "european.bioregions"
+  },
+  "corine.coniferous.forest" : {
+    "examplecitation" : "Coniferous forest (raster code 312) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-312.html",
+    "key" : "corine.coniferous.forest"
   },
   "SabatiniEtAl2021" : {
     "examplecitation" : "Sabatini, F.M., Bluhm, H., Kun, Z. et al. European primary forest database v2.0. Sci Data 8, 220. 2021. DOI: 10.1038/s41597-021-00988-7.",
@@ -35,10 +71,6 @@
     "examplecitation" : "Hansen M. C., Potapov P. V., Moore R., Hancher M., Turubanova S. A., Tyukavina A., Thau D., Stehman S. V., Goetz S. J., Loveland T. R., Kommareddy A., Egorov A., Chini L., Justice C. O., G. Townshend J. R. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342, 850-853. 2013. DOI:10.1126/science.1244693",
     "key" : "HansenEtAl2013"
   },
-  "Copernicus.highly.tree-covered.forest" : {
-    "examplecitation" : "https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
-    "key" : "Copernicus.highly.tree-covered.forest"
-  },
   "EEA2016" : {
     "examplecitation" : "European Environmental Agency. Biogeographical regions, Europe 2016, version 1. URL: https://www.eea.europa.eu/en/datahub/datahubitem-view/11db8d14-f167-4cd5-9205-95638dfd9618",
     "key" : "EEA2016"
@@ -47,21 +79,9 @@
     "examplecitation" : "European Environmental Agency. Bio-regions. 2015. URL: https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
     "key" : "EEA2015"
   },
-  "EUCopernicusLMS2019" : {
-    "examplecitation" : "Kosztra, B., Büttner, G., Hazeu, G., Arnold, S. Updated CLC illustrated nomenclature guidelines. Service Contract No 3436/R0-Copernicus/EEA.57441. Task 3, D3.1 – Part 1. European Environment Agency. URL: https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/docs/pdf/CLC2018_Nomenclature_illustrated_guide_20190510.pdf",
-    "key" : "EUCopernicusLMS2019"
-  },
   "corine.broadleave.forest" : {
     "examplecitation" : "Broad-leave forest (raster code 311) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-311.html",
     "key" : "corine.broadleave.forest"
-  },
-  "EEA.european.bioregions" : {
-    "examplecitation" : "European bioregions from the EEA catalogue of geospatial datasets - https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
-    "key" : "EEA.european.bioregions"
-  },
-  "EUCopernicusLMS2018" : {
-    "examplecitation" : "European Union's Copernicus Land Monitoring Service. High Resolution Layer Tree Cover Density. 2018. URL: https://land.copernicus.eu/en/products/high-resolution-layer-tree-cover-density",
-    "key" : "EUCopernicusLMS2018"
   },
   "corine.landcover.accounts-adjusted.2000" : {
     "examplecitation" : "Corine land cover dataset accounting-adjusted covering the year 2000 -https://www.eea.europa.eu/en/datahub/datahubitem-view/a55d9224-a326-4cb1-9b9c-3a324520341a?activeAccordion=1069872%2C1069948",
@@ -74,10 +94,6 @@
   "MaesEtAl2023" : {
     "examplecitation" : "Maes, J., Bruzón, A.G., Barredo, J.I. et al. Accounting for forest condition in Europe based on an international statistical standard. Nat Commun 14, 3723. 2023. DOI: 10.1038/s41467-023-39434-0.",
     "key" : "MaesEtAl2023"
-  },
-  "european.bioregions" : {
-    "examplecitation" : "European bioregions - https://sdi.eea.europa.eu/data/def7ac06-7d3f-4da5-880c-a76a73953cfc",
-    "key" : "european.bioregions"
   },
   "corine.transitionalwoodland.and.shrub" : {
     "examplecitation" : "Transitional woodland & shrub (raster code 324) - https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html",
