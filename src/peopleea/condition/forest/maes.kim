@@ -28,7 +28,7 @@ number natcom_indicator_value_of_threatened_forest_birds_species_richness
 		natcom_max_threatened_forest_birds_species_richness,
 		natcom_min_threatened_forest_birds_species_richness,
 		conservation:Threatened biology:Bird ecology:SpeciesRichness named threatened_forest_birds_species_richness
-	set to [threatened_forest_birds_species_richness < natcom_natcom_min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > natcom_natcom_max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)/(natcom_natcom_max_threatened_forest_birds_species_richness - natcom_natcom_min_threatened_forest_birds_species_richness)) )];
+	set to [threatened_forest_birds_species_richness < natcom_min_threatened_forest_birds_species_richness ? 0 : ( threatened_forest_birds_species_richness > natcom_max_threatened_forest_birds_species_richness ? 1 : ((threatened_forest_birds_species_richness - natcom_min_threatened_forest_birds_species_richness)/(natcom_max_threatened_forest_birds_species_richness - natcom_min_threatened_forest_birds_species_richness)) )];
 
 number natcom_max_forest_connectivity  
 	observing
