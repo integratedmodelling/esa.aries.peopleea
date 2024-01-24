@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.cfactor",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1704968424886,
+  "resourceTimestamp" : 1706089484120,
   "metadata" : {
     "dc:description" : "Loads the prepared annual INCA c-factor raster for RUSLE calculation. Returns a single band RasterCube.",
     "im:keywords" : "C-factor, soil retention",
@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_Cfactor_prepared_load",
-    "serviceUrl" : "https://openeo.vgt.vito.be/openeo/1.1.0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_cfactor_prepared_load.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",

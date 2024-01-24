@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.ndwi",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1704969209713,
+  "resourceTimestamp" : 1706090494995,
   "metadata" : {
     "dc:description" : "Load the Landsat three-annual average NDWI dataset for specified year. Returns a single band RasterCube.",
     "im:keywords" : "Normalized Difference Water Index (NDWI)",
@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_three_annual_average_ndwi",
-    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_three_annual_average_ndwi.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",

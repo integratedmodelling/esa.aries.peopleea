@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.gdmp",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1704968837918,
+  "resourceTimestamp" : 1706090429251,
   "metadata" : {
     "dc:description" : "Annual total composite of Copernicus Global Land GDMP. Returns a single band RasterCube.",
     "im:keywords" : "Gross Dry Matter Productivity (GDMP)",
@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_annual_total_gdmp",
-    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_total_gdmp.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",

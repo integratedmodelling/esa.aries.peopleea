@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.lai",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1704968916701,
+  "resourceTimestamp" : 1706090442327,
   "metadata" : {
     "dc:description" : "Annual mean composite of Copernicus Global Land LAI. Returns a single band RasterCube.",
     "im:keywords" : "Leaf Area Index (LAI)",
@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_annual_avg_lai",
-    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_avg_lai.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",

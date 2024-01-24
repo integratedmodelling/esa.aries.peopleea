@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "vito.fapar.10m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1704968623145,
+  "resourceTimestamp" : 1706090382279,
   "metadata" : {
     "dc:description" : "Annual mean composite of Sentinel-2 FAPAR. Returns a single band RasterCube.",
     "im:keywords" : "FAPAR",
@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_annual_avg_fapar_10m",
-    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_annual_avg_fapar_10m.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",
