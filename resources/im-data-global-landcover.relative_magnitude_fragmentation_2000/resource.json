@@ -1,0 +1,48 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2000",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-landcover.relative_magnitude_fragmentation_2000",
+  "geometry" : "τ1{tend=978307200000,tstart=946684800000,ttype=logical}S2(129598,50175){bbox=[-180.00000033908682 180.0000003390868 -57.91111132930052 81.4666669736054],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-landcover.relative_magnitude_fragmentation_2000",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1706111984012,
+  "metadata" : {
+    "im:keywords" : "Conservation, Forest Fragmentation",
+    "dc:comment" : "Global remote-sensing data product (i.e. the 27-year annual ESA CCI land cover maps which can be categorized as an EBV ‘Ecosystem Distribution’) to derive an annual (27 year) time-series of the Relative Magnitude of Fragmentation (RMF) at a global scale and with a spatial resolution of 300m.\r\nFrom this derived EBV data product, we can calculate a RMF indicator of ecosystem degradation, i.e. the change, and rate of change, in fragmentation of ecosystems (e.g. forests) over the last 27 years.",
+    "im:notes" : "",
+    "dc:title" : "Relative Magnitude of Fragmentation (2000)",
+    "dc:url" : "https://portal.geobon.org/ebv-detail?id=4",
+    "dc:creator" : "Babak Naimi\r\nW. Daniel Kissling",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "University of Helsinki",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Langer, Christian. “RELATIVE MAGNITUDE OF FRAGMENTATION (RMF).” EBV Data Portal, 2020. https://portal.geobon.org/ebv-detail?id=4."
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2000",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-landcover/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 180.0000003390868,
+    "west" : -180.00000033908682,
+    "north" : 81.4666669736054,
+    "south" : -57.91111132930052,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

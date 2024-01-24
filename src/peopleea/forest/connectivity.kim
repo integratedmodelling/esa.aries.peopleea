@@ -68,6 +68,27 @@ define table forest_connectivity_indicator as {
 	)
 };
 
+model 	local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2000,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2001,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2002,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2003,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2004,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2005,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2006,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2007,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2008,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2009,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2010,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2011,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2012,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2013,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2014,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2015,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2016,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2017,
+		local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2018
+		as ecology:ForestFragmentation;
+		
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
 define table forest_fragmentation_raw_variable as {

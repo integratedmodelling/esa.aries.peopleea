@@ -1,0 +1,48 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.peopleea:im-data-global-landcover.relative_magnitude_fragmentation_2017",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-landcover.relative_magnitude_fragmentation_2017",
+  "geometry" : "τ1{tend=1514764800000,tstart=1483228800000,ttype=logical}S2(129599,50174){bbox=[-180.0 180.00000000000028 -57.911111111111225 81.46666666666665],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-landcover.relative_magnitude_fragmentation_2017",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1706112283870,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2017",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-landcover/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 180.00000000000028,
+    "west" : -180.0,
+    "north" : 81.46666666666665,
+    "south" : -57.911111111111225,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
