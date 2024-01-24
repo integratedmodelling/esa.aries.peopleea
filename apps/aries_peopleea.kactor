@@ -402,32 +402,6 @@ action addindicator(choices):
 	 		)
 	 	)
 
-//@menu(title=#NEWS)
-//@modal(width=700, height=640, title=#NEWS_ABOUT_ARIES_FOR_SEEA)
-//action newspage:
-//	html("https://aries.integratedmodelling.org/aries-for-seea-news/")
-//
-//@menu(title=#USER_GUIDE)
-//@modal(width=700, height=640, title=#ARIES_FOR_SEEA_USER_GUIDE)
-//action documentation:
-//	html("https://aries.integratedmodelling.org/aries-for-seea-documentation/")
-
-@menu(title=#ABOUT)
-@modal(width=700, height=640, title=#ABOUT_ARIES_FOR_SEEA)
+@menu(title=#ABOUT url="https://esa-people-ea.org/en")
 action aboutpage:
-	// html("static/en/about.html")
-	html("https://esa-people-ea.org/en")
-
-//@modal(width=600, height=460)
-//action conditionweights:
-//	(
-//		for role in self.roles (
-//			(
-//				label(role)
-////				text(1)
-//			) 	:hbox :hfill
-//		)
-//	) :vbox :vfill
-
- 	
 
