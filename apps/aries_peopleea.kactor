@@ -1,7 +1,7 @@
 public web app aries.peopleea
 	"ARIES for PEOPLE-EA Explorer"
 	version 1.0alpha
-	description "Pioneering Earth Observation Applications for the Environment - Ecosystem Accounting (PEOPLE-EA). Powered by k.LAB semantic web technology and openEO”"
+	description "Pioneering Earth Observation Applications for the Environment - Ecosystem Accounting (PEOPLE-EA). Powered by k.LAB semantic web technology and openEO"
 	logo static/images/esa_logo.png
 	versionstring "Demonstration version"
 	style dark
