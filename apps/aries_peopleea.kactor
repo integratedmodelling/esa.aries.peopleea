@@ -109,8 +109,6 @@ action main:
 				"Landscape Naturalness", true) #tag25
 //			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
 //				"Plant Phenology Index", true) #tag26
-			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
-				"Fraction of Absorbed Photosynthetically Active Radiation", true) #tag27
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_raw_variable, 
 				"Forest Fragmentation", true) #tag28
 		) #rawvars 
@@ -138,7 +136,7 @@ action main:
 			create aries.components.selectors.observation(peopleea.highresolution.ppi_10m,  
 				"Plant Phenology Index", true, "map") #tag33
 			create aries.components.selectors.observation(peopleea.highresolution.fapar_10m,  
-				"Fraction of Absorbed Photosynthetically Active Radiation", true, "map") #tag34			
+				"FAPAR", true, "map") #tag34			
 		) :hfill :altbg :name "PEOPLE-EA High Resolution Variables" :iconname "cog" :opened
 	) :shelf
 	
