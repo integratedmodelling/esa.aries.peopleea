@@ -11,7 +11,7 @@ model 'local:stefano.balbi:esa.aries.peopleea:vito.lai.10m#output_warp=true&sync
 @intensive(space)   
 @extensive(time)
 model 'local:alessio.bulckaen:im.openeo.sandbox:vito.esa.biomass_20m#output_warp=true&synchronous=true'
-	as ecology:Vegetation ecology:Biomass in t/ha named esa_biomass_20m;  
+	as ecology:Vegetation ecology:Biomass in t/ha named esa_biomass_20m;   
 
 model 'local:stefano.balbi:esa.aries.peopleea:vito.fcover.10m#output_warp=true&synchronous=true' 
 		 as ratio of ecology:Vegetation im:Area to im:Area named fcover_10m; 
