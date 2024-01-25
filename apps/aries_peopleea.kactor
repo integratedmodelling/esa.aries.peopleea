@@ -33,11 +33,11 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["PEOPLE-EA Forest Condition Index"], true, "table") #tag111 
+				["Forest condition index (PEOPLE-EA)"], true, "table") #tag111 
 			create aries.components.selectors.observation(peopleea.condition.forest.euclidean.euclidean_distance_forest_condition_index, 
-				["Euclidean Distance Forest Condition Index"], true, "map")  #tag222
+				["Forest condition index (Euclidean Distance) "], true, "map")  #tag222
 			create aries.components.selectors.observation(peopleea.condition.forest.maes.natcom_forest_condition_index, 
-				["NatCom Forest Condition Index"], true, "map") #tag333
+				["Forest condition index (Nat Commun 14, 3723: 2023)"], true, "map") #tag333
 				
 		) :hfill :altbg :name "PEOPLE-EA Condition Indexes" :iconname "cog" :opened //:tooltip "This section provides different methods"
 	) :shelf

@@ -164,7 +164,7 @@ number natcom_indicator_tree_cover_density
 	set to [tree_cover_density < natcom_min_tree_cover_density ? 0 : ( tree_cover_density > natcom_max_tree_cover_density ? 1 : ((tree_cover_density - natcom_min_tree_cover_density)/(natcom_max_tree_cover_density - natcom_min_tree_cover_density)) )];
 
 @main
-@key(en="NatCom Forest Condition Index")
+@key(en="Forest condition index (Nat Commun 14, 3723: 2023)")
 @documented(peopleea.forest_condition_accounts.maes_index)
 number natcom_forest_condition_index
 	observing 
