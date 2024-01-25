@@ -58,7 +58,7 @@ action main:
 				(
 				// label("Years" width="content")
 				// TODO initialize from restored state
-				textinput("2018" :width "col1" #yearfrom): set self.startyear $ 
+				textinput("2022" :width "col1" #yearfrom): set self.startyear $ 
 				checkbutton("Until" :width "content" #yearselector): (
 		 			true -> (
 //		 				set self.timetype GRID
@@ -74,7 +74,7 @@ action main:
 		 			)
 			 	)
 				
-		 		textinput("2019" #yearto :width "col1" :right :disabled): ( 
+		 		textinput("2023" #yearto :width "col1" :right :disabled): ( 
 		 				set self.endyear $
 		 				set endyear $
 		 			)
