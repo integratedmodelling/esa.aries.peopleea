@@ -111,7 +111,7 @@ action main:
 //				"Plant Phenology Index", true) #tag26
 			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
 				"Fraction of Absorbed Photosynthetically Active Radiation", true) #tag27
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest.fragmentation.raw.variable, 
+			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_raw_variable, 
 				"Forest Fragmentation", true) #tag28
 		) #rawvars 
 		
