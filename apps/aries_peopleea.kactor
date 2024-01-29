@@ -328,22 +328,22 @@ action main:
  			keyoutputs.add($)
  			outputs.add(new aries.components.display.observation($, [key.en]))
  		)
- 		{landcover:LandCoverType} -> (
- 			keyoutputs.add($)
- 			outputs.add(new aries.components.display.observation($, #LAND_COVER_TYPE))
- 		)
- 		{chemistry:Organic chemistry:Carbon im:Mass} -> (
- 			keyoutputs.add($)
- 			outputs.add(new aries.components.display.observation($, #TOTAL_ORGANIC_STORED_CARBON_T_HA))
- 		) 
- 		{ecology:Vegetation chemistry:Carbon im:Mass} -> (
- 			keyoutputs.add($)
- 			outputs.add(new aries.components.display.observation($, #VEGETATION_STORED_CARBON_T_HA))
- 		)
- 		{im:Retained soil:Soil im:Mass caused by ecology:Vegetation} -> (
- 			keyoutputs.add($)
- 			outputs.add(new aries.components.display.observation($, #SOIL_RETAINED_BY_VEGETATION_T_HA))
- 		)
+// 		{landcover:LandCoverType} -> (
+// 			keyoutputs.add($)
+// 			outputs.add(new aries.components.display.observation($, #LAND_COVER_TYPE))
+// 		)
+// 		{chemistry:Organic chemistry:Carbon im:Mass} -> (
+// 			keyoutputs.add($)
+// 			outputs.add(new aries.components.display.observation($, #TOTAL_ORGANIC_STORED_CARBON_T_HA))
+// 		) 
+// 		{ecology:Vegetation chemistry:Carbon im:Mass} -> (
+// 			keyoutputs.add($)
+// 			outputs.add(new aries.components.display.observation($, #VEGETATION_STORED_CARBON_T_HA))
+// 		)
+// 		{im:Retained soil:Soil im:Mass caused by ecology:Vegetation} -> (
+// 			keyoutputs.add($)
+// 			outputs.add(new aries.components.display.observation($, #SOIL_RETAINED_BY_VEGETATION_T_HA))
+// 		)
  	)
 
 @menu(title=#OTHER_SEEA_RELATED_INDICATORS)
