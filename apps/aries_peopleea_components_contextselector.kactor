@@ -9,9 +9,10 @@ action init:
 	// defaults for the session state. Names are mandatory.
 	set self.lockspace false
 	set self.timeresolution 1.year
-	set self.startyear 2022
-	set self.endyear 2023
+	set self.startyear "2022"
+	set self.endyear "2023"
 	set self.timetype GRID
+	set self.untilto false
 	set self.spaceresolutionunit "m"
 	set self.spacemultiplier 300
 	set self.geocodingstrategy "Map boundaries"
@@ -58,17 +59,24 @@ action main:
 				(
 				// label("Years" width="content")
 				// TODO initialize from restored state
-				textinput("2022" :width "col1" #yearfrom): set self.startyear $ 
+				textinput("2022" :width "col1" #yearfrom): (
+					set self.startyear $
+					if [!self.untilto] (
+						set self.endyear [Integer.parseInt(self.startyear) + 1]
+					)	
+				) 
 				checkbutton("Until" :width "content" #yearselector): (
 		 			true -> (
-//		 				set self.timetype GRID
+		 				//set self.timetype GRID
+		 				set self.untilto true
 		 				set self.endyear endyear
 		 				yearto.enable
 		 				"dynamic"
 		 			)
 		 			false -> (
-//		 				set self.timetype LOGICAL
-		 				set self.endyear [self.startyear + 1]
+		 				//set self.timetype LOGICAL
+		 				set self.untilto false
+		 				set self.endyear [Integer.parseInt(self.startyear) + 1]
 		 				yearto.disable
 		 				"static"
 		 			)
