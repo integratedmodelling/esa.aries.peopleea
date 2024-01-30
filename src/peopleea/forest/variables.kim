@@ -1,9 +1,38 @@
-project private namespace peopleea.forest.variables;
+project private namespace peopleea.forest.variables
+	using (	BIO_REGION_FOREST_REFERENCES_FCOVER,
+			BIO_REGION_FOREST_REFERENCES_DROUGHT_SEVERITY, 
+			BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY,
+			BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS
+	) from peopleea.tables;
 
-/*FCOVER Tier 1 and Tier 2 */
-
+/* 
+ * *********************************************************************
+ * 							F-COVER
+ * *********************************************************************
+ */	
 model 'local:ferdinando.villa:scratch:vito.fcover#output_warp=true&synchronous=true' 
 	 as ratio of ecology:Vegetation im:Area to im:Area; 
+
+number max_fcover 
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_FCOVER; 
+
+number min_fcover
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_FCOVER; 
+
+number indicator_fcover
+	observing 
+		max_fcover,
+		min_fcover,
+		ratio of ecology:Vegetation im:Area to im:Area named fcover
+	set to [fcover < min_fcover ? 0 : ( fcover > max_fcover ? 1 : ((fcover - min_fcover)/(max_fcover - min_fcover)) )];
 
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
@@ -24,8 +53,32 @@ define table fraction_green_vegetation_raw_variable as {
 		no-data = ''
 	)
 }; 
+
+@documented(peopleea.forest_condition_accounts.indicators)
+@var(timespan=(start end))	
+define table fraction_green_vegetation_indicator as {
+	name: "fcover_indicator"
+	title: "Fraction of Green Vegetation Cover Indicator Account",
+	label: "Fraction of Green Vegetation Cover Indicator",
+	target: indicator_fcover
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
 		
-/* DROUGHT SEVERITY */		
+/* 
+ * *********************************************************************
+ * 							DROUGHT SEVERITY
+ * *********************************************************************
+ */		
 //model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
 //		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1999',
 //		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2000',
@@ -64,6 +117,28 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
 	as im:Relative value of soil:DroughtSeverity;
 
+number max_drought_severity 
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *) 
+		into BIO_REGION_FOREST_REFERENCES_DROUGHT_SEVERITY; 
+
+number min_drought_severity
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?) 
+		into BIO_REGION_FOREST_REFERENCES_DROUGHT_SEVERITY; 
+
+//model im:Indicator as im:Relative value of soil:DroughtSeverity 
+number indicator_drought_severity
+	observing 
+		max_drought_severity,
+		min_drought_severity,
+		im:Relative value of soil:DroughtSeverity named drought_severity
+	set to [drought_severity < min_drought_severity ? 0 : ( drought_severity > max_drought_severity ? 1 : ((drought_severity - min_drought_severity)/(max_drought_severity - min_drought_severity)) )];
+
 @documented(peopleea.forest_condition_accounts.variable)
 define table drought_severity_raw_variable as {
 	name: "drought_severity_variable"
@@ -83,12 +158,56 @@ define table drought_severity_raw_variable as {
 	)
 };
 
+@documented(peopleea.forest_condition_accounts.indicators)
+@var(timespan=(start end))	
+define table drought_severity_indicator as {
+	name: "drought_severity_indicator"
+	title: "Drought Severity Indicator Account",
+	label: "Drought Severity Indicator",
+	target: indicator_drought_severity
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
 
-/* TREE COVER DENSITY */
+/* 
+ * *********************************************************************
+ * 						TREE COVER DENSITY
+ * *********************************************************************
+ */	
 model 'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2012',
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2015',
 			  'local:belen.inguanzo:esa.people.sandbox:im-data-global-conservation.copernicus_tree_cover_density_3035_100m_of_europe_2018'
 	as percentage of ecology:CanopyCover;
+
+number max_tree_cover_density  
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *, *, *) 
+		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY; 
+
+number min_tree_cover_density  
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?, *, *) 
+		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY;  
+
+number indicator_tree_cover_density
+	observing 
+		max_tree_cover_density,
+		min_tree_cover_density,
+		percentage of ecology:CanopyCover named tree_cover_density 
+	set to [tree_cover_density < min_tree_cover_density ? 0 : ( tree_cover_density > max_tree_cover_density ? 1 : ((tree_cover_density - min_tree_cover_density)/(max_tree_cover_density - min_tree_cover_density)) )];
 
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
@@ -110,12 +229,57 @@ define table canopy_cover_raw_variable as {
 	)
 };
 
-/* LANDSCAPE NATURALNESS */
+@documented(peopleea.forest_condition_accounts.indicators)
+@var(timespan=(start end))	
+define table canopy_cover_indicator as {
+	name: "canopy_cover_indicator"
+	title: "Canopy Cover Indicator Account",
+	label: "Canopy Cover Indicator",
+	target: indicator_tree_cover_density
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+/* 
+ * *********************************************************************
+ * 						LANDSCAPE NATURALNESS
+ * *********************************************************************
+ */	
 model 'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2000',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2006',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2012',
 			  'local:belen.inguanzo:esa.people.sandbox:esa_people.landscape_naturalness_europe_4326_2018'
 			  as percentage of ecology:Natural landcover:LandscapeHeterogeneity; 
+			  
+number max_landscape_naturalness  
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, ?, *, *, *) 
+		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS; 
+
+number min_landscape_naturalness  
+	observing
+		es.nca:BiogeographicRegionType named bioregion,
+		type of ecology:Forest named forest_type
+	lookup (bioregion, forest_type, *, ?, *, *) 
+		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS;  
+
+number indicator_landscape_naturalness 
+	observing 
+		max_landscape_naturalness,
+		min_landscape_naturalness,
+		percentage of ecology:Natural landcover:LandscapeHeterogeneity named landscape_naturalness 
+	set to [landscape_naturalness < min_landscape_naturalness ? 0 : ( landscape_naturalness > max_landscape_naturalness ? 1 : ((landscape_naturalness - min_landscape_naturalness)/(max_landscape_naturalness - min_landscape_naturalness)) )]; 
 
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
@@ -137,7 +301,31 @@ define table landscape_naturalness_raw_variable as {
 	)
 };
 
-/* BURNED SEVERITY (categorized by classes)*/
+@documented(peopleea.forest_condition_accounts.indicators)
+@var(timespan=(start end))	
+define table landscape_naturalness_indicator as {
+	name: "landscape_naturalness_indicator"
+	title: "Landscape Naturalness Indicator Account",
+	label: "Landscape Naturalness Indicator",
+	target: indicator_landscape_naturalness
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
+/* 
+ * *********************************************************************
+ * 					BURNED SEVERITY (categorized by classes)
+ * *********************************************************************
+ */	
 model local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2000,
 	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2005,
 	  local:alessio.bulckaen:esa.aries.peopleea:esa_people.mosev_global_burn_severity_classified_rdnbr_2010,
