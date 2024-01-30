@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "im-data-global-landcover.relative_magnitude_fragmentation_2000",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1706111984012,
+  "resourceTimestamp" : 1706628862202,
   "metadata" : {
     "im:keywords" : "Conservation, Forest Fragmentation",
     "dc:comment" : "Global remote-sensing data product (i.e. the 27-year annual ESA CCI land cover maps which can be categorized as an EBV ‘Ecosystem Distribution’) to derive an annual (27 year) time-series of the Relative Magnitude of Fragmentation (RMF) at a global scale and with a spatial resolution of 300m.\r\nFrom this derived EBV data product, we can calculate a RMF indicator of ecosystem degradation, i.e. the change, and rate of change, in fragmentation of ecosystems (e.g. forests) over the last 27 years.",
@@ -24,7 +24,7 @@
     "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2000",
     "transform" : "",
     "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-landcover/wcs",
-    "nodata" : "0.0",
+    "nodata" : "65535",
     "wcsVersion" : "2.0.1"
   },
   "localPaths" : [ ],

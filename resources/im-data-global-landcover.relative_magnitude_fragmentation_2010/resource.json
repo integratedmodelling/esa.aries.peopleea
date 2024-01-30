@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "im-data-global-landcover.relative_magnitude_fragmentation_2010",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1706112234171,
+  "resourceTimestamp" : 1706629039765,
   "metadata" : {
     "im:keywords" : "",
     "dc:comment" : "",
@@ -24,7 +24,7 @@
     "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2010",
     "transform" : "",
     "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-landcover/wcs",
-    "nodata" : "0.0",
+    "nodata" : "65535",
     "wcsVersion" : "2.0.1"
   },
   "localPaths" : [ ],
