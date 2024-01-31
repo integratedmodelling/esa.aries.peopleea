@@ -75,11 +75,22 @@ action main:
 				"LAI", true) #tag7
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
 				"NDVI", true) #tag8
+			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_indicator, 
+				"Fraction of Green Vegetation Cover", true) #tag9
+			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_indicator, 
+				"Drought Severity", true) #tag10
+			create aries.components.selectors.observation(peopleea.forest.variables.canopy_cover_indicator, 
+				"Canopy Cover Percentage", true) #tag11
+			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_indicator, 
+				"Landscape Naturalness", true) #tag12
+//			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
+//				"Plant Phenology Index", true) #tag26
+			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_indicator, 
+				"Forest Fragmentation", true) #tag13
 //			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 //				"Burned Severity", true) #tag9
 //			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-//				"Indicator 10", true) #tag10
-
+//				"Indicator 10", true) #tag10				
 		)  :hidden #indics
 
 		(
