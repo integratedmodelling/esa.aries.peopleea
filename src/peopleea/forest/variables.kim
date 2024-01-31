@@ -115,7 +115,7 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2021',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
-	as im:Relative value of soil:DroughtSeverity;
+	as soil:DroughtSeverity;
 
 number max_drought_severity 
 	observing
@@ -131,12 +131,12 @@ number min_drought_severity
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_DROUGHT_SEVERITY; 
 
-//model im:Indicator as im:Relative value of soil:DroughtSeverity 
-number indicator_drought_severity
+model im:Indicator value of soil:DroughtSeverity 
+//number indicator_drought_severity
 	observing 
 		max_drought_severity,
 		min_drought_severity,
-		im:Relative value of soil:DroughtSeverity named drought_severity
+		soil:DroughtSeverity named drought_severity
 	set to [drought_severity < min_drought_severity ? 0 : ( drought_severity > max_drought_severity ? 1 : ((drought_severity - min_drought_severity)/(max_drought_severity - min_drought_severity)) )];
 
 @documented(peopleea.forest_condition_accounts.variable)
@@ -144,27 +144,7 @@ define table drought_severity_raw_variable as {
 	name: "drought_severity_variable"
 	title: "Drought Severity Variable Account",
 	label: "Drought Severity Variable",
-	target: im:Relative value of soil:DroughtSeverity
-	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
-	when: end
-	use: tables.compiler.summarize(contabilize-nulls = true, 
-		rowsummary = { filter: "change" title: "Net change"}, 
-//		colsummary=  { filter: "mean", title: "Mean" },
-		rows =       { filter: %timespan% }, 
-		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
-		statistic =  "mean",
-		empty='', 
-		no-data = ''
-	)
-};
-
-@documented(peopleea.forest_condition_accounts.indicators)
-@var(timespan=(start end))	
-define table drought_severity_indicator as {
-	name: "drought_severity_indicator"
-	title: "Drought Severity Indicator Account",
-	label: "Drought Severity Indicator",
-	target: indicator_drought_severity
+	target: soil:DroughtSeverity
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
