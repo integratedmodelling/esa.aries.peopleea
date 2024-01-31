@@ -111,7 +111,9 @@ model im:Indicator value of ecology:ForestFragmentation
 			max_forest_fragmentation,
 			min_forest_fragmentation,
 			ecology:ForestFragmentation named forest_fragmentation
-       set to [forest_fragmentation < min_forest_fragmentation ? 0 : ( forest_fragmentation > max_forest_fragmentation ? 1 : ((forest_fragmentation - min_forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))];
+       set to [forest_fragmentation < min_forest_fragmentation ? 0 : ( forest_fragmentation > max_forest_fragmentation ? 1 : ((forest_fragmentation - min_forest_fragmentation)/(max_forest_fragmentation - min_forest_fragmentation)))]
+       then [ self.invert() ]; 
+/* the indicator has been inverted since the higher the fragmentation, the lower the condition of a forest */
 		
 @documented(peopleea.forest_condition_accounts.variable)
 @var(timespan=(start end))	
