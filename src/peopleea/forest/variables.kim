@@ -27,7 +27,8 @@ number min_fcover
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FCOVER; 
 
-number indicator_fcover
+//number indicator_fcover
+model im:Indicator ratio of ecology:Vegetation im:Area to im:Area
 	observing 
 		max_fcover,
 		min_fcover,
@@ -40,7 +41,7 @@ define table fraction_green_vegetation_raw_variable as {
 	name: "fcover_variable"
 	title: "Fraction of Green Vegetation Cover Variable Account",
 	label: "Fraction of Green Vegetation Cover Variable",
-	target: ratio of ecology:Vegetation im:Area to im:Area
+	target: indicator_fcover
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -54,13 +55,13 @@ define table fraction_green_vegetation_raw_variable as {
 	)
 }; 
 
-@documented(peopleea.forest_condition_accounts.indicators)
+//@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table fraction_green_vegetation_indicator as {
 	name: "fcover_indicator"
 	title: "Fraction of Green Vegetation Cover Indicator Account",
 	label: "Fraction of Green Vegetation Cover Indicator",
-	target: indicator_fcover
+	target: im:Indicator ratio of ecology:Vegetation im:Area to im:Area
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -158,6 +159,26 @@ define table drought_severity_raw_variable as {
 	)
 };
 
+//@documented(peopleea.forest_condition_accounts.indicators)
+@var(timespan=(start end))	
+define table drought_severity_indicator as {
+	name: "drought_severity_indicator"
+	title: "Drought Severity Indicator Account",
+	label: "Drought Severity Indicator",
+	target: im:Indicator value of soil:DroughtSeverity 
+	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change"}, 
+//		colsummary=  { filter: "mean", title: "Mean" },
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: (type of ecology:Forest, es.nca:BiogeographicRegionType)}, 
+		statistic =  "mean",
+		empty='', 
+		no-data = ''
+	)
+};
+
 /* 
  * *********************************************************************
  * 						TREE COVER DENSITY
@@ -182,7 +203,8 @@ number min_tree_cover_density
 	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY;  
 
-number indicator_tree_cover_density
+//number indicator_tree_cover_density
+model im:Indicator percentage of ecology:CanopyCover
 	observing 
 		max_tree_cover_density,
 		min_tree_cover_density,
@@ -209,13 +231,13 @@ define table canopy_cover_raw_variable as {
 	)
 };
 
-@documented(peopleea.forest_condition_accounts.indicators)
+//@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table canopy_cover_indicator as {
 	name: "canopy_cover_indicator"
 	title: "Canopy Cover Indicator Account",
 	label: "Canopy Cover Indicator",
-	target: indicator_tree_cover_density
+	target: im:Indicator percentage of ecology:CanopyCover
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -254,7 +276,8 @@ number min_landscape_naturalness
 	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS;  
 
-number indicator_landscape_naturalness 
+//number indicator_landscape_naturalness 
+model im:Indicator percentage of ecology:Natural landcover:LandscapeHeterogeneity
 	observing 
 		max_landscape_naturalness,
 		min_landscape_naturalness,
@@ -281,13 +304,13 @@ define table landscape_naturalness_raw_variable as {
 	)
 };
 
-@documented(peopleea.forest_condition_accounts.indicators)
+//@documented(peopleea.forest_condition_accounts.indicators)
 @var(timespan=(start end))	
 define table landscape_naturalness_indicator as {
 	name: "landscape_naturalness_indicator"
 	title: "Landscape Naturalness Indicator Account",
 	label: "Landscape Naturalness Indicator",
-	target: indicator_landscape_naturalness
+	target: im:Indicator percentage of ecology:Natural landcover:LandscapeHeterogeneity
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
