@@ -41,7 +41,7 @@ define table fraction_green_vegetation_raw_variable as {
 	name: "fcover_variable"
 	title: "Fraction of Green Vegetation Cover Variable Account",
 	label: "Fraction of Green Vegetation Cover Variable",
-	target: indicator_fcover
+	target: ratio of ecology:Vegetation im:Area to im:Area
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
