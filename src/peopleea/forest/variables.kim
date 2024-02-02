@@ -141,6 +141,7 @@ model im:Indicator value of soil:DroughtSeverity
 	set to [drought_severity < min_drought_severity ? 0 : ( drought_severity > max_drought_severity ? 1 : ((drought_severity - min_drought_severity)/(max_drought_severity - min_drought_severity)) )];
 
 @documented(peopleea.forest_condition_accounts.variable)
+@var(timespan=(start end))	
 define table drought_severity_raw_variable as {
 	name: "drought_severity_variable"
 	title: "Drought Severity Variable Account",
