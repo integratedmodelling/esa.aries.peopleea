@@ -34,7 +34,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 @var(timespan=(start end))	
 define table npp_raw_variable as {
 	name: "net_primary_productivity_variable"
-	title: "Net Primary Productivity Variable Account",
+	title: "Net Primary Productivity Variable Account (in tC/ha/year)",
 	label: "Net Primary Productivity Variable",
 	target: ecology:PrimaryProductivity in t/ha/year where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
@@ -54,7 +54,7 @@ define table npp_raw_variable as {
 @var(timespan=(start end))	
 define table npp_indicator as {
 	name: "net_primary_productivity_indicator"
-	title: "Net Primary Productivity Indicator Account in gC/m²/day",
+	title: "Net Primary Productivity Indicator Account",
 	label: "Net Primary Productivity Indicator",
 	target: im:Indicator value of ecology:PrimaryProductivity	
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
