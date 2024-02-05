@@ -30,7 +30,7 @@ model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:M
 @var(timespan=(start end))	
 define table soc_raw_variable as {
 	name: "soil_organic_carbon_variable"
-	title: "Soil Organic Carbon Variable Account",
+	title: "Soil Organic Carbon Variable Account (%)",
 	label: "Soil Organic Carbon Variable",
 	target: percentage of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
