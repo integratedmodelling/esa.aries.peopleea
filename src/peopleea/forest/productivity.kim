@@ -2,9 +2,10 @@ project private namespace peopleea.forest.productivity
 	using (BIO_REGION_FOREST_REFERENCES_NPP) from peopleea.tables;
 
 @intensive(time)
+@extensive(space)
 model "local:ferdinando.villa:im.openeo.sandbox:vito.gdmp#output_warp=true&synchronous=true"
-	as ecology:PrimaryProductivity in kg/ha*year 
-	set to [self*0.5*0.475];  
+	as ecology:PrimaryProductivity in t/ha/year 
+	set to [self*0.5*0.475*0.1];  
 
 number max_net_primary_productivity    
 	observing
@@ -24,7 +25,7 @@ model im:Indicator value of ecology:PrimaryProductivity
 	observing 
 		min_net_primary_productivity,
 		max_net_primary_productivity,
-        ecology:PrimaryProductivity in kg/ha*year named net_primary_productivity
+        ecology:PrimaryProductivity in t/ha/year named net_primary_productivity
 	set to [
 		net_primary_productivity < min_net_primary_productivity ? 0 : ( net_primary_productivity > max_net_primary_productivity ? 1 : ((net_primary_productivity - min_net_primary_productivity)/(max_net_primary_productivity - min_net_primary_productivity)) )
 	];
@@ -33,9 +34,9 @@ model im:Indicator value of ecology:PrimaryProductivity
 @var(timespan=(start end))	
 define table npp_raw_variable as {
 	name: "net_primary_productivity_variable"
-	title: "Net Primary Productivity Variable Account",
+	title: "Net Primary Productivity Variable Account (in tC/ha/year)",
 	label: "Net Primary Productivity Variable",
-	target: ecology:PrimaryProductivity in kg/ha*year where (any type of ecology:Forest)
+	target: ecology:PrimaryProductivity in t/ha/year where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
