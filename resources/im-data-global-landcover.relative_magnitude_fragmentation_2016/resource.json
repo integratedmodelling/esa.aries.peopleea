@@ -7,18 +7,18 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "im-data-global-landcover.relative_magnitude_fragmentation_2016",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1706629086731,
+  "resourceTimestamp" : 1707147234475,
   "metadata" : {
-    "im:keywords" : "",
-    "dc:comment" : "",
+    "im:keywords" : "Conservation, Forest Fragmentation",
+    "dc:comment" : "Global remote-sensing data product (i.e. the 27-year annual ESA CCI land cover maps which can be categorized as an EBV ‘Ecosystem Distribution’) to derive an annual (27 year) time-series of the Relative Magnitude of Fragmentation (RMF) at a global scale and with a spatial resolution of 300m.\r\nFrom this derived EBV data product, we can calculate a RMF indicator of ecosystem degradation, i.e. the change, and rate of change, in fragmentation of ecosystems (e.g. forests) over the last 27 years.",
     "im:notes" : "",
-    "dc:title" : "",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "dc:title" : "Relative Magnitude of Fragmentation (2016)",
+    "dc:url" : "https://portal.geobon.org/ebv-detail?id=4",
+    "dc:creator" : "Babak Naimi\r\nW. Daniel Kissling",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "University of Helsinki",
+    "im:geographic-area" : "Global",
+    "dc:source" : "Langer, Christian. “RELATIVE MAGNITUDE OF FRAGMENTATION (RMF).” EBV Data Portal, 2020. https://portal.geobon.org/ebv-detail?id=4."
   },
   "parameters" : {
     "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2016",
