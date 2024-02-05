@@ -41,7 +41,7 @@ define table fraction_green_vegetation_raw_variable as {
 	name: "fcover_variable"
 	title: "Fraction of Green Vegetation Cover Variable Account",
 	label: "Fraction of Green Vegetation Cover Variable",
-	target: ratio of ecology:Vegetation im:Area to im:Area
+	target: ratio of ecology:Vegetation im:Area to im:Area where (any type of ecology:Forest) 
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -80,28 +80,6 @@ define table fraction_green_vegetation_indicator as {
  * 							DROUGHT SEVERITY
  * *********************************************************************
  */		
-//model 	'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1998',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_1999',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2000',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2001',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2002',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2003',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2004',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2005',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2006',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2007',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2008',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2009',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2010',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2011',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2012',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2013',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2014',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2015',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2016',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2017',
-//		'local:belen.inguanzo:esa.people.sandbox:im-data-global-soil.drought_scpdsi_mean_2018'
-//	as soil:DroughtSeverity;
 	
 model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2013',
@@ -146,7 +124,7 @@ define table drought_severity_raw_variable as {
 	name: "drought_severity_variable"
 	title: "Drought Severity Variable Account",
 	label: "Drought Severity Variable",
-	target: soil:DroughtSeverity
+	target: soil:DroughtSeverity where (any type of ecology:Forest) 
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -218,7 +196,7 @@ define table canopy_cover_raw_variable as {
 	name: "canopy_cover_variable"
 	title: "Canopy Cover Variable Account (%)",
 	label: "Canopy Cover Variable",
-	target: percentage of ecology:CanopyCover
+	target: percentage of ecology:CanopyCover where (any type of ecology:Forest) 
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -291,7 +269,7 @@ define table landscape_naturalness_raw_variable as {
 	name: "landscape_naturalness_variable"
 	title: "Landscape Naturalness Variable Account (%)",
 	label: "Landscape Naturalness Variable",
-	target: percentage of ecology:Natural landcover:LandscapeHeterogeneity
+	target: percentage of ecology:Natural landcover:LandscapeHeterogeneity where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
@@ -344,7 +322,7 @@ define table burn_severity_raw_variable as {
 	name: "burn_severity_variable"
 	title: "Burn Severity Variable Account",
 	label: "Burn Severity Variable",
-	target: im:Relative im:Differential ecology.incubation:NormalizedBurnRatio
+	target: im:Relative im:Differential ecology.incubation:NormalizedBurnRatio where (any type of ecology:Forest) 
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)
 	when: end
 	use: tables.compiler.summarize(contabilize-nulls = true, 
