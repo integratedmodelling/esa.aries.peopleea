@@ -296,7 +296,7 @@ action main:
 	() :hfill :altbg #outputs
 
 	(
-		(button (#MAPS :iconname "map" #mapdownload :tooltip #DOWNLOAD_ALL_KEY_RASTER_DATA_AS_ZIPPED_GEOTIFF_FILES): (
+		(button (#MAPS :iconname "map" #mapdownload :tooltip #DOWNLOAD_ALL_KEY_RASTER_DATA_AS_ZIPPED_GEOTIFF_FILES :disabled): (
 		 	// TODO needs a 'waiting' status
 			mapdownload.waiting
 			pack(keyoutputs): ( 
@@ -308,7 +308,7 @@ action main:
 				error -> mapdownload.error(:timeout 1000)
 			)
 		 )
-		 button (#TABLES:iconname "table" #tablesdownload :tooltip #DOWNLOAD_ALL_TABLES_AS_A_SINGLE_EXCEL_FILE): (
+		 button (#TABLES:iconname "table" #tablesdownload :tooltip #DOWNLOAD_ALL_TABLES_AS_A_SINGLE_EXCEL_FILE :disabled): (
 		 	// TODO needs a 'waiting' status
 			tablesdownload.waiting
 			pack(:tables): (
