@@ -1,0 +1,48 @@
+{
+  "urn" : "local:rubencc:esa.aries.peopleea:im-data-global-conservation.forest_connectivity_10m_europe_nuts_4326_2018",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-conservation.forest_connectivity_10m_europe_nuts_4326_2018",
+  "geometry" : "τ1{tend=1546300800000,tstart=1514764800000,ttype=logical}S2(191275,313445){bbox=[3.362681392391134 23.45068110509844 36.40212924466395 69.320546390303],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-conservation.forest_connectivity_10m_europe_nuts_4326_2018",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1707225410738,
+  "metadata" : {
+    "im:keywords" : "European, Forests, Connectivity, NUTS",
+    "dc:comment" : "Forest fragmentation of Europe represented as a percentage.\r\nThe forest connectivity of European forests was estimated using the Forest Area Density (FAD) methodology developed by JRC.\r\nFAD measures the spatial integrity of forest land cover and accounts for key fragmentation aspects, such as isolation of small fragments and perforations within compact forest patches.\r\nFAD is a landscape variable measured in a local neighbourhood, which is then classified into six degrees of connectivity classes.\r\nThe result is a map product showing the degree of forest connectivity at 10 m spatial resolution\r\nThe maps were generated using the GUIDOS toolbox with the Copernicus tree cover density layers\r\nThe reclassification of the 6 classes followed the corresponding values:\r\n255 (no data or unclassified) = 0 - Missing\r\n0 (no forest presence) = 1 - Background\r\n1 - 100 (forest presence) = 2 - Foreground",
+    "im:notes" : "",
+    "dc:title" : "European Forests Connectivity 10m selected NUTS (2018)",
+    "dc:url" : "https://sdi.eea.europa.eu/catalogue/copernicus/eng/catalog.search#/metadata/486f77da-d605-423e-93a9-680760ab6791",
+    "dc:creator" : "Rubén Crespo Ceballos",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "ARIES team (BC3)",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-conservation__forest_connectivity_10m_europe_nuts_4326_2018",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 23.45068110509844,
+    "west" : 3.362681392391134,
+    "north" : 69.320546390303,
+    "south" : 36.40212924466395,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

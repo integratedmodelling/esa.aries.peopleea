@@ -34,7 +34,7 @@ model im:Indicator value of ecology:ForestConnectivity
 @var(timespan=(start end))	
 define table forest_connectivity_raw_variable as {
 	name: "forest_connectivity_variable"
-	title: "Forest Connectivity Variable Account",
+	title: "Forest Connectivity Variable Account (%)",
 	label: "Forest Connectivity Variable",
 	target: percentage of ecology:ForestConnectivity where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)

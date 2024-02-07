@@ -36,7 +36,7 @@ model im:Indicator value of ecology:AboveGroundBiomass
 @var(timespan=(start end))	
 define table agb_raw_variable as {
 	name: "above_ground_biomass_variable"
-	title: "Above Ground Biomass Variable Account",
+	title: "Above Ground Biomass Variable Account (t/ha)",
 	label: "Above Ground Biomass Variable",
 	target: ecology:AboveGroundBiomass where (any type of ecology:Forest)
 	observables: (type of ecology:Forest, es.nca:BiogeographicRegionType)

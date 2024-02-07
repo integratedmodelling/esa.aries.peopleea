@@ -7,18 +7,18 @@
   "projectName" : "esa.aries.peopleea",
   "localName" : "im-data-global-conservation.forest_connectivity_europe_4326_2006",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1705686035637,
+  "resourceTimestamp" : 1707219785234,
   "metadata" : {
-    "im:keywords" : "",
-    "dc:comment" : "",
+    "im:keywords" : "Forests Connectivity, Conservation",
+    "dc:comment" : "Forest fragmentation of Europe represented as a percentage.\r\nThe forest connectivity of European forests was estimated using the Forest Area Density (FAD) methodology developed by JRC.\r\nFAD measures the spatial integrity of forest land cover and accounts for key fragmentation aspects, such as isolation of small fragments and perforations within compact forest patches.\r\nFAD is a landscape variable measured in a local neighbourhood, which is then classified into six degrees of connectivity classes.\r\nThe result is a map product showing the degree of forest connectivity at 1 ha spatial resolution\r\nThe maps were generated using the GUIDOS toolbox \r\nThe reclassification of the 6 classes followed the corresponding values:\r\n0, 48-50 (no data or unclassified) = 0 - Missing\r\n1 – 22, 26 – 44 (artificial, agriculture, wetlands) = 1 - Background\r\n23 - 25, 29 (forests, transitional woodland-shrub) = 2 - Foreground\r\n",
     "im:notes" : "",
-    "dc:title" : "",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "dc:title" : "European Forests Connectivity (2006)",
+    "dc:url" : "https://publications.jrc.ec.europa.eu/repository/handle/JRC118541",
+    "dc:creator" : "Rubén Crespo Ceballos",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "ARIES team (BC3)",
+    "im:geographic-area" : "European",
+    "dc:source" : "Vogt, P., Riiters, K. H., Caudullo, G., Eckhardt, B. & Rasi, R. \"An approach for pan-European monitoring of forest fragmentation.\" Report No. EUR 29944 EN, (Publications Office of the European Union, Luxembourg, 2019)."
   },
   "parameters" : {
     "wcsIdentifier" : "im-data-global-conservation__forest_connectivity_europe_4326_2006",
