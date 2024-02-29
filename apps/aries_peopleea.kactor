@@ -296,7 +296,7 @@ action main:
 	() :hfill :altbg #outputs
 
 	(
-		(button (#MAPS :iconname "map" #mapdownload :tooltip #DOWNLOAD_ALL_KEY_RASTER_DATA_AS_ZIPPED_GEOTIFF_FILES :disabled): (
+		(button (#MAPS :iconname "map" #mapdownload :tooltip #DOWNLOAD_ALL_KEY_RASTER_DATA_AS_ZIPPED_GEOTIFF_FILES): (
 		 	// TODO needs a 'waiting' status
 			mapdownload.waiting
 			pack(keyoutputs): ( 
@@ -308,7 +308,7 @@ action main:
 				error -> mapdownload.error(:timeout 1000)
 			)
 		 )
-		 button (#TABLES:iconname "table" #tablesdownload :tooltip #DOWNLOAD_ALL_TABLES_AS_A_SINGLE_EXCEL_FILE :disabled): (
+		 button (#TABLES:iconname "table" #tablesdownload :tooltip #DOWNLOAD_ALL_TABLES_AS_A_SINGLE_EXCEL_FILE): (
 		 	// TODO needs a 'waiting' status
 			tablesdownload.waiting
 			pack(:tables): (
@@ -320,7 +320,8 @@ action main:
 				error -> tablesdownload.error(:timeout 1000)
 			)
 		)
-		 button (#COMMENTS :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT :disabled)
+		 button (#COMMENTS :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT): create aries.components.sendemail("support")
+		 	
 	) :hbox
  	)) :hfill :bottom 
 	
@@ -410,6 +411,20 @@ action addindicator(choices):
 					[indicator.get(1)], true))
 	 		)
 	 	)
+
+@modal(width=600, height=480, title="Send a comment")
+action sendcomment:
+(
+	(
+		label("Subject")
+		textinput(#subjecttext "")
+	) :hbox
+	(
+		label("Comment")
+		textinput(#commenttext "")
+	) :hbox
+	button ("Send comment" :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT)
+) :vbox
 
 @menu(title=#ABOUT url="https://esa-people-ea.org/en")
 action aboutpage:
