@@ -320,7 +320,8 @@ action main:
 				error -> tablesdownload.error(:timeout 1000)
 			)
 		)
-		 button (#COMMENTS :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT :disabled)
+		 button (#COMMENTS :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT): create aries.components.sendemail("support")
+		 	
 	) :hbox
  	)) :hfill :bottom 
 	
@@ -410,6 +411,20 @@ action addindicator(choices):
 					[indicator.get(1)], true))
 	 		)
 	 	)
+
+@modal(width=600, height=480, title="Send a comment")
+action sendcomment:
+(
+	(
+		label("Subject")
+		textinput(#subjecttext "")
+	) :hbox
+	(
+		label("Comment")
+		textinput(#commenttext "")
+	) :hbox
+	button ("Send comment" :iconname "comment" :tooltip #LEAVE_A_COMMENT_OR_A_SUGGESTION_FOR_IMPROVEMENT)
+) :vbox
 
 @menu(title=#ABOUT url="https://esa-people-ea.org/en")
 action aboutpage:
