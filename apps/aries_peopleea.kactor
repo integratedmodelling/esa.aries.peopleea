@@ -33,11 +33,11 @@ action main:
 	(
 		(
 			create aries.components.selectors.observation(peopleea.condition.forest.peopleea_forest_condition_index, 
-				["Forest condition index (PEOPLE-EA)"], true, "table") #tag111 
+				["Forest condition index (PEOPLE-EA)"], true, "table", "Index quantifying the forest health according to the PEOPLE-EA methodology. It syntheses information from indicator accounts representing different forest conditions, specifically: NDWI, SOC, Threatened Forest Bird Species Diversity, AGB, NPP and Forest Connectivity. The index is computed using an arithmetic weighted mean of these indicators.") #tag111 
 			create aries.components.selectors.observation(peopleea.condition.forest.euclidean.euclidean_distance_forest_condition_index, 
-				["Forest condition index (Euclidean Distance) "], true, "map")  #tag222
+				["Forest condition index (Euclidean Distance) "], true, "map", "Index quantifying the forest health according to the PEOPLE-EA methodology. It syntheses information from indicator accounts representing different forest conditions, specifically: NDWI, SOC, Threatened Forest Bird Species Diversity, AGB, NPP and Forest Connectivity. The index is computed using a geometric weighted mean of these indicators.")  #tag222
 			create aries.components.selectors.observation(peopleea.condition.forest.maes.natcom_forest_condition_index, 
-				["Forest condition index (Nat. Commun. 14: 3723)"], true, "map") #tag333
+				["Forest condition index (Nat. Commun. 14: 3723)"], true, "map", "Index quantifying the forest health according to the methodology presented in the article by Maes et al. published in 2023 in Nature Communications 14 (article number: 3723). It syntheses information from indicator accounts representing different forest conditions, specifically: NDWI, SOC, Threatened Forest Bird Species Diversity, Tree Cover Density, NDVI, Forest Connectivity and Landscape Naturalness. The index is computed using an arithmetic weighted mean of these indicators.") #tag333
 				
 		) :hfill :altbg :name "PEOPLE-EA Condition Indexes" :iconname "cog" :opened //:tooltip "This section provides different methods"
 	) :shelf
@@ -60,11 +60,11 @@ action main:
 		
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_indicator, 
-				"NDWI", true) #tag1
+				"NDWI", true, "", "Normalized Difference Water Index") #tag1
 			create aries.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
 				"Soil Organic Carbon Percentage in Top Soil", true) #tag2
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
-				"Threatened Bird Species", true) #tag3
+				"Threatened Forest Bird Species Diversity", true) #tag3
 			create aries.components.selectors.observation(peopleea.forest.biomass.agb_indicator, 
 				"Above Ground Biomass", true) #tag4
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
@@ -72,9 +72,9 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_indicator, 
 				"Forest Connectivity", true) #tag6
 			create aries.components.selectors.observation(peopleea.forest.lai.lai_indicator, 
-				"LAI", true) #tag7
+				"LAI", true, "", "Leaf Area Index") #tag7
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
-				"NDVI", true) #tag8
+				"NDVI", true, "", "Normalized Difference Vegetation Index") #tag8
 			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_indicator, 
 				"Fraction of Green Vegetation Cover", true) #tag9
 			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_indicator, 
@@ -95,11 +95,11 @@ action main:
 
 		(
 			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
-				"NDWI", true) #tag14
+				"NDWI", true, "", "Normalized Difference Water Index") #tag14
 			create aries.components.selectors.observation(peopleea.soil.carbon.soc_raw_variable, 
 				"Soil Organic Carbon Percentage in Top Soil", true) #tag15
 			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
-				"Threatened Bird Species", true) #tag16
+				"Threatened Forest Bird Species Diversity", true) #tag16
 			create aries.components.selectors.observation(peopleea.forest.biomass.agb_raw_variable, 
 				"Above Ground Biomass", true) #tag17
 			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
@@ -107,9 +107,9 @@ action main:
 			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_raw_variable, 
 				"Forest Connectivity", true) #tag19
 			create aries.components.selectors.observation(peopleea.forest.lai.lai_raw_variable, 
-				"LAI", true) #tag20
+				"LAI", true, "", "Leaf Area Index") #tag20
 			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
-				"NDVI", true) #tag21
+				"NDVI", true, "", "Normalized Difference Vegetation Index") #tag21
 			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
 				"Fraction of Green Vegetation Cover", true) #tag22
 			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_raw_variable, 
@@ -137,9 +137,9 @@ action main:
 //				)
 		
 			create aries.components.selectors.observation(peopleea.highresolution.ndvi_10m,  
-				"NDVI", true, "map") #tag30
+				"NDVI", true, "map", "Normalized Difference Vegetation Index") #tag30
 			create aries.components.selectors.observation(peopleea.highresolution.lai_10m,   
-				"LAI", true, "map") #tag29
+				"LAI", true, "map", "Leaf Area Index") #tag29
 			create aries.components.selectors.observation(peopleea.highresolution.esa_biomass_20m,  
 				"Above Ground Biomass", true, "map") #tag31
 			create aries.components.selectors.observation(peopleea.highresolution.fcover_10m,  
@@ -147,7 +147,7 @@ action main:
 			create aries.components.selectors.observation(peopleea.highresolution.ppi_10m,  
 				"Plant Phenology Index", true, "map") #tag33
 			create aries.components.selectors.observation(peopleea.highresolution.fapar_10m,  
-				"FAPAR", true, "map") #tag34			
+				"FAPAR", true, "map", "Fraction of Absorbed Photosynthetically Active Radiation") #tag34			
 		) :hfill :altbg :name "PEOPLE-EA High Resolution Variables" :iconname "cog" :opened
 	) :shelf
 	
