@@ -1,0 +1,48 @@
+{
+  "urn" : "local:rubencc:esa.aries.peopleea:im-data-global-conservation.copernicus_tree_cover_density_3035_10m_of_europe_2018",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.peopleea/resources/im-data-global-conservation.copernicus_tree_cover_density_3035_10m_of_europe_2018",
+  "geometry" : "τ1{tend=1546300800000,tstart=1514764800000,ttype=logical}S2(637951,448511){bbox=[-54.98241248838776 70.8465629480576 24.71820434236299 71.84979787827669],proj=EPSG:4326}",
+  "projectName" : "esa.aries.peopleea",
+  "localName" : "im-data-global-conservation.copernicus_tree_cover_density_3035_10m_of_europe_2018",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1712235653736,
+  "metadata" : {
+    "im:keywords" : "Copernicus, High Resolution Layer, Tree cover density",
+    "dc:comment" : "This metadata refers to the HRL Forest 2018 primary status layer Tree Cover Density (TCD). The TCD raster product provides information on the proportional crown coverage per pixel at 10m spatial resolution and ranges from 0% (all non-tree covered areas) to 100%, whereby Tree Cover Density is defined as the \"vertical projection of tree crowns to a horizontal earth’s surface“. The production of the High Resolution Forest layers was coordinated by the European Environment Agency (EEA) in the frame of the EU Copernicus programme.\r\n\r\nThe HRL Forest product consists of 3 types of (status) products and additional change products. The status products are available for 2012, 2015, and 2018 reference years:\r\n1. Tree cover density (TCD) (level of tree cover density in a range from 0-100%)\r\n2. Dominant leaf type (DLT) (broadleaved or coniferous majority)\r\n3. Forest type product (FTY). The forest type product allows to get as close as possible to the FAO forest definition. In its original (10m (2018) / 20m (2012, 2015)) resolution it consists of two products: a dominant leaf type product that has a MMU of 0.5 ha, as well as a 10% tree cover density threshold applied, and 2) a support layer that maps (now only available on demand), based on the dominant leaf type product, trees under agricultural use and in urban context (derived from CLC and imperviousness 2009 data). For the final 100 m product trees under agricultural use and urban context from the support layer are removed.\r\nNEW for 2018: the 10m 2018 reference year FTY product now also has the agricultural/urban trees removed. In the past this was done only for the 100m product, now it is consistently applied for both the 10m and the 100m FTY products.\r\n\r\nThis dataset is provided as 10 meter rasters (fully conformant with the EEA reference grid) in 100 x 100 km tiles grouped according to the EEA38 countries and the United Kingdom",
+    "im:notes" : "",
+    "dc:title" : "Tree Cover Density 2018 (raster 10 m), Europe, 3-yearly, Sep. 2020",
+    "dc:url" : "https://sdi.eea.europa.eu/catalogue/copernicus/eng/catalog.search#/metadata/486f77da-d605-423e-93a9-680760ab6791",
+    "dc:creator" : "",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "European Environment Agency (EEA)",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-conservation__Copernicus_tree_cover_density_3035_10m_of_europe_2018",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "nodata" : "255.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 70.8465629480576,
+    "west" : -54.98241248838776,
+    "north" : 71.84979787827669,
+    "south" : 24.71820434236299,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
