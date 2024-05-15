@@ -176,7 +176,7 @@ action main:
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_additions_reductions, 
 				#LAND_ACCOUNT_ADDITIONS_AND_REDUCTIONS, true) #lctaddred
 			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
-				#LAND_COVER_TYPE_CHANGE_MATRIX, true) #tag
+				#LAND_COVER_TYPE_CHANGE_MATRIX, true) #lctchangematrix
 
 		) :hfill :altbg :name #EXTENT_ACCOUNTS
 

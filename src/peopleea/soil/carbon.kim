@@ -19,6 +19,7 @@ number min_soil_organic_carbon_inspire
 	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE;  
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
 	observing 
 		max_soil_organic_carbon_inspire,

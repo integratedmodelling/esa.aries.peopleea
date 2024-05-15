@@ -19,6 +19,7 @@ number min_net_primary_productivity
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_NPP; 
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of ecology:PrimaryProductivity	
 	observing 
 		min_net_primary_productivity,

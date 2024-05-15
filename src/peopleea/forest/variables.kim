@@ -28,6 +28,7 @@ number min_fcover
 		into BIO_REGION_FOREST_REFERENCES_FCOVER; 
 
 //number indicator_fcover
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator ratio of ecology:Vegetation im:Area to im:Area
 	observing 
 		max_fcover,
@@ -90,8 +91,6 @@ model 	'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_d
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2018',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2019',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2020',
-		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
-		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2012',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2021',
 		'local:belen.inguanzo:esa.people.sandbox:esa_people.copernicus_combined_drought_indicator_avg_of_eu_v3_2022'
 	as soil:DroughtSeverity;
@@ -110,6 +109,7 @@ number min_drought_severity
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_DROUGHT_SEVERITY; 
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of soil:DroughtSeverity 
 //number indicator_drought_severity
 	observing 
@@ -183,6 +183,7 @@ number min_tree_cover_density
 		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY;  
 
 //number indicator_tree_cover_density
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator percentage of ecology:CanopyCover
 	observing 
 		max_tree_cover_density,
@@ -255,7 +256,8 @@ number min_landscape_naturalness
 	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS;  
 
-//number indicator_landscape_naturalness 
+//number indicator_landscape_naturalness
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164))) 
 model im:Indicator percentage of ecology:Natural landcover:LandscapeHeterogeneity
 	observing 
 		max_landscape_naturalness,
