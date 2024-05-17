@@ -73,33 +73,33 @@ action main:
 		separator(:empty)
 		
 		(
-			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.ndwi.ndwi_indicator, 
 				"NDWI", true, "", "Normalized Difference Water Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.soil.carbon.soc_indicator, 
 				"Soil Organic Carbon Percentage in Top Soil", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.birds.birds_indicator, 
 				"Threatened Forest Bird Species Diversity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.biomass.agb_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.biomass.agb_indicator, 
 				"Above Ground Biomass", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.productivity.npp_indicator, 
 				"Net Primary Productivity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_indicator, 
 				"Forest Connectivity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.lai.lai_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.lai.lai_indicator, 
 				"LAI", true, "", "Leaf Area Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.ndvi.ndvi_indicator, 
 				"NDVI", true, "", "Normalized Difference Vegetation Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_indicator, 
 				"Fraction of Green Vegetation Cover", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.drought_severity_indicator, 
 				"Drought Severity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.canopy_cover_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.canopy_cover_indicator, 
 				"Canopy Cover Percentage", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_indicator, 
 				"Landscape Naturalness Percentage", true): chk -> deactivate_combo
 //			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
 //				"Plant Phenology Index", true) #tag26
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_indicator, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_indicator, 
 				"Forest Fragmentation", true): chk -> deactivate_combo
 //			create aries.components.selectors.observation(seea.aries.tables.landcover.landcover_change_pairwise, 
 //				"Burned Severity", true) #tag9
@@ -108,33 +108,33 @@ action main:
 		)  :hidden #indics
 
 		(
-			create aries.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.ndwi.ndwi_raw_variable, 
 				"NDWI", true, "", "Normalized Difference Water Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.soil.carbon.soc_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.soil.carbon.soc_raw_variable, 
 				"Soil Organic Carbon Percentage in Top Soil", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.birds.birds_raw_variable, 
 				"Threatened Forest Bird Species Diversity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.biomass.agb_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.biomass.agb_raw_variable, 
 				"Above Ground Biomass", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.productivity.npp_raw_variable, 
 				"Net Primary Productivity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.connectivity.forest_connectivity_raw_variable, 
 				"Forest Connectivity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.lai.lai_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.lai.lai_raw_variable, 
 				"LAI", true, "", "Leaf Area Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.ndvi.ndvi_raw_variable, 
 				"NDVI", true, "", "Normalized Difference Vegetation Index"): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.fraction_green_vegetation_raw_variable, 
 				"Fraction of Green Vegetation Cover", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.drought_severity_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.drought_severity_raw_variable, 
 				"Drought Severity", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.canopy_cover_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.canopy_cover_raw_variable, 
 				"Canopy Cover Percentage", true): chk -> deactivate_combo
-			create aries.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.variables.landscape_naturalness_raw_variable, 
 				"Landscape Naturalness Percentage", true): chk -> deactivate_combo
 //			create aries.components.selectors.observation(peopleea.forest.variables.ppi_raw_variable, 
 //				"Plant Phenology Index", true) #tag26
-			create aries.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_raw_variable, 
+			create aries.peopleea.components.selectors.observation(peopleea.forest.connectivity.forest_fragmentation_raw_variable, 
 				"Forest Fragmentation", true): chk -> deactivate_combo
 		) #rawvars 
 		
