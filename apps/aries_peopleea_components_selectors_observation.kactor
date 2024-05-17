@@ -1,0 +1,75 @@
+component aries.peopleea.components.selectors.observation
+	"Displays a checkbutton that makes an observation in the current context if needed, then enables
+	 visualizing its result. Optionally displays an info button which will generate an event on hover
+     in/out so that help can be displayed."
+     
+action init:
+	set computed false
+		     
+action reset:
+	trigger.reset
+	set computed false
+     
+/**
+ * Arguments:
+ * resolvable: the resolvable
+ * label: the label
+ * info: if true, show the info button (not yet implemented)
+ * icon: one of the icons available at https://pictogrammers.com/library/mdi/version/7.4.47/ without the mdi prefix
+ * tooltip: the tooltip to show when hovering the mouse over the checkbox, label and icon
+ */     
+action main(resolvable, label, info, icon, tooltip):
+	(
+		set disabled [metadata.disabled]
+		if [icon == "" || icon == null] (
+			set iconname "table"
+		) else (
+			set iconname icon
+		)
+		if [tooltip == null] (
+			set tooltiptext ""
+		) else (
+			set tooltiptext tooltip
+		)
+		checkbutton(#trigger label width="col11" :disabled disabled  :tooltip [tooltiptext]): (
+			true -> (
+			  "true"
+			  if [computed] (
+				show(resolvable)
+			  ) else  (
+					submit(resolvable): (
+						WAITING     -> trigger.waiting
+						STARTED     -> trigger.computing
+						ABORTED     -> trigger.error
+						INTERRUPTED -> (
+							set computed false
+							trigger.reset
+						)
+						empty -> (
+							alert("The computation did not produce results. Some needed resources may be offline, or the system may be overloaded.")
+							trigger.reset
+							trigger.disable
+						)
+						observation -> (
+							set computed true
+							trigger.done
+							show(resolvable)
+						)
+					)
+				)
+				
+			)
+			false -> (
+				"false"
+				hide(resolvable)
+			)
+		)
+	 	label(:iconname iconname :width "col1" :tooltip [tooltiptext])
+	 ) :hbox 
+
+action disable:
+	trigger.disable
+
+action enable:
+	trigger.enable
+		
