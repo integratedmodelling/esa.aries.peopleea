@@ -345,6 +345,7 @@ action main:
  			reset(:wait)
  			roles(:empty)
  			keyoutputs.clear
+ 			set comboactive true
  		)
  	)
  	
