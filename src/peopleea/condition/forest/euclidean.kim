@@ -4,6 +4,7 @@ private namespace peopleea.condition.forest.euclidean;
 @main
 @key(en="Euclidean Distance Forest Condition Index")
 @documented(peopleea.forest_condition_accounts.euclidean_index)
+@colormap(colors = ((210, 34, 45) (255, 191, 0) (35, 136, 35)))
 number euclidean_distance_forest_condition_index
 	observing 
 		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,

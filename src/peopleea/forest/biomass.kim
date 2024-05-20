@@ -25,6 +25,7 @@ number min_above_ground_biomass
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of ecology:AboveGroundBiomass 
 	observing 
 		max_above_ground_biomass,

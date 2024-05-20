@@ -8,7 +8,6 @@ private namespace peopleea.condition.forest.maes
 			BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY
 	) from peopleea.tables;
 
-//model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
 number natcom_max_threatened_forest_birds_species_richness 
 	observing
 		es.nca:BiogeographicRegionType named bioregion,
@@ -23,6 +22,8 @@ number natcom_min_threatened_forest_birds_species_richness
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_THREATENED_FOREST_BIRDS_SPECIES_RICHNESS; 
 
+//model im:Indicator value of conservation:Threatened biology:Bird ecology:SpeciesRichness
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_threatened_forest_birds_species_richness
 	observing 
 		natcom_max_threatened_forest_birds_species_richness,
@@ -44,8 +45,8 @@ number natcom_min_forest_connectivity
 	lookup (bioregion, forest_type, *, *, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
-
 //model im:Indicator value of ecology:ForestConnectivity
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_forest_connectivity
         observing 
 			natcom_max_forest_connectivity,
@@ -68,6 +69,7 @@ number natcom_min_landscape_naturalness
 		into BIO_REGION_FOREST_REFERENCES_LANDSCAPE_NATURALNESS;  
 
 //model im:Indicator value of ecology:Natural landcover:LandscapeHeterogeneity
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_landscape_naturalness 
 	observing 
 		natcom_max_landscape_naturalness,
@@ -90,6 +92,7 @@ number natcom_min_forest_productivity_ndvi
 		into BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI; 
 
 //model im:Indicator value of ecology:NormalizedDifferenceVegetationIndex 	
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_normalized_difference_vegetation_index
 	observing 
 		natcom_max_forest_productivity_ndvi,
@@ -112,6 +115,7 @@ number natcom_min_ndwi
 		into BIO_REGION_FOREST_REFERENCES_NDWI;  
 
 //model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_normalized_difference_water_index
 	observing 
 		natcom_max_ndwi,
@@ -134,6 +138,7 @@ number natcom_min_soil_organic_carbon_inspire
 		into BIO_REGION_FOREST_REFERENCES_SOIL_ORGANIC_CARBON_INSPIRE;  
 
 //model im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_soil_organic_carbon
 	observing 
 		natcom_max_soil_organic_carbon_inspire,
@@ -156,6 +161,7 @@ number natcom_min_tree_cover_density
 		into BIO_REGION_FOREST_REFERENCES_TREE_COVER_DENSITY;  
 
 //model im:Indicator value of ecology:CanopyCover
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 number natcom_indicator_tree_cover_density
 	observing 
 		natcom_max_tree_cover_density,
@@ -166,6 +172,7 @@ number natcom_indicator_tree_cover_density
 @main
 @key(en="Forest condition index (Nat. Commun. 14: 3723)")
 @documented(peopleea.forest_condition_accounts.maes_index)
+@colormap(colors = ((210, 34, 45) (255, 191, 0) (35, 136, 35)))
 number natcom_forest_condition_index
 	observing 
 		natcom_indicator_threatened_forest_birds_species_richness,

@@ -23,6 +23,7 @@ number min_forest_connectivity
 	lookup (bioregion, forest_type, *, ?, *, *) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_CONNECTIVITY; 
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of ecology:ForestConnectivity 	
         observing 
 			max_forest_connectivity,
@@ -106,6 +107,7 @@ number min_forest_fragmentation
 	lookup (bioregion, forest_type, *, ?) 
 		into BIO_REGION_FOREST_REFERENCES_FOREST_FRAGMENTATION; 
 
+@colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
 model im:Indicator value of ecology:ForestFragmentation 	
         observing 
 			max_forest_fragmentation,
