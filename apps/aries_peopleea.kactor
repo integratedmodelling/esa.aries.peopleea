@@ -63,10 +63,10 @@ action main:
 		)
 		(
 			(
-				label("Reset the context to switch to raw values" width="90%" :waiting :left)
+				label("Reset the context to switch to raw values" width="90%" :left)
 			) :hfill :hidden #comboselectindics
 			(
-				label("Reset the context to switch to indicators" width="90%" :waiting :left)
+				label("Reset the context to switch to indicators" width="90%" :left)
 			) :hfill :hidden #comboselectrawvars
 		
 		) :hfill 
