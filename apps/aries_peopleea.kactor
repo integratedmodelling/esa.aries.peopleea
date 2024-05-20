@@ -63,10 +63,10 @@ action main:
 		)
 		(
 			(
-				label("Only indicators observations are allowed in this context, to switch to raw values, reset the context." width="90%" :waiting :left)
+				label("Reset the context to switch to raw values" width="90%" :waiting :left)
 			) :hfill :hidden #comboselectindics
 			(
-				label("Only raw variables observations are allowed in this context, to switch to indicators, reset the context." width="90%" :waiting :left)
+				label("Reset the context to switch to indicators" width="90%" :waiting :left)
 			) :hfill :hidden #comboselectrawvars
 		
 		) :hfill 
