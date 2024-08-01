@@ -1,4 +1,4 @@
-private namespace popleea.analysis_turkey;
+private namespace peopleea.analysis_turkey;
 
 observe earth:Region named aoi_nothern_central_turkey
 	over space(
