@@ -1,0 +1,8 @@
+private namespace popleea.analysis_turkey;
+
+observe earth:Region named aoi_nothern_central_turkey
+	over space(
+			shape="EPSG:3035 POLYGON ((6354299.998779593 2440000.0038444716, 6641399.998671681 2440000.0037071225, 6641399.998866978 2150500.00340461, 6354299.998949066 2150500.0035651964, 6354299.998779593 2440000.0038444716))",
+		 	grid="100 m",
+		 	projection="EPSG:3035"),
+		 time(year=2015);
