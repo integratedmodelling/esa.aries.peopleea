@@ -4,7 +4,7 @@ project private namespace peopleea.forest.biomass
 @intensive(space)   
 @extensive(time)
 model 'local:stefano.balbi:im.openeo.sandbox:vito.biomas.cci#output_warp=true&synchronous=true'
-  	as ecology:AboveGroundBiomass in t/ha;
+  	as ecology:AboveGroundBiomass in t/ha named above_ground_biomass;
 
 @intensive(space)   
 @extensive(time)

@@ -29,7 +29,7 @@ model 'local:rubencc:im.data.global:im-data-global-landcover.clc2000acc_v2018_20
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2006acc_v2018_20_4326',
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2012acc_v2018_20_4326',
 			   'local:rubencc:im.data.global:im-data-global-landcover.clc2018acc_v2018_20_4326'
-		as type of ecology:Forest classified into
+		as type of ecology:Forest named type_of_forest classified into
 		landcover:BroadleafForest           if 311,
 		landcover:ConiferousForest          if 312,
 		landcover:MixedForest               if 313,
