@@ -14,7 +14,7 @@ action main:
 		peopleea.forest.biomass.above_ground_biomass
 		{im:Indicator value of ecology:AboveGroundBiomass}
 		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
-		)
+	)
  	set table_urns (
 		peopleea.forest.biomass.agb_raw_variable
 		peopleea.forest.biomass.agb_indicator
@@ -31,8 +31,17 @@ action main:
 	for year in (2020) (
 				for urn in observables_urns(	
 				context(wkt_context,resolution,Time(year=year),urn
-				): state ->
-				state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn.name + ".tiff"]
+				): state -> (
+					set urn_name ""
+					if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+					)
+					else (
+						set urn_name urn
+					)	
+					state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"]
+					
+				)
 //					,
 //				for table_urn in table_urns(
 //					context(wkt_context,resolution,Time(year=year),table_urn)
