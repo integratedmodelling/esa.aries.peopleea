@@ -8,11 +8,11 @@ action main:
  *  Filenames specify the country.  
  */
 	set observables_urns (
-		{landcover:LandCoverType}
-		{es.nca:BiogeographicRegionType}
-		peopleea.bioregions.type_of_forest
-		peopleea.forest.biomass.above_ground_biomass
-		{im:Indicator value of ecology:AboveGroundBiomass}
+//		{landcover:LandCoverType}
+//		{es.nca:BiogeographicRegionType}
+//		peopleea.bioregions.type_of_forest
+//		peopleea.forest.biomass.above_ground_biomass
+//		{im:Indicator value of ecology:AboveGroundBiomass}
 		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
 	)
  	set table_urns (
@@ -39,7 +39,7 @@ action main:
 					else (
 						set urn_name urn
 					)	
-					if [state.toString().contains("nothing")] (
+					if [state.toString().contains("[nothing")] (
 						warning(["Observation " + urn_name + " return nothing"])
 					) else (
 						state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"]
