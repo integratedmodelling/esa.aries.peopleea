@@ -11,7 +11,13 @@ action main:
 		{landcover:LandCoverType}
 		{es.nca:BiogeographicRegionType}
 		peopleea.bioregions.type_of_forest
-		peopleea.forest.biomass.above_ground_biomass
+//		peopleea.forest.biomass.above_ground_biomass
+//		peopleea.forest.biomass.max_above_ground_biomass
+//		peopleea.forest.biomass.min_above_ground_biomass
+//		peopleea.forest.biomass.indicator_value_of_above_ground_biomass
+//		peopleea.forest.lai.indicator_value_of_leaf_area_index
+//		peopleea.forest.ndwi.indicator_value_of_normalized_difference_water_index
+//		peopleea.condition.forest.indicator_forest_condition
 //		{im:Indicator value of ecology:AboveGroundBiomass}
 //		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
 	)
@@ -46,12 +52,12 @@ action main:
 					)
 					
 				)
-//					,
-//				for table_urn in table_urns(
-//					context(wkt_context,resolution,Time(year=year),table_urn)
-//					pack(:tables): url -> 
-//					save(url, filename=[["SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
-//				)
+					,
+				for table_urn in table_urns(
+					context(wkt_context,resolution,Time(year=year),table_urn)
+					pack(:tables): url -> 
+				save(url, filename=["SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
+				)
 			)
 		)
 	)				
