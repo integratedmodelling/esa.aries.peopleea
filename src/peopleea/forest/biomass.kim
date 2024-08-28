@@ -26,7 +26,7 @@ number min_above_ground_biomass
 		into BIO_REGION_FOREST_REFERENCES_ABOVE_GROUND_BIOMASS; 
 
 @colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
-model im:Indicator value of ecology:AboveGroundBiomass 
+model im:Indicator value of ecology:AboveGroundBiomass named indicator_value_of_above_ground_biomass
 	observing 
 		max_above_ground_biomass,
 		min_above_ground_biomass,

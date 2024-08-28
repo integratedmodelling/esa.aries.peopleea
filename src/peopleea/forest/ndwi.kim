@@ -19,7 +19,7 @@ number min_ndwi
 		into BIO_REGION_FOREST_REFERENCES_NDWI;  
 
 @colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
-model im:Indicator value of ecology:NormalizedDifferenceWaterIndex 
+model im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_value_of_normalized_difference_water_index
 	observing 
 		max_ndwi,
 		min_ndwi,

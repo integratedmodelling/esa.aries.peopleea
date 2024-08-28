@@ -8,7 +8,7 @@ project private namespace peopleea.condition.forest;
 @key(en="PEOPLE-EA Forest Condition Index")
 @documented(peopleea.forest_condition_accounts.index)
 @colormap(colors = ((210, 34, 45) (255, 191, 0) (35, 136, 35)))
-model  im:Indicator ecology:Forest es.nca:Condition
+model  im:Indicator ecology:Forest es.nca:Condition named indicator_forest_condition
 	observing 
 		im:Indicator value of ecology:NormalizedDifferenceWaterIndex named indicator_normalized_difference_water_index,
 		im:Indicator value of soil:TopSoil chemistry:Organic chemistry:Carbon im:Mass named indicator_soil_organic_carbon,

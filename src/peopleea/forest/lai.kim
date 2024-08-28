@@ -19,7 +19,7 @@ number min_leaf_area_index
 		into BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX; 
 
 @colormap(colors = ((211, 118, 118) (241, 239, 153) (176, 197, 164)))
- model im:Indicator value of ecology:LeafAreaIndex	
+ model im:Indicator value of ecology:LeafAreaIndex	named indicator_value_of_leaf_area_index
 	observing 
 		min_leaf_area_index,
 		max_leaf_area_index,
