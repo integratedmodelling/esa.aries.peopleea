@@ -9,8 +9,8 @@ action main:
  */
 	set observables_urns (
 		{landcover:LandCoverType}
-		{es.nca:BiogeographicRegionType}
-		peopleea.bioregions.type_of_forest
+//		{es.nca:BiogeographicRegionType}
+//		peopleea.bioregions.type_of_forest
 //		peopleea.forest.biomass.above_ground_biomass
 //		peopleea.forest.biomass.max_above_ground_biomass
 //		peopleea.forest.biomass.min_above_ground_biomass
@@ -22,7 +22,7 @@ action main:
 //		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
 	)
  	set table_urns (
-		peopleea.forest.biomass.agb_raw_variable
+//		peopleea.forest.biomass.agb_raw_variable
 		peopleea.forest.biomass.agb_indicator
 //		peopleea.forest.connectivity.forest_connectivity_raw_variable
 //		peopleea.forest.connectivity.forest_connectivity_indicator
@@ -35,30 +35,26 @@ action main:
 	
 	// add years or set as parameter
 	for year in (2020) (
-				for urn in observables_urns(	
-				context(wkt_context,resolution,Time(year=year),urn
-				): state -> (
-					set urn_name ""
-					if [urn.toString().startsWith("[")] (
-						set urn_name [urn.name]
-					)
-					else (
-						set urn_name urn
-					)	
-					if [state.toString().contains("[nothing")] (
-						warning(["Observation " + urn_name + " return nothing"])
-					) else (
-						state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"]
-					)
-					
+		for urn in observables_urns(	
+			context(wkt_context,resolution,Time(year=year),urn): state -> (
+				set urn_name ""
+				if [urn.toString().startsWith("[")] (
+					set urn_name [urn.name]
 				)
-					,
-				for table_urn in table_urns(
-					context(wkt_context,resolution,Time(year=year),table_urn)
-					pack(:tables): url -> 
-				save(url, filename=["SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
+				else (
+					set urn_name urn
+				)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else (
+					state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"])
 				)
 			)
+		)			
+		for table_urn in table_urns(
+			context(wkt_context,resolution,Time(year=year),table_urn)
+			pack(:tables): url -> 
+				save(url, filename=["SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
 		)
 	)				
 					
