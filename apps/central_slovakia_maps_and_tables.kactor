@@ -9,8 +9,8 @@ action main:
  */
 	set observables_urns (
 		{landcover:LandCoverType}
-//		{es.nca:BiogeographicRegionType}
-//		peopleea.bioregions.type_of_forest
+		{es.nca:BiogeographicRegionType}
+		peopleea.bioregions.type_of_forest
 //		peopleea.forest.biomass.above_ground_biomass
 //		peopleea.forest.biomass.max_above_ground_biomass
 //		peopleea.forest.biomass.min_above_ground_biomass
@@ -22,8 +22,8 @@ action main:
 //		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
 	)
  	set table_urns (
-//		peopleea.forest.biomass.agb_raw_variable
-		peopleea.forest.biomass.agb_indicator
+		peopleea.forest.birds.birds_raw_variable
+		peopleea.forest.birds.birds_indicator
 //		peopleea.forest.connectivity.forest_connectivity_raw_variable
 //		peopleea.forest.connectivity.forest_connectivity_indicator
 //		peopleea.forest.ndvi.ndvi_raw_variable
