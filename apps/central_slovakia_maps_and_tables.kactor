@@ -47,7 +47,7 @@ action main:
 				if [state.toString().contains("[nothing")] (
 					warning(["Observation " + urn_name + " return nothing"])
 				) else (
-					state.export([["London Group Paper 2024" + "/"+ "SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"])
+					state.export(["SEEA_european_forest_accounts" + "/" + year + "/" + "maps" + "/" + urn_name + ".tiff"])
 				)
 			)
 		)			
