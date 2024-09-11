@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-landcover__relative_magnitude_fragmentation_2008",
     "transform" : "",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-landcover/wcs",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/im-data-global-landcover/wcs",
     "nodata" : "65535",
     "wcsVersion" : "2.0.1"
   },
