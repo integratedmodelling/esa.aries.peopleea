@@ -1,4 +1,4 @@
-script script_list_of_tables
+script script_list_of_tables_peoplea
 
 action main: 
 
@@ -27,8 +27,8 @@ action main:
 		for country in spatial_contexts_urn(
 				if [country.gid == 'GAB']	
 					(for urn in table_urns(
-						context(country,resolution,urn,year)
-						pack(:tables): url -> save(url, filename=["vegetation_carbon_" + country + "_" + year + "_" + urn + ".xlsx"])
+						context(country,resolution,urn,Time(start=[year], end=[year+1], step=1.year))
+						pack(:tables): url -> save(url, filename=["vegetation_carbon_" + country.name + "_" + year + "_" + urn + ".xlsx"])
 				)
 			)
 		)
