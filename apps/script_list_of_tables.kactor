@@ -1,0 +1,36 @@
+script script_list_of_tables
+
+action main: 
+
+/**
+ *  Currently creates n .xlsx files containing vegetation carbon account tables 
+ *  for each polygon in the spatial context resource (n = n_tables x n_polygons).
+ *  Filenames specify the country.  
+ */
+
+	// CCI only for landcover type to allow comparability of results
+	whitelist("data.global.landcover.land-cover-type-resolver")
+	// set models to be run
+	set table_urns (
+		seea.aries.tables.landcover.landcover_basic
+//		seea.statistics.wb.vegetation_carbon_sensitivity_analysis.vegetation_carbon_biophysical_supply_static_bylc_by_year_standard_model
+//		seea.statistics.wb.vegetation_carbon_sensitivity_analysis.vegetation_carbon_biophysical_supply_static_bylc_by_year_sensitivity_analysis_burnedland
+//		seea.statistics.wb.vegetation_carbon_sensitivity_analysis.vegetation_carbon_biophysical_supply_static_bylc_by_year_sensitivity_analysis_pristine_forests
+    	)
+	// add spatial and temporal context
+
+	spatial_contexts_urn = "local:ferdinando.villa:im.data.global:admin.countries.un.split"
+	
+	resolution = 10000.m   
+	//300.m
+	for year in (2001 2005 2010) (	
+		for country in spatial_contexts_urn(
+				if [country.gid == 'GAB']	
+					(for urn in table_urns(
+						context(country,resolution,urn,year)
+						pack(:tables): url -> save(url, filename=["vegetation_carbon_" + country + "_" + year + "_" + urn + ".xlsx"])
+				)
+			)
+		)
+	)
+
