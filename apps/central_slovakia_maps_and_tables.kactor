@@ -11,7 +11,7 @@ action main:
 		{landcover:LandCoverType}
 		{es.nca:BiogeographicRegionType}
 		peopleea.bioregions.type_of_forest
-		peopleea.forest.biomass.above_ground_biomass
+//		peopleea.forest.biomass.above_ground_biomass
 //		peopleea.forest.biomass.max_above_ground_biomass
 //		peopleea.forest.biomass.min_above_ground_biomass
 //		peopleea.forest.biomass.indicator_value_of_above_ground_biomass
