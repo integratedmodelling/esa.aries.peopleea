@@ -25,6 +25,7 @@ action main:
  	set table_urns (
 		peopleea.forest.birds.birds_raw_variable
 		peopleea.forest.birds.birds_indicator
+		seea.aries.tables.landcover.landcover_basic
 //		peopleea.forest.connectivity.forest_connectivity_raw_variable
 //		peopleea.forest.connectivity.forest_connectivity_indicator
 //		peopleea.forest.ndvi.ndvi_raw_variable
