@@ -9,7 +9,7 @@ action main:
  *  Filenames specify the country.  
  */
 	set observables_urns (
-		{landcover:LandCoverType}
+//		{landcover:LandCoverType}
 //		{es.nca:BiogeographicRegionType}
 //		peopleea.bioregions.type_of_forest
 //		peopleea.forest.biomass.above_ground_biomass
@@ -56,7 +56,7 @@ action main:
 				for table_urn in table_urns(
 					context(wkt_context,resolution,Time(year=year),table_urn)
 					pack(:tables): url -> 
-				save(url, filename=["SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
+				save(url, filename=["Testing_2_SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
 				)
 			)
 //		)
