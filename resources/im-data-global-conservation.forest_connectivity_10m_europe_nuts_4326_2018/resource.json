@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-conservation__forest_connectivity_10m_europe_nuts_4326_2018",
     "transform" : "",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/ows",
     "nodata" : "255.0",
     "wcsVersion" : "2.0.1"
   },
