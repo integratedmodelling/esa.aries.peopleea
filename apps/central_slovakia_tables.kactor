@@ -55,7 +55,7 @@ action main:
 //					
 //				),				
 				for table_urn in table_urns(
-					context(wkt_context,resolution,Time(year=year),table_urn)
+					context(wkt_context,resolution,Time(start=[year], end=[year+1], step=1.year),table_urn)
 					pack(:tables): url -> 
 				save(url, filename=["Testing_2_SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
 				)
