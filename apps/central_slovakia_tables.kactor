@@ -23,8 +23,8 @@ action main:
 //		{im:Indicator value of ecology:NormalizedDifferenceVegetationIndex}
 	)
  	set table_urns (
-		peopleea.forest.birds.birds_raw_variable
-		peopleea.forest.birds.birds_indicator
+//		peopleea.forest.birds.birds_raw_variable
+//		peopleea.forest.birds.birds_indicator
 		seea.aries.tables.landcover.landcover_basic
 //		peopleea.forest.connectivity.forest_connectivity_raw_variable
 //		peopleea.forest.connectivity.forest_connectivity_indicator
@@ -57,7 +57,7 @@ action main:
 				for table_urn in table_urns(
 					context(wkt_context,resolution,Time(start=[year], end=[year+1], step=1.year),table_urn)
 					pack(:tables): url -> 
-				save(url, filename=["Testing_2_SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
+						save(url, filename=["Testing_2_SEEA_european_forest_accounts" + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
 				)
 			)
 //		)
