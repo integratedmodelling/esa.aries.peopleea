@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-soil__Drought_scPDSI_Mean_2018",
     "transform" : "",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-soil/wcs",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/im-data-global-soil/wcs",
     "wcsVersion" : "2.0.1"
   },
   "localPaths" : [ ],

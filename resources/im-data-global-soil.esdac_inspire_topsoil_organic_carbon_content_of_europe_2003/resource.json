@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-soil__ESDAC_INSPIRE_topsoil_organic_carbon_content_of_Europe_2003",
     "transform" : "",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/ows",
     "nodata" : "-3.4028234663852886E38",
     "wcsVersion" : "2.0.1"
   },
