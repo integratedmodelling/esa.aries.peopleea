@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-conservation__forest_connectivity_europe_4326_2000",
     "transform" : "",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/im-data-global-conservation/wcs",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/im-data-global-conservation/wcs",
     "nodata" : "255.0",
     "wcsVersion" : "2.0.1"
   },

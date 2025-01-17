@@ -23,7 +23,7 @@
   "parameters" : {
     "wcsIdentifier" : "im-data-global-soil__esdac_lucas_topsoil_soil_organic_carbon_of_eu_2014",
     "transform" : "self/10",
-    "serviceUrl" : "https://integratedmodelling.org/dev-geoserver/ows",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/ows",
     "nodata" : "-3.4028234663852886E38",
     "wcsVersion" : "2.0.1"
   },

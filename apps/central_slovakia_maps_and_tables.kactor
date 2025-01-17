@@ -36,7 +36,7 @@ action main:
 	// add years or set as parameter
 	for year in (2020) (
 		for urn in observables_urns(	
-			context(wkt_context,resolution,Time(year=year),urn): state -> (
+			context(wkt_context,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 				set urn_name ""
 				if [urn.toString().startsWith("[")] (
 					set urn_name [urn.name]
