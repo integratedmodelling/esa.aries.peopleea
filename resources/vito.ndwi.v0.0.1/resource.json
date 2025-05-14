@@ -25,7 +25,7 @@
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_three_annual_average_ndwi",
-    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
+    "serviceUrl" : "https://openeo.vito.be/openeo/1.1.0",
     "namespace" : "https://raw.githubusercontent.com/integratedmodelling/OpenEO-UDP-UDF-catalogue/main/UDP/json/udp_three_annual_average_ndwi.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",
