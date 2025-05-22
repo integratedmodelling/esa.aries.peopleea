@@ -2,7 +2,7 @@ project private namespace peopleea.forest.ndvi
 	using (BIO_REGION_MAES_FOREST_PRODUCTIVITY_NDVI) from peopleea.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.ndvi#output_warp=true&synchronous=true'
-	as ecology:NormalizedDifferenceVegetationIndex;
+	as ecology:NormalizedDifferenceVegetationIndex named ndvi;
 
 number max_forest_productivity_ndvi  
 	observing

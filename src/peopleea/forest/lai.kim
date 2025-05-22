@@ -2,7 +2,7 @@ project private namespace peopleea.forest.lai
 	using (BIO_REGION_FOREST_REFERENCES_LEAF_AREA_INDEX) from peopleea.tables;
 
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
-	 as ecology:LeafAreaIndex; 
+	 as ecology:LeafAreaIndex named leaf_area_index; 
 
 number max_leaf_area_index  
 	observing
